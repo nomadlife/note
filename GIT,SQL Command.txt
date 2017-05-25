@@ -1,0 +1,76 @@
+Mysql 
+ 
+c:\Bitnami\wampstack-5.6.30-1\mysql\bin>mysql -hlocalhost -uroot -p
+mysql>
+ 
+Show databases;
+Use [DBname];
+Show tables;
+Select * from [table name];
+ 
+Table 구조(field name) 보는 명령어?
+ -->DESCRIBE [table name];
+ 
+Table내 field 속성 변경.
+ALTER TABLE `employee` CHANGE `emp_tag` `emp_tag` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ 
+테이블 이름바꾸기
+RENAME TABLE `database1`.`task` TO `database1`.`task_list`;
+ 
+ 
+자료입력
+INSERT INTO `employee`(`id`, `emp_tag`, `emp_name`, `remark`) VALUES (null,null,'nomad',null)
+ 
+컬럼이름 바꾸기
+ALTER TABLE `newitem` CHANGE `task_id` `id` INT(10) NOT NULL AUTO_INCREMENT;
+ 
+컬럼추가
+ALTER TABLE `user` ADD `password` VARCHAR(20) NOT NULL AFTER `user_name`;
+ 
+자료 삭제 delete
+DELETE FROM [table name] WHERE id=3
+DELETE FROM `user` WHERE `user`.`id` = 1;
+DELETE FROM `user` WHERE `user`.`id` = 2;
+DELETE FROM `user` WHERE `user`.`id` = 8;
+ 
+ 
+자료 수정
+update task set link_page='status1.php' where id=1;
+Update user set user_name=’nomad’ where id=9;
+ 
+ 
+GIT 명령어
+ 
+vim [filename]  ---->텍스트 파일만들기 혹은 파일 수정
+cat [filename]  --->파일내용 보기
+git init
+git add -A  ---> 신규 혹은 수정된 파일 한꺼번에 버전관리 추가하기.
+git remote add origin [repository address]
+git remote
+git remote -v  ----> 주소 상세히 보기
+git remote remove [name]
+git clone https://github.com/nomadlife/php.git php
+git push -u origin master
+git pull
+git log -p       -----> difference between versions
+git diff
+git diff [version1] [version2]
+git reset --hard [version hash ID]
+git revert [version hash ID]
+git commit --amend  ------>마지막 커밋 메세지 수정
+  ㄴ> 지역저장소에서만 가능, 원격저장소에는 저장후 수정안됨.
+ 
+git branch   --> branch 보기
+git branch [branch name]   ---> branch 만들기
+git checkout [branch name]  --->branch로 이동
+git branch -d [branch name]  ---->branch 삭제
+git merge [branch name] ---->branch 병합, main이 될 branch로 가서 실행할것.
+ 
+git log --branches 
+git log --branches --decorate 
+git log --branches --decorate --graph 
+git log --branches --decorate --graph --oneline  (나갈때:Q)
+ 
+git log -p master..exp  -> 버전간 소스코드 비교
+git diff master..exp  → 모든파일내용 비교
+ 

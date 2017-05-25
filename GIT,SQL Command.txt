@@ -49,6 +49,8 @@ git remote add origin [repository address]
 git remote
 git remote -v  ----> 주소 상세히 보기
 git remote remove [name]
+git log <remote>/<branch> ??
+
 git clone https://github.com/nomadlife/php.git php
 git push -u origin master
 git pull

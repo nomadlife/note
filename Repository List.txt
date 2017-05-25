@@ -4,4 +4,4 @@ https://github.com/nomadlife/codingeverybody_practice2.git
 https://github.com/nomadlife/opentutorials_practice1.git
 https://github.com/nomadlife/gitfth.git
 https://github.com/nomadlife/hello-world.git
-
+https://github.com/nomadlife/note.git

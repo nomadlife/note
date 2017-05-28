@@ -18,3 +18,8 @@ sudo chown username:group directory
 dpkg --get-selections | grep -v deinstall
 (The -v tag "inverts" grep to return non-matching lines)
 
+
+apache2 서버루트 변경
+etc/apache2/apache2.conf 파일, 맨아래에,
+
+ServerRoot "/home/jw/Documents/Projects"

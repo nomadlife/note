@@ -1,6 +1,9 @@
 Linux(ubuntu) command
 
-Nimf 한글입력기 install
+--hibernation
+sudo systemctl hibernate
+
+--Nimf 한글입력기 install
 sudo add-apt-repository ppa:dasom/ppa
 sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
 im-config
@@ -12,7 +15,7 @@ compgen -g  :그룹보기
 compgen -u  :사용자보기
 groups jw      : 사용자가 속한 그룹 보기
 
-Permission 바꾸기
+--Permission 바꾸기
 sudo chown -R username:group directory
 sudo chown username:group directory
 dpkg --get-selections | grep -v deinstall

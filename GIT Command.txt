@@ -1,44 +1,3 @@
-Mysql 
- 
-c:\Bitnami\wampstack-5.6.30-1\mysql\bin>mysql -hlocalhost -uroot -p
-mysql>
- 
-Show databases;
-Use [DBname];
-Show tables;
-Select * from [table name];
- 
-Table 구조(field name) 보는 명령어?
- -->DESCRIBE [table name];
- 
-Table내 field 속성 변경.
-ALTER TABLE `employee` CHANGE `emp_tag` `emp_tag` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
- 
-테이블 이름바꾸기
-RENAME TABLE `database1`.`task` TO `database1`.`task_list`;
- 
- 
-자료입력
-INSERT INTO `employee`(`id`, `emp_tag`, `emp_name`, `remark`) VALUES (null,null,'nomad',null)
- 
-컬럼이름 바꾸기
-ALTER TABLE `newitem` CHANGE `task_id` `id` INT(10) NOT NULL AUTO_INCREMENT;
- 
-컬럼추가
-ALTER TABLE `user` ADD `password` VARCHAR(20) NOT NULL AFTER `user_name`;
- 
-자료 삭제 delete
-DELETE FROM [table name] WHERE id=3
-DELETE FROM `user` WHERE `user`.`id` = 1;
-DELETE FROM `user` WHERE `user`.`id` = 2;
-DELETE FROM `user` WHERE `user`.`id` = 8;
- 
- 
-자료 수정
-update task set link_page='status1.php' where id=1;
-Update user set user_name=’nomad’ where id=9;
- 
- 
 GIT 명령어
  
 vim [filename]  ---->텍스트 파일만들기 혹은 파일 수정
@@ -54,6 +13,7 @@ git log <remote>/<branch> ??
 git clone https://github.com/nomadlife/php.git php
 git push -u origin master
 git pull
+git pull origin master
 git log -p       -----> difference between versions
 git diff
 git diff [version1] [version2]

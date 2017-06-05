@@ -22,3 +22,6 @@ exit : 종료
 disp()
 printf()
 
+그래프 출력 느릴때(win 10-32bit)
+available_graphics_toolkit()
+graphics_toolkit(fltk) % qt에서 fltk로 바꿈.

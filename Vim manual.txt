@@ -1,0 +1,14 @@
+vim 사용법
+
+insert mode : i
+normal mode : esc
+
+normal mode 에서
+
+move : h,j,k,l
+word movement : w,e,b
+number powered move : e.g. 5w (5th 'w')
+insert text repeatedly : e.g. 3iYes -> yesyesyes
+find charactor: f and F
+go to matching parenthese : %
+

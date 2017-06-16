@@ -18,7 +18,7 @@ git diff
 git diff [version1] [version2]
 git reset --hard [version hash ID]
 git revert [version hash ID]
-git commit --amend  ------>마지막 커밋 메세지 수정
+git commit --amend  ------>마지막 커밋 메세지 수정(vim에서)
   ㄴ> 지역저장소에서만 가능, 원격저장소에는 저장후 수정안됨.
  
 git branch   --> branch 보기

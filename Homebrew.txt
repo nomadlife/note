@@ -1,3 +1,7 @@
+brew tap homebrew/science
+brew cask install xquartz
+brew install octave
+
 Mac:~ jw$ brew -v
 Homebrew 1.2.3
 Homebrew/homebrew-core (git revision a17a; last commit 2017-06-16)

@@ -10,6 +10,9 @@ git remote -v  ----> 주소 상세히 보기
 git remote remove [name]
 
 git clone https://github.com/nomadlife/php.git php
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+
 git push -u origin master
 git pull
 git pull origin master

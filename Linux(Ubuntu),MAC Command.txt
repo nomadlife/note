@@ -3,19 +3,19 @@ Linux(ubuntu) command
 --hibernation
 sudo systemctl hibernate
 
---Nimf í•œê¸€ì…ë ¥ê¸° install
+--Nimf ÇÑ±ÛÀÔ·Â±â install
 sudo add-apt-repository ppa:dasom/ppa
 sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
 im-config
 
 
-Sudo dpkg -i [pkg name]  : deb íŒ¨í‚¤ì§€ íŒŒì¼ ì„¤ì¹˜
-apt list --installed : ì„¤ì¹˜ëœ íŒ¨í‚¤ì§€ ë³´ê¸°
-compgen -g  :ê·¸ë£¹ë³´ê¸°
-compgen -u  :ì‚¬ìš©ìë³´ê¸°
-groups jw      : ì‚¬ìš©ìê°€ ì†í•œ ê·¸ë£¹ ë³´ê¸°
+Sudo dpkg -i [pkg name]  : deb ÆĞÅ°Áö ÆÄÀÏ ¼³Ä¡
+apt list --installed : ¼³Ä¡µÈ ÆĞÅ°Áö º¸±â
+compgen -g  :±×·ìº¸±â
+compgen -u  :»ç¿ëÀÚº¸±â
+groups jw      : »ç¿ëÀÚ°¡ ¼ÓÇÑ ±×·ì º¸±â
 
---Permission ë°”ê¾¸ê¸°
+--Permission ¹Ù²Ù±â
 sudo chown -R username:group directory
 sudo chown username:group directory
 dpkg --get-selections | grep -v deinstall
@@ -23,19 +23,19 @@ dpkg --get-selections | grep -v deinstall
 
 
 
---apache2 ì„œë²„ë£¨íŠ¸ ë³€ê²½
+--apache2 ¼­¹ö·çÆ® º¯°æ
   etc/apache2/apache2.conf
-  <Directory /home/jw/www>  -->ì´ë¶€ë¶„ ë³€ê²½
+  <Directory /home/jw/www>  -->ÀÌºÎºĞ º¯°æ
   	Options Indexes FollowSymLinks
   	AllowOverride None
   	Require all granted
   </Directory>
 
   etc/apache2/sites-enabled/000-default.conf
-  DocumentRoot /home/jw/www  --> ì´ë¶€ë¶„ ë³€ê²½
+  DocumentRoot /home/jw/www  --> ÀÌºÎºĞ º¯°æ
 
 --php.ini (etc.php/5.6/apache2)
   opcache enabled =0
   display_errors = On
 
-ls -al |grep vim : íŠ¹ì •ì–´êµ¬ í¬í•¨ ë¦¬ìŠ¤íŠ¸ ì¶œë ¥
+ls -al |grep vim : Æ¯Á¤¾î±¸ Æ÷ÇÔ ¸®½ºÆ® Ãâ·Â

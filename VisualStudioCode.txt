@@ -50,3 +50,27 @@ Visual Studio Code(영문OS에서?)
 [
     { "key": "f8",          "command": "workbench.action.tasks.build" }
 ]
+
+
+
+****2nd solution
+{
+    "version": "0.1.0",
+    "command": "cmd",
+    "args": ["/C"],
+    "isShellCommand": true,
+    "showOutput": "always",
+    "suppressTaskName": true,
+    "tasks": [
+        {
+            "taskName": "build",
+            "args": ["gcc", "-Wall", "${relativeFile}", "-o", "${relativeFile}.exe", "-pedantic"],
+            "isBuildCommand": true
+        },
+        {
+            "taskName": "run",
+            "args": ["${relativeFile}.exe"],
+            "isTestCommand": true
+        }
+    ]
+}

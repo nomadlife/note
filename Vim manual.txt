@@ -1,14 +1,34 @@
 vim 사용법
 
-insert mode : i
+insert mode : i (or insert key)
 normal mode : esc
 
 normal mode 에서
 
-move : h,j,k,l
-word movement : w,e,b
-number powered move : e.g. 5w (5th 'w')
-insert text repeatedly : e.g. 3iYes -> yesyesyes
-find charactor: f and F
-go to matching parenthese : %
+3. basic movement : h,j,k,l (also can use arrow key)
+4. word movement : w,e,b
+5. number powered move : e.g. 5w (5th 'w')
+6. insert text repeatedly : e.g. 3iYes -> yesyesyes
+7. find charactor: f and F
+8. go to matching parenthese : %
+9. Go to start/end of line, 0 and $
+10. Find word under cursor, * and #
+11. Goto line, gg and G, 2G(goto line 2)
+12. Search, /text with n and N
+13. Insert new line, o and O (After new line is created, the editor is set to insert mode. small o insert new line after current line, Capital O insert new line before current line)
+14. Removing a character, x and X (under cursor, same with backspace)
+15. Replacing letter under cursor, r
+16. Deleting, d (dw:first word on the right side of the cursor, d2e: remove two words, dd:delete line de:backspace)
+17. Repetition with .
+18. Visual mode, v
+19. Real Vim awaits
 
++
+normal mode
+u : undo previous command
+
+--insert mode
+[insert key] : insert mode toggle
+[backspate] : just move left
+[arrow key] : A? B? C? D?
+[delete key] : ? (change charactor to capital ?)

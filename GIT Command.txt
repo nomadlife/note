@@ -18,6 +18,15 @@ git push -u origin master
 git pull
 git pull origin master
 
+**push 할때마다 id/pw 요구하면,,
+$ git config credential.helper store
+$ git push http://example.com/repo.git
+Username: <type your username>
+Password: <type your password>
+Also I suggest you to read
+$ git help credentials
+
+
 git diff
 git diff [version1] [version2]
 git reset (—mixed): keep only changed files. ‘mixed’ is default option.

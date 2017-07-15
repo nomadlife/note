@@ -20,7 +20,9 @@ git pull origin master
 
 git diff
 git diff [version1] [version2]
-git reset --hard [version hash ID]
+git reset (—mixed): keep only changed files. ‘mixed’ is default option.
+git reset --hard [version hash ID] : delete all changed file.
+git reset --soft : back to before commit. only tracked status.
 git revert [version hash ID]
 git commit --amend  ------>마지막 커밋 메세지 수정(vim에서)
   ㄴ> 지역저장소에서만 가능, 원격저장소에는 저장후 수정안됨.

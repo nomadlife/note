@@ -7,6 +7,7 @@ sudo systemctl hibernate
 sudo add-apt-repository ppa:dasom/ppa
 sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
 im-config
+-->log out and log in again
 
 
 Sudo dpkg -i [pkg name]  : deb 패키지 파일 설치

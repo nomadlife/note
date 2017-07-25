@@ -1,0 +1,42 @@
+Linux(ubuntu) command
+
+--hibernation
+sudo systemctl hibernate
+
+--Nimf 한글입력기 install
+sudo add-apt-repository ppa:dasom/ppa
+sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
+im-config
+-->log out and log in again
+
+
+Sudo dpkg -i [pkg name]  : deb 패키지 파일 설치
+apt list --installed : 설치된 패키지 보기
+compgen -g  :그룹보기
+compgen -u  :사용자보기
+groups jw      : 사용자가 속한 그룹 보기
+
+--Permission 바꾸기
+sudo chown -R username:group directory
+sudo chown username:group directory
+dpkg --get-selections | grep -v deinstall
+(The -v tag "inverts" grep to return non-matching lines)
+
+
+
+--apache2 서버루트 변경
+  etc/apache2/apache2.conf
+  <Directory /home/jw/www>  -->이부분 변경
+  	Options Indexes FollowSymLinks
+  	AllowOverride None
+  	Require all granted
+  </Directory>
+
+  etc/apache2/sites-enabled/000-default.conf
+  DocumentRoot /home/jw/www  --> 이부분 변경
+
+--php.ini (etc.php/5.6/apache2)
+  opcache enabled =0
+  display_errors = On
+
+ls -al |grep vim : 특정어구 포함 리스트 출력

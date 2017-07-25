@@ -9,6 +9,13 @@ org>gnome>gedit>proference>encode
 --Solved
 
 
+*** nimf Hangul inputter
+$ sudo apt-add-repository ppa:hodong/nimf
+$ sudo apt update
+$ sudo apt install nimf
+$ im-config -n nimf
+
+
 ****taking a photo application
 * Capturing a zillion images.
  - streamer

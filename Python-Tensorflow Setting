@@ -1,0 +1,6 @@
+*** matplotlib package 설치. (virtualenv, pip3)
+ - after activate virtualenv,
+  pip3 install --upgrade matplotlib
+
+*** tkinter package(python3-tk) package 설치. (virtualenv & host 구분없음. 동시에 사용가능)
+ - sudo apt-get install python3-tk

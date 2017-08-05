@@ -1,13 +1,53 @@
 Linux(ubuntu) command
 
---hibernation
-sudo systemctl hibernate
 
---Nimf 한글입력기 install
+***Dasom 한글입력기 install(Nimf로 이름변경) 
 sudo add-apt-repository ppa:dasom/ppa
 sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
 im-config
 -->log out and log in again
+
+*** nimf Hangul inputter
+$ sudo apt-add-repository ppa:hodong/nimf
+$ sudo apt update
+$ sudo apt install nimf
+$ im-config -n nimf
+
+****Ubuntu Text Editor(gedit) 한글 인코딩 추가
+ -윈도우 인코딩 : EucKR or UHC(Unified Hangul code), EucKR : 2350자 표현가능.
+ -Ubuntu Encoding : UTF-8 / UTF-16/ISO 8859-15
+sudo apt-get install dconf-tools
+dconf-editor
+org>gnome>gedit>proference>encode
+['UHC','UFT-8','CURRENT','ISO-8859-15','UTF-16]
+ 
+--hibernation
+sudo systemctl hibernate
+
+***Alternative to Notpad++ for Linux.
+1. Notepadqq ( is exact replica of Notepad++)
+sudo add-apt-repository ppa:notepadqq-team/notepadqq
+sudo apt-get update
+sudo apt-get install notepadqq
+2.SciTE(cross platform, open source)
+-It had been in the Linux world for quite sometime and has a fan follwing of tis own.
+-sudo apt-get install scite
+3.Geany(almost IDE)
+-sudo apt-get install geany scite
+4.Sublime Text
+-non-free, non-open source
+-sudo add-apt-repository ppa:webupd8team/sublime-text-2
+-sudo apt-get update
+-sudo apt-get install sublime-text
+5.Lime text(is actually related to Sublime text)
+-free and open source, clone of SublimeText)
+6.Kate
+-default editor of KDE desktop.
+-sudo apt-get install kate
+7.Atom
+-the latest sensation in programming world.
+-cross platform, open source.
+
 
 
 Sudo dpkg -i [pkg name]  : deb 패키지 파일 설치
@@ -21,7 +61,6 @@ sudo chown -R username:group directory
 sudo chown username:group directory
 dpkg --get-selections | grep -v deinstall
 (The -v tag "inverts" grep to return non-matching lines)
-
 
 
 --apache2 서버루트 변경

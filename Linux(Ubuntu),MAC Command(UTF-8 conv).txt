@@ -1,17 +1,20 @@
 Linux(ubuntu) command
 
 
-***Dasom 한글입력기 install(Nimf로 이름변경) 
-sudo add-apt-repository ppa:dasom/ppa
-sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
-im-config
--->log out and log in again
 
 *** nimf Hangul inputter
 $ sudo apt-add-repository ppa:hodong/nimf
 $ sudo apt update
 $ sudo apt install nimf
 $ im-config -n nimf
+
+***(Dasom 한글입력기 install) -> Nimf로 이름변경, old version, do not install.
+sudo add-apt-repository ppa:dasom/ppa
+sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
+im-config
+-->log out and log in again
+
+
 
 ****Ubuntu Text Editor(gedit) 한글 인코딩 추가
  -윈도우 인코딩 : EucKR or UHC(Unified Hangul code), EucKR : 2350자 표현가능.

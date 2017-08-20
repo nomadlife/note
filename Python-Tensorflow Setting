@@ -4,3 +4,26 @@
 
 *** tkinter package(python3-tk) package 설치. (virtualenv & host 구분없음. 동시에 사용가능)
  - sudo apt-get install python3-tk
+
+
+*** scipy package install
+ pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
+
+*** virtualenv install on Ubuntu
+ sudo apt-get install python3-pip python3-dev python-virtualenv
+
+
+*** python3 install through virtualenv
+ 0. $ sudo apt-get install python3-pip python3-dev python-virtualenv # for Python 3.n
+
+ 1. 
+ virtualenv -p /usr/bin/python3 py3env
+ source py3env/bin/activate
+ pip install package-name 
+
+ 2.
+ virtualenv --system-site-packages -p python3 targetDirectory # for Python 3.n
+
+ 3. 
+ python3 -m venv tutorial-env
+ source tutorial-env/bin/activate

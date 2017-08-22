@@ -499,7 +499,34 @@ printed all
 
 named list
 ==================================
+my_list <- list(my_vector, my_matrix, my_df)
+names(my_list) <- c("vec","mat","df")
+shining_list <- list(moviename = mov)
+shining_list <- list(moviename = mov, actors = act, reviews = rev)
+------------------------------------------------------------------
+$moviename
+[1] "The Shining"
 
+$actors
+[1] "Jack Nicholson"   "Shelley Duvall"   "Danny Lloyd"      "Scatman Crothers"
+[5] "Barry Nelson"    
+
+$reviews
+  scores sources                                              comments
+1    4.5   IMDb1                     Best Horror Film I Have Ever Seen
+2    4.0   IMDb2 A truly brilliant and scary film from Stanley Kubrick
+3    5.0   IMDb3                 A masterpiece of psychological horror
+
+
+shining_list$actors
+shining_list$actors[2]  
+(==shining_list[[2]][2])
+
+shining_list_full <- c(shining_list,year=1980)
+str(shining_list_full)
+
+****************************************************************************
+*****************************************************************************
 
 
 

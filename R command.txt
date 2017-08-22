@@ -486,7 +486,7 @@ order()
 > a[order(a)]
 [1]   10  100 1000
 
-
+positoins <- order(planets_df$diameter)
 
 
 

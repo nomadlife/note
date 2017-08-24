@@ -1,15 +1,19 @@
 vim 사용법
 
-insert mode : i (or insert key)
-normal mode : esc
-
-normal mode 에서
+normal mode -> insert mode
 a:input after cursor
 A:input after end of the line
 i:input at cutsor
 I:input from the start of the line
 o:input after current line
 O:input before the line
+
+quit with saving
+@normal mode ":wq"
+quit without saving
+@normal mode ":q!"
+
+@normal mode 
 
 3. basic movement : h,j,k,l (also can use arrow key)
 4. word movement : w,e,b

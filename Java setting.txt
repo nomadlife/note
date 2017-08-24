@@ -1,0 +1,28 @@
+*** path information
+echo $PATH
+which java 
+ /usr/bin/java (this is just link)
+which javac 
+ no information. something wrong!
+
+readlink -f /usr/bin/java (find real file location)
+ /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
+
+*** java environment variable setting
+Ubuntu 16.04, openjdk version "1.8.0_131"
+ 
+/etc/environment (not /etc/profile)
+ JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64"
+
+source /etc/environment
+
+/.bash_profile
+ export ~~~
+
+******select main java version
+sudo update-alternatives --config java
+
+******* Create symbolic link
+sudo ln -s (java path) /usr/bin/
+
+

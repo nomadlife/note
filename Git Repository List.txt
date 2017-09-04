@@ -1,5 +1,6 @@
 https://github.com/nomadlife/note.git
 
+https://github.com/nomadlife/project-euler_jupyter.git
 https://github.com/nomadlife/project-euler.git
 https://github.com/nomadlife/java101.git
 https://github.com/nomadlife/Algorithms.git

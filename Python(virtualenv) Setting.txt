@@ -1,23 +1,41 @@
 
-
-*** virtualenv install on Ubuntu
+ 0. virtualenv install with pip
+ linux
  sudo apt-get install python3-pip python3-dev python-virtualenv
+ windows(if pip installed already)
+ pip install virtualenv
+ pip install --upgrade virtualenv
 
-
- 1.
+ 1.Install(in linux, Target Directory is made first)
  virtualenv --system-site-packages -p python3 targetDirectory
  virtualenv (--system-site-packages) -p python3 targetDirectory
-
- 2. 
+ virtualenv TargetDir
+ virtualenv TargetDir --python=python3
+ virtualenv TargetDir --python=python3.5
+ virtualenv TargetDir --python=python
+ virtualenv TargetDir --python=python2.7
  virtualenv -p /usr/bin/python3 py3env
+ python3 -m venv tutorial-env (linux,,windows don't know)
+
+ 
+ 2. run
+ 
+ linux
  source py3env/bin/activate
- pip install package-name 
-
- 3. 
- python3 -m venv tutorial-env
  source tutorial-env/bin/activate
+ 
+ windwos
+ call TargetDir/scripts/activate
+ (or just run exex file in the folder)
+ TargetDir/scripts/activate
 
- 4 remove venv
+ 3. install package inside virtualenv
+ (inside virtualenv)> pip install package-name
+ 
+ 4. quit
+ deactivate
+
+ 5. remove venv
  rm -r /path/to/ENV
 
 

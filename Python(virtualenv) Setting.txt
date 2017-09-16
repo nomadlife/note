@@ -1,12 +1,21 @@
 
- 0. virtualenv install with pip
+- python3 install, osx
+brew install python3
+ 
+
+
+0. virtualenv install with pip
  linux
  sudo apt-get install python3-pip python3-dev python-virtualenv
+
  windows(if pip installed already)
  pip install virtualenv
  pip install --upgrade virtualenv
+ 
+ osx 
+ pip3 install virtualenv
 
- 1.Install(in linux, Target Directory is made first)
+ 1.Install(linux/osx, Make a target Directory first)
  virtualenv --system-site-packages -p python3 targetDirectory
  virtualenv (--system-site-packages) -p python3 targetDirectory
  virtualenv TargetDir
@@ -16,11 +25,13 @@
  virtualenv TargetDir --python=python2.7
  virtualenv -p /usr/bin/python3 py3env
  python3 -m venv tutorial-env (linux,,windows don't know)
+ 
 
+ 
  
  2. run
  
- linux
+ linux/osx
  source py3env/bin/activate
  source tutorial-env/bin/activate
  
@@ -37,6 +48,19 @@
 
  5. remove venv
  rm -r /path/to/ENV
+
+
+
+
+ 6. install jupiter notebook (linux,OS X,window common)
+ pip install jupyter
+ 
+ 7. install jupyter themes
+ pip install jupyterthemes
+
+ 8. change jupyter themes
+ if you use virtualenv, first activate and then change themes.
+
 
 
 

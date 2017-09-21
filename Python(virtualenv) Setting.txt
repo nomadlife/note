@@ -1,7 +1,6 @@
 
-- python3 install, osx
-brew install python3
- 
+install python3 first,
+and install pip3
 
 
 0. virtualenv install with pip
@@ -16,35 +15,45 @@ brew install python3
  pip3 install virtualenv
 
  1.Install(linux/osx, Make a target Directory first)
- virtualenv --system-site-packages -p python3 targetDirectory
- virtualenv (--system-site-packages) -p python3 targetDirectory
+
+ virtualenv -p /usr/bin/python3 py3env
  virtualenv TargetDir
  virtualenv TargetDir --python=python3
  virtualenv TargetDir --python=python3.5
  virtualenv TargetDir --python=python
  virtualenv TargetDir --python=python2.7
- virtualenv -p /usr/bin/python3 py3env
+ virtualenv --system-site-packages -p python3 targetDirectory
+ virtualenv (--system-site-packages) -p python3 targetDirectory
  python3 -m venv tutorial-env (linux,,windows don't know)
  
 
  
- 
  2. run
  
- linux/osx
+ linux/osx:
  source py3env/bin/activate
  source tutorial-env/bin/activate
  
- windwos
+ windwos:
  call TargetDir/scripts/activate
- (or just run exex file in the folder)
- TargetDir/scripts/activate
+ (or just run exe file in the folder)
+
+
 
  3. install package inside virtualenv
  (inside virtualenv)> pip install package-name
  
+ -in case of tkinter package. there’s no pip package 
+  so, fist install tcl/tk package on main system, (and test)
+  and make a new virtual environment and python.
+  >>> import tkinter
+  >>> tkinter._test()
+  >>> tkinter.Tcl().eval('info patchlevel')
+
+
  4. quit
  deactivate
+
 
  5. remove venv
  rm -r /path/to/ENV
@@ -58,8 +67,14 @@ brew install python3
  7. install jupyter themes
  pip install jupyterthemes
 
- 8. change jupyter themes
- if you use virtualenv, first activate and then change themes.
+
+ 8. adapt theme
+ windows: 
+ open another terminal, and change dir to python installed folder
+ and, run jt -t (themes)
+
+ OSX:
+ activate virtual python first, and move to python(jupyter themes installed) folder and run jt -t (themes)
 
 
 
@@ -69,11 +84,13 @@ brew install python3
 
 *** tkinter package(python3-tk) package 설치. (no pip package.)
  - sudo apt-get install python3-tk
-
+ 
 
 *** scipy package install
  pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
  (--user option related with --system-site-package option when installation)
+
+
 
 
 

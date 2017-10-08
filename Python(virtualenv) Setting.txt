@@ -31,11 +31,10 @@ and install pip3
  2. run
  
  linux/osx:
- source py3env/bin/activate
- source tutorial-env/bin/activate
+ source [path]/bin/activate
  
  windwos:
- call TargetDir/scripts/activate
+ call [path]/scripts/activate
  (or just run exe file in the folder)
 
 

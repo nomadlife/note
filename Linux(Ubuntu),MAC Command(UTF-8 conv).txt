@@ -1,6 +1,7 @@
 Linux(ubuntu) command
 
-
+***git install
+sudo apt-get install git
 
 *** nimf Hangul inputter
 $ sudo apt-add-repository ppa:hodong/nimf

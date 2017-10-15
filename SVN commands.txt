@@ -1,10 +1,10 @@
 SVN 명령어
 
-사용순서
 svn checkout svn://000.000.000.000/test [local target folder(new)] --username=00000
-svn add 
+svn add [filename or folder]
+svn add *  : 모든파일 추가
 svn commit -m “message”
-
+svn commit -m “message” --username=[]  : 최초 commit시
 
 $ svn checkout 저장소URL [PATH...] : checkout 또는 co - 저장소(repository)에서 로컬 작업공간으로 소스를 받아오는 것.
 : 지정된 로컬경로에 저장소의 소스가 복사된다. 경로가 지정안되면 저장소URL의 맨마지막 디렉토리명이 저장될 디렉토리로 사용되어진다. -r 옵션으로 리비전을 지정한 경우엔 해당 리비전의 소스를 가져온다.

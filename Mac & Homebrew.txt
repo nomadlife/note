@@ -1,4 +1,11 @@
 Mac command
+
+** rm
+rmdir [folder] : delete folder
+rm -r [folder] : delete dir that not empty
+rm -rf [folder] : delete dir without ask when not empty
+
+
 1. make full path on terminal prompt:
 sudo vim ~/.bash_prifile
 

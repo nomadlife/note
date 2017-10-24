@@ -6,6 +6,11 @@ svn add *  : 모든파일 추가
 svn commit -m “message”
 svn commit -m “message” --username=[]  : 최초 commit시
 
+************************************
+svn delete [filename]
+Do not delete file on system. different with git.
+
+
 $ svn checkout 저장소URL [PATH...] : checkout 또는 co - 저장소(repository)에서 로컬 작업공간으로 소스를 받아오는 것.
 : 지정된 로컬경로에 저장소의 소스가 복사된다. 경로가 지정안되면 저장소URL의 맨마지막 디렉토리명이 저장될 디렉토리로 사용되어진다. -r 옵션으로 리비전을 지정한 경우엔 해당 리비전의 소스를 가져온다.
 예제) svn checkout -r 99 http://repository/src src 설명) 저장소에서 리비전 번호 99의 src경로내의 소스를 가져온다.
@@ -16,13 +21,13 @@ $ svn update [PATH...] : update 또는 up - 저장소(repository)의 최신 내�
 $ svn commit [PATH...] : commit 또는 ci - 로컬에서 수정된 내용을 저장소에 적용시킨다.
 : 기본적으로 이 명령을 내리면 수정 사항을 코멘트할 수 있게 로그 편집기가 실행된다. lock된 파일이나 디렉토리는 commit성공후 자동적으로 unlock된다.
 
-$ svn lock TARGET  : lock - 저장소의 파일이나 디렉토리를 잠근다.    	
+$ svn lock TARGET  : lock - 저장소의 파일이나 디렉토리를 잠근다.
 : lock이 걸린 파일이나 디렉토리는 다른 사용자가 변경하여 commit할 수 없다. 해당 경로의 작업이 너무 방대하여 그 동안 다른 사용자가 수정하지 못하도록 할때 유용.
 
 $ svn unlock TARGET : unlock - 저장소의 잠근 파일이나 디렉토리를 풀어준다.
 : lock의 반대. 기본적으로 lock을 건 사용자가 풀어줘야 한다.
 
-$ svn add PATH...  : add - 새 파일이나 디렉토리를 추가한다.   	
+$ svn add PATH...  : add - 새 파일이나 디렉토리를 추가한다.
 : add 명령은 지정된 PATH의 새로운 파일이나 디렉토리를 버전관리 대상에 등록할 뿐이므로, add후 commit 명령을 수행해야만 실제로 저장소에 해당 파일이 추가된다.
 
 $ svn delete PATH...(URL) : delete 또는 del, remove, rm - 파일이나 디렉토리를 제거한다.

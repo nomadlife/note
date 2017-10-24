@@ -10,8 +10,8 @@ and install pip3
  windows(if pip installed already)
  pip install virtualenv
  pip install --upgrade virtualenv
- 
- osx 
+
+ osx
  pip3 install virtualenv
 
  1.Install(linux/osx, Make a target Directory first)
@@ -25,24 +25,24 @@ and install pip3
  virtualenv --system-site-packages -p python3 targetDirectory
  virtualenv (--system-site-packages) -p python3 targetDirectory
  python3 -m venv tutorial-env (linux,,windows don't know)
- 
 
- 
+
+
  2. run
- 
+
  linux/osx:
  source [path]/bin/activate
- 
+
  windwos:
  call [path]/scripts/activate
- (or just run exe file in the folder)
+ (or just [path]/scripts/activate)
 
 
 
  3. install package inside virtualenv
  (inside virtualenv)> pip install package-name
- 
- -in case of tkinter package. there’s no pip package 
+
+ -in case of tkinter package. there’s no pip package
   so, fist install tcl/tk package on main system, (and test)
   and make a new virtual environment and python.
   >>> import tkinter
@@ -58,22 +58,24 @@ and install pip3
  rm -r /path/to/ENV
 
 
-
-
- 6. install jupiter notebook (linux,OS X,window common)
+Jupyter notebook / themes
+***************************************************
+ 1. install jupiter notebook (linux,OS X,window common)
  pip install jupyter
- 
- 7. install jupyter themes
+
+ 2. install jupyter themes
  pip install jupyterthemes
 
 
- 8. adapt theme
- windows: 
- open another terminal, and change dir to python installed folder
- and, run jt -t (themes)
+ 3. adapt themes
+ windows : [python path]/Scripts/jt.exe
+ jt -t (themes)
+ jt -l : list of themes
 
- OSX:
- activate virtual python first, and move to python(jupyter themes installed) folder and run jt -t (themes)
+ linux/osx : [python path]/bin/jt
+ jt -t (themes)
+ jt -l : list of themes
+in case of virtualenv on mac osx/linux :activate virtual python first, and run command
 
 
 
@@ -83,7 +85,7 @@ and install pip3
 
 *** tkinter package(python3-tk) package 설치. (no pip package.)
  - sudo apt-get install python3-tk
- 
+
 
 *** scipy package install
  pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
@@ -101,11 +103,11 @@ sudo apt-get install python3-pip
 
 Then install virtualenv using pip3
 
-sudo pip3 install virtualenv 
+sudo pip3 install virtualenv
 
 Now create a virtual environment
 
-virtualenv venv 
+virtualenv venv
 
     you can use any name insted of venv
 
@@ -132,4 +134,3 @@ virtualenv -p python3 myenv
 Instead of using virtualenv you can use this command in Python3
 
 python3 -m venv myenv
-

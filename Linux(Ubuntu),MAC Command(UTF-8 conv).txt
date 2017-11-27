@@ -16,6 +16,9 @@ im-config
 -->log out and log in again
 
 
+*** 압축풀때 한글 파일이름 깨짐 문제.
+터미널에서, unzip -O cp949 [파일이름]
+(대문자 -O, 윈도우에서 사용하는 텍스트 인코딩이 cp949 라고 명시해줌)
 
 ****Ubuntu Text Editor(gedit) 한글 인코딩 추가
  -윈도우 인코딩 : EucKR or UHC(Unified Hangul code), EucKR : 2350자 표현가능.

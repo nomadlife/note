@@ -15,15 +15,15 @@ and install pip3
  pip3 install virtualenv
 
  1.Install(linux/osx, Make a target Directory first)
-
+ virtualenv -p python3 targetDirectory
  virtualenv -p /usr/bin/python3 py3env
  virtualenv TargetDir
  virtualenv TargetDir --python=python3
  virtualenv TargetDir --python=python3.5
  virtualenv TargetDir --python=python
  virtualenv TargetDir --python=python2.7
- virtualenv --system-site-packages -p python3 targetDirectory
- virtualenv (--system-site-packages) -p python3 targetDirectory
+ virtualenv --system-site-packages -p python3 targetDirectory 
+  : system-site-package option is not work for jupyter notebook
  python3 -m venv tutorial-env (linux,,windows don't know)
 
 
@@ -63,19 +63,22 @@ Jupyter notebook / themes
  1. install jupiter notebook (linux,OS X,window common)
  pip install jupyter
 
+
+
  2. install jupyter themes
  pip install jupyterthemes
 
 
- 3. adapt themes
+ 3. change theme
  windows : [python path]/Scripts/jt.exe
- jt -t (themes)
- jt -l : list of themes
+ jt -t [theme name] : set theme
+ jt -l : show the list of themes
 
- linux/osx : [python path]/bin/jt
- jt -t (themes)
- jt -l : list of themes
-in case of virtualenv on mac osx/linux :activate virtual python first, and run command
+ linux/mac : [python path]/bin/jt
+ (:activate virtual python first, and run command)
+ jt -t [theme name] :  set theme
+ jt -l : show the list of themes
+
 
 
 

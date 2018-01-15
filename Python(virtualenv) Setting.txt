@@ -1,20 +1,18 @@
-
-install python3 first,
-and install pip3
-
-
 0. virtualenv install with pip
  linux
  sudo apt-get install python3-pip python3-dev python-virtualenv
 
  windows(if pip installed already)
+ install python3 first, and install pip3
  pip install virtualenv
  pip install --upgrade virtualenv
 
  osx
  pip3 install virtualenv
 
- 1.Install(linux/osx, Make a target Directory first)
+
+
+1.Install(linux/osx, Make a target Directory first)
  virtualenv -p python3 targetDirectory
  virtualenv -p /usr/bin/python3 py3env
  virtualenv TargetDir
@@ -39,7 +37,7 @@ and install pip3
 
 
 
- 3. install package inside virtualenv
+ 3. install package inside virtual python3
  (inside virtualenv)> pip install package-name
 
  -in case of tkinter package. there’s no pip package
@@ -61,6 +59,7 @@ and install pip3
 Jupyter notebook / themes
 ***************************************************
  1. install jupiter notebook (linux,OS X,window common)
+ (for virtualevn, activate virtual python first, and run command)
  pip install jupyter
 
 
@@ -71,12 +70,25 @@ Jupyter notebook / themes
 
  3. change theme
  windows : [python path]/Scripts/jt.exe
- jt -t [theme name] : set theme
  jt -l : show the list of themes
+
+ $ jt -l
+   chesterish
+   grade3
+   gruvboxd
+   gruvboxl
+   monokai
+   oceans16
+   onedork
+   solarizedd
+   solarizedl
+
+ jt -t [theme name] : change theme
+ jt -t onedork
 
  linux/mac : [python path]/bin/jt
  (:activate virtual python first, and run command)
- jt -t [theme name] :  set theme
+ jt -t [theme name] :  change theme
  jt -l : show the list of themes
 
 

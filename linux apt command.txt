@@ -1,0 +1,13 @@
+apt-get install = apt install : install package
+apt-get remove = apt remove : removes a package
+apt-get purge = apt purge : removes package with configuration
+apt-get update = apt update : refreshes repository index
+apt-get upgrade = apt upgrade : upgrades all upgradable packages
+apt-get autoremove = apt autoremove : removes unwanted packages
+apt-get dist-upgrade = apt full-upgrade : upgrades packages with auto-handing of dependencies
+apt-cache search = apt search : searches for the program
+apt-cache show = apt show : shows package details
+
+apt list : lists packages with criteria(installed, upgradable etc)
+apt edit-sources : edits sources list
+

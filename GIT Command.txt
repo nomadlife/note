@@ -1,9 +1,10 @@
-GIT 명령어
+﻿GIT 명령어
  
 vim [filename]  ---->텍스트 파일만들기 혹은 파일 수정
 cat [filename]  --->파일내용 보기
 git init
 git add -A  ---> 신규 혹은 수정된 파일 한꺼번에 버전관리 추가하기.
+git add [directory]/\*  -> add certain folder only
 git remote add origin [repository address]
 git remote
 git remote -v  ----> 주소 상세히 보기

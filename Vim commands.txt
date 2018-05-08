@@ -1,0 +1,76 @@
+﻿vim commands
+
+quit ":q"
+save ":w"
+save and quit ":wq"
+forced quit : ":q!"
+
+** insert
+i:input at cutsor
+a:input after cursor
+I:input from the start of the line
+A:input after end of the line
+o:input after current line
+O:input before the line
+
+<i> cursor <a>
+<I> line <A>
+
+<O>
+line
+<o>
+
+
+** Movement
+move : h,j,k,l
+word movement : w,b,e
+goto line # : #gg #G
+start of file : gg
+end of file : G
+find charactor: f
+go to matching parenthese : %
+Go to start/end of line, 0 and $
+Find word under cursor, * and #
+Search, /text with n and N
+
+** number powered
+insert text repeatedly : e.g. 3iYes -> yesyesyes
+move : #h,#j,#k,#l
+word movement : #w, #b, #e
+
+
+** selection, delete,  undo
+selection : v
+delete : x
+Backspace : X
+delete line : dd
+dw : delete until next 'w' 
+de : delete until next 'e' 
+d2e: remove two words
+Replacing letter under cursor, r
+undo : u
+
+** copy, paste
+line copy : yy, Y
+paste after line : p
+paster before line : P
+
+--insert mode
+[insert key] : insert mode toggle
+[backspace] : just move left
+[arrow key] : A? B? C? D?
+[delete key] : ? (change charactor to capital ?)
+
+** split windows
+:vsplit [filename] ->left,right
+:vs
+:split [filename] -> up,down
+:sp
+:sp $MYVIMRC -> open vimrc file
+
+move window
+Ctrl+w,w or Ctrl+<arrow key>
+
+close window
+Ctrl+w,c -> close current window
+Ctrl+w,o -> close all except current window

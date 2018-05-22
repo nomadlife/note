@@ -1,3 +1,14 @@
+﻿make localhost by python
+
+Python 3:
+python -m http.server
+
+Python 2:	
+python -m SimpleHTTPServer
+
+localhost:8000
+
+****************************************
 0. virtualenv install with pip
  linux
  sudo apt-get install python3-pip python3-dev python-virtualenv

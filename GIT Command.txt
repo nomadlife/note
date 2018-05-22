@@ -24,6 +24,8 @@ git push -u origin master
 git pull
 git pull origin master
 
+git stash : save current working directory, reset HEAD. (for avoid conflict when pull)
+
 **push 할때마다 id/pw 요구하면,,
 $ git config credential.helper store
 $ git push http://example.com/repo.git

@@ -36,7 +36,7 @@ $ git help credentials
 git diff
 git diff [version1] [version2]
 git reset (—mixed): keep only changed files. ‘mixed’ is default option.
-git reset --hard [version hash ID] : delete all changed file.
+git reset --hard [version hash ID] : restore all changes after last commit.(back to last commit)
 git reset --soft : back to before commit. only tracked status.
 git revert [version hash ID]
 
@@ -57,4 +57,6 @@ git log --branches --decorate --graph --oneline  (나갈때:Q)
  
 
 git diff master..exp  → 모든파일내용 비교
- 
+
+git rm --cached mylogfile.log 
+git rm --cached -r mydirectory

@@ -24,8 +24,6 @@ line
 ** Movement
 move : h,j,k,l or cursor
 word movement : w,b,e or shift+cursor or ctrl+cursor
-end of line : $
-start of line : ^
 goto line # : #gg #G
 start of file : gg
 end of file : G

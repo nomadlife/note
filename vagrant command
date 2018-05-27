@@ -1,5 +1,7 @@
 vagrant command
 
+vagrant init data-science-toolbox/data-science-at-the-command-line
+
 turn on : vagrant up
 connect : vagrant ssh
 disconnect : exit

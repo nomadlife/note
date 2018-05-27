@@ -1,0 +1,60 @@
+vagrant command
+
+turn on : vagrant up
+connect : vagrant ssh
+disconnect : exit
+turn off : vagrant halt
+delete : vagrant destroy
+
+**shell command
+
+head -n 3 data/movies.txt
+
+echo 'Hello'\
+> ' world' |
+> wc
+
+echo 'Hello world' | wc
+
+
+fac() { (echo 1; seq $1) | paste -s -d\* | bc; }
+fac 5
+120
+
+alias l='ls -1 --group-directories-first'
+alias moer=more
+
+type -a pwd
+type -a cd
+type -a fac
+type -a l
+
+seq 30 | grep 3
+3
+13
+23
+30
+
+seq 100 | grep 3 | wc -l
+19
+
+seq 10 > data/ten-numbers
+
+echo -n "Hello" > hello-world
+echo " World" >> hello-world
+
+cat hello-world | wc -w
+< hello-world wc -w
+wc -w hello-world
+
+mv hello-world data
+mv hello-world old-file
+rm old-file
+rm -r ~/book/ch02/data/old
+cp server.log server.log.bak
+
+man cat | head -n 20
+help cd | head -n 20
+jq --help
+
+tar -xzvf data/logs.tar.gz

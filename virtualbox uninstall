@@ -1,0 +1,7 @@
+virtualbox uninstall
+sudo apt-get remove --purge virtualbox 
+sudo rm ~/.config/VirtualBox/ -Rf
+sudo apt-get remove virtualbox* --purge
+
+and reinstall
+sudo apt-get install virtualbox

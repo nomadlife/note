@@ -1,0 +1,28 @@
+ls
+ls -l
+ls -a : View Hidden Files
+ls -lh : Human Readable Format
+ls -F : Directories with ‘/’
+ls -r : List Files in Reverse Order
+ls -R : Recursively list Sub-Directories
+ls -ltr : Reverse Output Order
+ls -lS : Sort Files by File Size
+ls -i : Display Inode number of File or Directory
+ls --version : Shows version of ls command
+ls -l /tmp : List Directory Information
+ls -ld /tmp
+ls -n : Display UID and GID of Files
+
+***Aliases
+# alias ls="ls -l"
+# alias
+alias cp='cp -i'
+alias l.='ls -d .* --color=auto'
+alias ll='ls -l --color=auto'
+alias ls='ls --color=auto'
+alias mv='mv -i'
+alias rm='rm -i'
+alias which='alias | /usr/bin/which --tty-only --read-alias --show-dot --show-tilde'
+
+# unalias ls
+

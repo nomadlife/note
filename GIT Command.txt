@@ -22,6 +22,9 @@ git commit -a  --> add 과정 없이 바로 커밋할때
 git commit --amend  ------>마지막 커밋 메세지 수정(vim에서)
   ㄴ> 지역저장소에서만 가능, 원격저장소에는 저장후 수정안됨.
 
+git config --global core.editor "vi" --> Basic Editor change
+
+
 git push -u origin master
 git pull
 git pull origin master

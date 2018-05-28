@@ -60,3 +60,19 @@ help cd | head -n 20
 jq --help
 
 tar -xzvf data/logs.tar.gz
+
+in2csv data/imdb-250.xlsx > data/imdb-250.csv
+in2csv data/imdb-250.xlsx | head | cut -c1-80
+in2csv data/imdb-250.xlsx | head | csvcut -c Title,Year,Rating | csvlook
+
+sql2csv --db 'sqlite:///data/iris.db' --query 'SELECT * FROM iris WHERE sepal_length > 7.5'
+sql2csv --db 'sqlite:///data/iris.db' --query 'SELECT * FROM iris WHERE sepal_length > 7.5' | csvlook
+
+curl -s http://www.gutenberg.org/ebooks/epub/76/pg76.txt | head -n 10
+ : -s for silent means diable downlaod status (currently the url not possible)
+curl http://www.gutenberg.org/cache/epub/76/pg76.txt > data/finn.txt
+curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt -o data/finn.txt
+curl -u username:password ftp://host/file
+
+
+

@@ -73,6 +73,5 @@ curl -s http://www.gutenberg.org/ebooks/epub/76/pg76.txt | head -n 10
 curl http://www.gutenberg.org/cache/epub/76/pg76.txt > data/finn.txt
 curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt -o data/finn.txt
 curl -u username:password ftp://host/file
-
-
+curl -L j.mp/locatbbar
 

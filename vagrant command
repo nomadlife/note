@@ -93,6 +93,8 @@ curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt | tr '[:upper:]' '[:lowe
 
 step 1 : make file
 bash ~/book/ch04/top-words-1.sh
+echo "!!" > scriptname
+!!
 
 step 2 : permission
 chmod u+x top-words-2.sh
@@ -107,5 +109,105 @@ next 3 char : group owner permissions
 last 3 char : all other users permissions
 
 ./top-words-2.sh
+
+step 3 : Define Shebang
+#!/usr/bin/env bash
+
+step 4 : Remove Fixed Input
+#!/usr/bin/env bash
+tr '[:upper:]' '[:lower:]' | grep -oE '\w+' | sort |
+uniq -c | sort -nr | head -n 10
+
+step 5 : Parameterize
+#!/usr/bin/env bash
+NUM_WORDS="$1"
+tr '[:upper:]' '[:lower:]' | grep -oE '\w+' | sort |
+uniq -c | sort -nr | head -n $NUM_WORDS
+
+cat data/finn.txt | ./top-words-5.sh 5
+
+step 6 : extend PATH vatiable
+echo $PATH | fold
+echo $PATH | tr : '\n' | sort
+**edit the .bashrc or .profle file
+
+** Pthon and R
+#!/usr/bin/env python
+from sys import stdin, stdout
+while True:
+line = stdin.readline()
+if not line:
+break
+stdout.write("%d\n" % int(line)**2)
+stdout.flush()
+
+#!/usr/bin/env Rscript
+f <- file("stdin")
+open(f)
+while(length(line <- readLines(f, n = 1)) > 0) {
+write(as.integer(line)^2, stdout())
+}
+close(f)
+
+
+Chapter 5 Scrubbing Data
+
+echo 'foo\nbar\nfoo' | sort | uniq -c | sort -nr
+2 foo
+1 bar
+--> ?? not possible. need to fix
+
+echo 'foo\nbar\nfoo' | sort | uniq -c | sort -nr |
+> awk '{print $2","$1}' | header -a value,count
+
+value,count
+foo,2
+bar,1
+--> ?? not possible. need to fix
+
+cd ~/book/ch05/data
+seq -f "Line %g" 10 | tee lines
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+
+< lines head -n 3
+< lines sed -n '1,3p'
+< lines awk 'NR<=3'
+Line 1
+Line 2
+Line 3
+
+< lines tail -n 3
+Line 8
+Line 9
+Line 10
+
+< lines tail -n +4
+< lines sed '1,3d'
+< lines sed -n '1,3!p'
+Line 4
+Line 5
+Line 6
+Line 7
+Line 8
+Line 9
+Line 10
+
+< lines head -n -3
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+Line 6
+Line 7
 
 

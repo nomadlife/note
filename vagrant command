@@ -210,4 +210,39 @@ Line 5
 Line 6
 Line 7
 
+< lines sed -n '4,6p'
+< lines awk '(NR>=4)&&(NR<=6)'
+< lines head -n 6 | tail -n 3
+Line 4
+Line 5
+Line 6
+
+< lines sed -n '1~2p'
+< lines awk 'NR%2'
+Line 1
+Line 3
+Line 5
+Line 7
+Line 9
+
+< lines sed -n '0~2p'
+< lines awk '(NR+1)%2'
+Line 2
+Line 4
+Line 6
+Line 8
+Line 10
+
+grep -i chapter alice.txt
+** -i means case-insensitive
+
+grep -E '^CHAPTER (.*)\. The' alice.txt
+-E option in order to enable regular expressions
+
+ seq 1000 | sample -r 1% | jq -c '{line: .}'
+ seq 10000 | sample -r 1% -d 1000 -s 5 | jq -c '{line: .}'
+
+ grep -i chapter alice.txt | cut -d' ' -f3-
+ sed -rn 's/^CHAPTER ([IVXLCDM]{1,})\. (.*)$/\2/p' alice.txt > /dev/null
+
 

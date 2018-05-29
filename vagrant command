@@ -73,5 +73,39 @@ curl -s http://www.gutenberg.org/ebooks/epub/76/pg76.txt | head -n 10
 curl http://www.gutenberg.org/cache/epub/76/pg76.txt > data/finn.txt
 curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt -o data/finn.txt
 curl -u username:password ftp://host/file
-curl -L j.mp/locatbbar
+
+curl -L j.mp/locatbbar(-L or --location)
+curl j.mp/locatbbar
+curl -I j.mp/locatbbar
+
+curl -s http://api.randomuser.me | jq '.'
+
+chapter 4 make shell script
+
+curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt | tr '[:upper:]' '[:lower:]' | grep -oE '\w+' | sort | uniq -c | sort -nr | head -n 10
+
+1. Copy and paste the one-liner into a file.
+2. Add execute permissions.
+3. Define a so-called shebang.
+4. Remove the fixed input part.
+5. Add a parameter.
+6. Optionally extend your PATH.
+
+step 1 : make file
+bash ~/book/ch04/top-words-1.sh
+
+step 2 : permission
+chmod u+x top-words-2.sh
+ls -l top-words-{1,2}.sh
+-rw-rw-r-- 1 vagrant vagrant 145 Jul 20 23:33 top-words-1.sh
+-rwxrw-r-- 1 vagrant vagrant 143 Jul 20 23:34 top-words-2.sh
+
+r:read w:wrote x:excutable
+first 1 char : -:regular file d:directory
+next 3 char : owner persmossions
+next 3 char : group owner permissions
+last 3 char : all other users permissions
+
+./top-words-2.sh
+
 

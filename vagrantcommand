@@ -330,3 +330,119 @@ Carroll
 This
 
 < alice.txt tr '[:upper:]' '[:lower:]' | grep -oE '\w{2,}' | grep -E '^a.*e$' | sort | uniq -c | sort -nr | awk '{print $2","$1}' | header -a word,count | head | csvlook
+|-------------+--------|
+|  word       | count  |
+|-------------+--------|
+|  alice      | 403    |
+|  are        | 73     |
+|  archive    | 13     |
+|  agree      | 11     |
+|  anyone     | 5      |
+|  alone      | 5      |
+|  age        | 4      |
+|  applicable | 3      |
+|  anywhere   | 3      |
+|-------------+--------|
+
+echo 'hello world!' | tr ' ' '_'
+hello_world!
+
+echo 'hello world!' | tr ' !' '_?'
+hello_world?
+
+echo 'hello world!' | tr -d -c '[a-z]'
+helloworld
+
+echo 'hello world!' | tr '[a-z]' '[A-Z]'
+echo 'hello world!' | tr '[:lower:]' '[:upper:]'
+HELLO WORLD!
+
+echo ' hello world!' | sed -re 's/hello/bye/;s/\s+/ /g;s/\s+//'
+bye world!
+
+echo -e "value\n7\n2\n5\n3" | body sort -n
+seq 5 | header -a count
+count
+1 
+2 
+3 
+4 
+5
+
+seq 5 | header -a count | wc -l
+6
+
+seq 5 | header -a count | body wc -l
+count
+5
+
+< tips.csv header
+< tips.csv head -n 1
+
+seq 5 | header -a count
+echo "count" | cat - <(seq 5)
+count
+1 
+2 
+3 
+4 
+5
+
+< iris.csv header -d | head
+seq 5 | header -a line | body wc -l | header -r count
+count
+5
+
+seq 5 | header -a line | header -e "tr '[a-z]' '[A-Z]'"
+LINE
+1 
+2 
+3 
+4 
+5
+
+< tips.csv cols head | csvlook
+|--------+------+--------+--------+-----+--------+-------|
+|  bill  | tip  | sex    | smoker | day | time   | size  |
+|--------+------+--------+--------+-----+--------+-------|
+|  16.99 | 1.01 | Female | No     | Sun | Dinner | 2     |
+|  10.34 | 1.66 | Male   | No     | Sun | Dinner | 3     |
+|  21.01 | 3.5  | Male   | No     | Sun | Dinner | 3     |
+|  23.68 | 3.31 | Male   | No     | Sun | Dinner | 2     |
+|  24.59 | 3.61 | Female | No     | Sun | Dinner | 4     |
+|  25.29 | 4.71 | Male   | No     | Sun | Dinner | 4     |
+|  8.77  | 2.0  | Male   | No     | Sun | Dinner | 2     |
+|  26.88 | 3.12 | Male   | No     | Sun | Dinner | 4     |
+|  15.04 | 1.96 | Male   | No     | Sun | Dinner | 2     |
+|--------+------+--------+--------+-----+--------+-------|
+
+< tips.csv cols -c day | head | csvlook
+|---+-------+------+--------+--------+--------+-------|
+|   | bill  | tip  | sex    | smoker | time   | size  |
+|---+-------+------+--------+--------+--------+-------|
+|   | 16.99 | 1.01 | Female | No     | Dinner | 2     |
+|   | 10.34 | 1.66 | Male   | No     | Dinner | 3     |
+|   | 21.01 | 3.5  | Male   | No     | Dinner | 3     |
+|   | 23.68 | 3.31 | Male   | No     | Dinner | 2     |
+|   | 24.59 | 3.61 | Female | No     | Dinner | 4     |
+|   | 25.29 | 4.71 | Male   | No     | Dinner | 4     |
+|   | 8.77  | 2.0  | Male   | No     | Dinner | 2     |
+|   | 26.88 | 3.12 | Male   | No     | Dinner | 4     |
+|   | 15.04 | 1.96 | Male   | No     | Dinner | 2     |
+|---+-------+------+--------+--------+--------+-------|
+
+< tips.csv cols -c day body "tr '[a-z]' '[A-Z]'" | head | csvlook
+|------+-------+------+--------+--------+--------+-------|
+|  DAY | bill  | tip  | sex    | smoker | time   | size  |
+|------+-------+------+--------+--------+--------+-------|
+|  SUN | 16.99 | 1.01 | Female | No     | Dinner | 2     |
+|  SUN | 10.34 | 1.66 | Male   | No     | Dinner | 3     |
+|  SUN | 21.01 | 3.5  | Male   | No     | Dinner | 3     |
+|  SUN | 23.68 | 3.31 | Male   | No     | Dinner | 2     |
+|  SUN | 24.59 | 3.61 | Female | No     | Dinner | 4     |
+|  SUN | 25.29 | 4.71 | Male   | No     | Dinner | 4     |
+|  SUN | 8.77  | 2.0  | Male   | No     | Dinner | 2     |
+|  SUN | 26.88 | 3.12 | Male   | No     | Dinner | 4     |
+|  SUN | 15.04 | 1.96 | Male   | No     | Dinner | 2     |
+|------+-------+------+--------+--------+--------+-------|
+

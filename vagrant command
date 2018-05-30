@@ -80,7 +80,8 @@ curl -I j.mp/locatbbar
 
 curl -s http://api.randomuser.me | jq '.'
 
-chapter 4 make shell script
+
+********* chapter 4 make shell script
 
 curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt | tr '[:upper:]' '[:lower:]' | grep -oE '\w+' | sort | uniq -c | sort -nr | head -n 10
 
@@ -150,7 +151,7 @@ write(as.integer(line)^2, stdout())
 close(f)
 
 
-Chapter 5 Scrubbing Data
+********* Chapter 5 Scrubbing Data
 
 echo 'foo\nbar\nfoo' | sort | uniq -c | sort -nr
 2 foo
@@ -233,16 +234,99 @@ Line 6
 Line 8
 Line 10
 
+**based on pattern 
 grep -i chapter alice.txt
-** -i means case-insensitive
+(-i means case-insensitive)
+CHAPTER I. Down the Rabbit-Hole
+CHAPTER II. The Pool of Tears
+CHAPTER III. A Caucus-Race and a Long Tale
+CHAPTER IV. The Rabbit Sends in a Little Bill
+CHAPTER V. Advice from a Caterpillar
+CHAPTER VI. Pig and Pepper
+CHAPTER VII. A Mad Tea-Party
+CHAPTER VIII. The Queen's Croquet-Ground
+CHAPTER IX. The Mock Turtle's Story
+CHAPTER X. The Lobster Quadrille
+CHAPTER XI. Who Stole the Tarts?
+CHAPTER XII. Alice's Evidence
 
 grep -E '^CHAPTER (.*)\. The' alice.txt
 -E option in order to enable regular expressions
+CHAPTER II. The Pool of Tears
+CHAPTER IV. The Rabbit Sends in a Little Bill
+CHAPTER VIII. The Queen's Croquet-Ground
+CHAPTER IX. The Mock Turtle's Story
+CHAPTER X. The Lobster Quadrille
 
- seq 1000 | sample -r 1% | jq -c '{line: .}'
- seq 10000 | sample -r 1% -d 1000 -s 5 | jq -c '{line: .}'
+**based on randomness 
+seq 1000 | sample -r 1% | jq -c '{line: .}'
+{"line":69}
+{"line":239}
+{"line":278}
+{"line":457}
+{"line":480}
+{"line":670}
+{"line":746}
+{"line":827}
+{"line":850}
+{"line":854}
+{"line":855}
+{"line":998}
 
- grep -i chapter alice.txt | cut -d' ' -f3-
- sed -rn 's/^CHAPTER ([IVXLCDM]{1,})\. (.*)$/\2/p' alice.txt > /dev/null
+seq 10000 | sample -r 1% -d 1000 -s 5 | jq -c '{line: .}'
+{"line":45}
+{"line":78}
+{"line":299}
+{"line":406}
+{"line":472}
+{"line":648}
 
 
+** Extracting Values
+
+grep -i chapter alice.txt | cut -d' ' -f3-
+Down the Rabbit-Hole
+The Pool of Tears
+A Caucus-Race and a Long Tale
+The Rabbit Sends in a Little Bill
+Advice from a Caterpillar
+Pig and Pepper
+A Mad Tea-Party
+The Queen's Croquet-Ground
+The Mock Turtle's Story
+The Lobster Quadrille
+Who Stole the Tarts?
+Alice's Evidence
+
+sed -rn 's/^CHAPTER ([IVXLCDM]{1,})\. (.*)$/\2/p' alice.txt > /dev/null
+
+
+grep -i chapter alice.txt | cut -c 9-
+I. Down the Rabbit-Hole
+II. The Pool of Tears
+III. A Caucus-Race and a Long Tale
+IV. The Rabbit Sends in a Little Bill
+V. Advice from a Caterpillar
+VI. Pig and Pepper
+VII. A Mad Tea-Party
+VIII. The Queen's Croquet-Ground
+IX. The Mock Turtle's Story
+X. The Lobster Quadrille
+XI. Who Stole the Tarts?
+XII. Alice's Evidence
+
+sed -rn 's/^CHAPTER ([IVXLCDM]{1,})\. (.*)$/\2/p' alice.txt > /dev/nul
+
+< alice.txt grep -oE '\w{2,}' | head
+Project
+Gutenberg
+Alice
+Adventures
+in
+Wonderland
+by
+Lewis
+Carroll
+This
+
+< alice.txt tr '[:upper:]' '[:lower:]' | grep -oE '\w{2,}' | grep -E '^a.*e$' | sort | uniq -c | sort -nr | awk '{print $2","$1}' | header -a word,count | head | csvlook

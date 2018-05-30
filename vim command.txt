@@ -22,18 +22,25 @@ line
 
 
 ** Movement
-move : h,j,k,l or cursor
-word movement : w,b,e or shift+cursor or ctrl+cursor
+move : h,j,k,l 
+page up/down : Ctrl+b/f
+word movement : w,e,b  
+start of line : ^,0
 end of line : $
-start of line : ^
 goto line # : #gg #G
 start of file : gg
 end of file : G
-find charactor: f
-go to matching parenthese : %
-Go to start/end of line, 0 and $
+find charactor: f[]  navigation:n/N
+find word : /[  ] navigation(after <cr>):n/N
+matching parenthese : %
 Find word under cursor, * and #
-Search, /text with n and N
+
+**movement(arrow key)
+hjkl : arrow
+page up/down : shift up/down
+w : Shift+right
+b : Shift+left
+space(block) movement : Ctrl+arrow
 
 ** number powered
 insert text repeatedly : e.g. 3iYes -> yesyesyes
@@ -42,18 +49,21 @@ word movement : #w, #b, #e
 
 
 ** selection, delete,  undo
-selection : v
-delete : x
-Backspace : X
-delete line : dd
+selection(toggle) : v
+line selection : V
+copy : y
+delete(cut) : d
 dw : delete until next 'w' 
 de : delete until next 'e' 
 d2e: remove two words
 Replacing letter under cursor, r
 undo : u
 
-** copy, paste
+** copy, cut, paste, delete
 line copy : yy, Y
+delete : x
+Backspace : X
+line delete(cut) : dd
 paste after line : p
 paster before line : P
 

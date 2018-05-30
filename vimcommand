@@ -86,3 +86,21 @@ Ctrl+w,w or Ctrl+<arrow key>
 close window
 Ctrl+w,c -> close current window
 Ctrl+w,o -> close all except current window
+
+**file buffer
+:ls --> buffer list
+:b[#] --> move #th buffer
+:bd[#] --> delete #th buffer
+:bn[#] --> next buffer
+:bp[#] --> previous buffer
+
+
+**tab
+:tabnew --> new
+:tabnew b.txt --> new/open
+:tabf b.txt --> open
+:tabn[#] --> next tab
+:tabp[#] --> previous tab
+:tabs  --> list
+:tabclose --> close tab
+

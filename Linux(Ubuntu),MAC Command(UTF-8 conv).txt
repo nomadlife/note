@@ -1,4 +1,12 @@
-Linux(ubuntu) command
+﻿Linux(ubuntu) command
+
+**prompt change
+wim@desktop-01:~$ sudo hostname abc
+wim@desktop-01:~$
+start a new terminal
+wim@abc:~$ hostname
+abc
+wim@abc:~$
 
 ***git install
 sudo apt-get install git

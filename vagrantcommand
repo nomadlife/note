@@ -446,3 +446,35 @@ LINE
 |  SUN | 15.04 | 1.96 | Male   | No     | Dinner | 2     |
 |------+-------+------+--------+--------+--------+-------|
 
+Performing SQL Queries on CSV
+
+
+seq 5 | header -a value | csvsql --query "SELECT SUM(value) AS sum FROM stdin"
+sum
+15
+
+sed -e 's/"gender":/"sex":/g' data/users.json | fold | head -n 3
+
+**********Working with HTML/XML and JSON******************
+curl -sL 'http://en.wikipedia.org/wiki/List_of_countries_and_territories_by_border/area_ratio' > wiki.html
+
+head -n 10 data/wiki.html | cut -c1-79
+< wiki.html grep wikitable -A 21
+< wiki.html scrape -b -e 'table.wikitable > tr:not(:first-child)' > table.html
+head -n 21 data/table.html
+
+< table.html xml2json > table.json
+< table.json jq '.' | head -n 25
+
+< table.json jq -c '.html.body.tr[] | {country: .td[1][],border:.td[2][], surface: .td[3][]}' > countries.json
+head -n 10 data/countries.json
+head -n 11 countries.csv | csvlook
+*************************
+
+curl -sL 'http://en.wikipedia.org/wiki/List_of_countries'\
+> '_and_territories_by_border/area_ratio' |
+> scrape -be 'table.wikitable > tr:not(:first-child)' |
+> xml2json | jq -c '.html.body.tr[] | {country: .td[1][],'\
+> 'border: .td[2][], surface: .td[3][], ratio: .td[4][]}' |
+> json2csv -p -k=border,surface | head -n 11 | csvlook
+

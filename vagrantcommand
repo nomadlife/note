@@ -478,3 +478,260 @@ curl -sL 'http://en.wikipedia.org/wiki/List_of_countries'\
 > 'border: .td[2][], surface: .td[3][], ratio: .td[4][]}' |
 > json2csv -p -k=border,surface | head -n 11 | csvlook
 
+****Common Scrub Operations for CSV
+Extracting and Reordering Columns
+< iris.csv csvcut -c sepal_length,petal_length,sepal_width,petal_width |
+head -n 5 | csvlook
+< iris.csv csvcut -C species | head -n 5 | csvlook
+
+echo -e 'a,b,c,d,e,f,g,h,i\n1,2,3,4,5,6,7,8,9' | csvcut -c $(seq 1 2 9 | paste -sd,)
+a,c,e,g,i
+1,3,5,7,9
+
+echo -e 'a,b,c,d,e,f,g,h,i\n1,2,3,4,5,6,7,8,9' | cut -d, -f 5,1,3
+a,c,e
+1,3,5
+
+
+< iris.csv csvsql --query "SELECT sepal_length, petal_length, sepal_width, petal_width FROM stdin" | head -n 5 | csvlook
+
+******Filtering Lines*******
+seq 5 | sed -n '3,5p'
+seq 5 | header -a count | body sed -n '3,5p'
+
+csvgrep:
+to exclude all the bills of which the party size was 4 or less:
+csvgrep -c size -i -r "[1-4]" tips.csv | csvlook
+|--------+------+--------+--------+------+--------+-------|
+|  bill  | tip  | sex    | smoker | day  | time   | size  |
+|--------+------+--------+--------+------+--------+-------|
+|  29.8  | 4.2  | Female | No     | Thur | Lunch  | 6     |
+|  34.3  | 6.7  | Male   | No     | Thur | Lunch  | 6     |
+|  41.19 | 5.0  | Male   | No     | Thur | Lunch  | 5     |
+|  27.05 | 5.0  | Female | No     | Thur | Lunch  | 6     |
+|  29.85 | 5.14 | Female | No     | Sun  | Dinner | 5     |
+|  48.17 | 5.0  | Male   | No     | Sun  | Dinner | 6     |
+|  20.69 | 5.0  | Male   | No     | Sun  | Dinner | 5     |
+|  30.46 | 2.0  | Male   | Yes    | Sun  | Dinner | 5     |
+|  28.15 | 3.0  | Male   | Yes    | Sat  | Dinner | 5     |
+|--------+------+--------+--------+------+--------+-------|
+
+awk:
+to get all the bills above 40 USD on a Saturday or a Sunday:
+< tips.csv awk -F, '($1 > 40.0) && ($5 ~ /S/)' | csvlook
+|--------+------+--------+-----+-----+--------+----|
+|  48.27 | 6.73 | Male   | No  | Sat | Dinner | 4  |
+|--------+------+--------+-----+-----+--------+----|
+|  44.3  | 2.5  | Female | Yes | Sat | Dinner | 3  |
+|  48.17 | 5.0  | Male   | No  | Sun | Dinner | 6  |
+|  50.81 | 10.0 | Male   | Yes | Sat | Dinner | 3  |
+|  45.35 | 3.5  | Male   | Yes | Sun | Dinner | 3  |
+|  40.55 | 3.0  | Male   | Yes | Sun | Dinner | 2  |
+|  48.33 | 9.0  | Male   | No  | Sat | Dinner | 4  |
+|--------+------+--------+-----+-----+--------+----|
+
+csvsql:
+< tips.csv csvsql --query "SELECT * FROM stdin WHERE bill > 40 AND day LIKE '%S%'" | csvlook
+
+|--------+------+--------+--------+-----+--------+-------|
+|  bill  | tip  | sex    | smoker | day | time   | size  |
+|--------+------+--------+--------+-----+--------+-------|
+|  48.27 | 6.73 | Male   | 0      | Sat | Dinner | 4     |
+|  44.3  | 2.5  | Female | 1      | Sat | Dinner | 3     |
+|  48.17 | 5.0  | Male   | 0      | Sun | Dinner | 6     |
+|  50.81 | 10.0 | Male   | 1      | Sat | Dinner | 3     |
+|  45.35 | 3.5  | Male   | 1      | Sun | Dinner | 3     |
+|  40.55 | 3.0  | Male   | 1      | Sun | Dinner | 2     |
+|  48.33 | 9.0  | Male   | 0      | Sat | Dinner | 4     |
+|--------+------+--------+--------+-----+--------+-------|
+
+************Merging Columns*****************
+
+< names.csv csvlook
+|-----+-----------+------------+-------|
+|  id | last_name | first_name | born  |
+|-----+-----------+------------+-------|
+|  1  | Williams  | John       | 1932  |
+|  2  | Elfman    | Danny      | 1953  |
+|  3  | Horner    | James      | 1953  |
+|  4  | Shore     | Howard     | 1946  |
+|  5  | Zimmer    | Hans       | 1957  |
+|-----+-----------+------------+-------|
+
+sed : 
+< names.csv sed -re '1s/.*/id,full_name,born/g;2,$s/(.*),(.*),(.*),(.*)/\1,\3 \2,\4/g' | csvlook
+|-----+---------------+-------|
+|  id | full_name     | born  |
+|-----+---------------+-------|
+|  1  | John Williams | 1932  |
+|  2  | Danny Elfman  | 1953  |
+|  3  | James Horner  | 1953  |
+|  4  | Howard Shore  | 1946  |
+|  5  | Hans Zimmer   | 1957  |
+|-----+---------------+-------|
+
+awk :
+< names.csv awk -F, 'BEGIN{OFS=","; print "id,full_name,born"}{if(NR > 1) {print $1,$3" "$2,$4}}' | csvlook
+|-----+---------------+-------|
+|  id | full_name     | born  |
+|-----+---------------+-------|
+|  1  | John Williams | 1932  |
+|  2  | Danny Elfman  | 1953  |
+|  3  | James Horner  | 1953  |
+|  4  | Howard Shore  | 1946  |
+|  5  | Hans Zimmer   | 1957  |
+|-----+---------------+-------|
+
+cols : 
+< names.csv cols -c first_name,last_name tr \",\" \" \" | header -r full_name,id,born | csvcut -c id,full_name,born | csvlook
+|-----+---------------+-------|
+|  id | full_name     | born  |
+|-----+---------------+-------|
+|  1  | John Williams | 1932  |
+|  2  | Danny Elfman  | 1953  |
+|  3  | James Horner  | 1953  |
+|  4  | Howard Shore  | 1946  |
+|  5  | Hans Zimmer   | 1957  |
+|-----+---------------+-------|
+
+csvsql : 
+< names.csv csvsql --query "SELECT id, first_name || ' ' || last_name AS full_name, born FROM stdin" | csvlook
+|-----+---------------+-------|
+|  id | full_name     | born  |
+|-----+---------------+-------|
+|  1  | John Williams | 1932  |
+|  2  | Danny Elfman  | 1953  |
+|  3  | James Horner  | 1953  |
+|  4  | Howard Shore  | 1946  |
+|  5  | Hans Zimmer   | 1957  |
+|-----+---------------+-------|
+
+What if last_name contained a comma?
+sed:
+< names-comma.csv sed -re '1s/.*/id,full_name,born/g;2,$s/(.*),(.*),(.*),(.*)/\1,\3 \2,\4/g' | tail -n 1
+6,"Beethoven,Ludwig  van",1770 (fail)
+
+awk:
+< names-comma.csv awk -F, 'BEGIN{OFS=","; print "id,full_name,born"} {if(NR > 1) {print $1,$3" "$2,$4}}' | tail -n 1
+6, van" "Beethoven,Ludwig (fail)
+
+cols:
+< names-comma.csv cols -c first_name,last_name tr \",\" \" \" | header -r full_name,id,born | csvcut -c id,full_name,born | tail -n 1
+6,"Ludwig ""Beethoven  van""",1770 (fail)
+
+csvsql :
+< names-comma.csv csvsql --query "SELECT id, first_name || ' ' || last_name AS full_name, born FROM stdin" | tail -n 1
+6,"Ludwig Beethoven, van",1770 (succed)
+
+Rio(R script) :
+< names-comma.csv Rio -e 'df$full_name <- paste(df$first_name,df$last_name); df[c("id","full_name","born")]' | tail -n 1
+6,"Ludwig Beethoven, van",1770 (succed)
+
+************Combining Multiple CSV Files*****************
+Concatenate vertically
+< iris.csv fieldsplit -d, -k -F species -p . -s .csv
+wc -l Iris-*.csv
+
+cat:
+cat Iris-setosa.csv <(< Iris-versicolor.csv header -d) <(< Iris-virginica.csv header -d) | sed -n '1p;49,54p' | csvlook
+|---------------+-------------+--------------+-------------+------------------|
+|  sepal_length | sepal_width | petal_length | petal_width | species          |
+|---------------+-------------+--------------+-------------+------------------|
+|  4.6          | 3.2         | 1.4          | 0.2         | Iris-setosa      |
+|  5.3          | 3.7         | 1.5          | 0.2         | Iris-setosa      |
+|  5.0          | 3.3         | 1.4          | 0.2         | Iris-setosa      |
+|  7.0          | 3.2         | 4.7          | 1.4         | Iris-versicolor  |
+|  6.4          | 3.2         | 4.5          | 1.5         | Iris-versicolor  |
+|  6.9          | 3.1         | 4.9          | 1.5         | Iris-versicolor  |
+|---------------+-------------+--------------+-------------+------------------|
+
+csvstack Iris-*.csv | sed -n '1p;49,54p' | csvlook
+|---------------+-------------+--------------+-------------+------------------|
+|  sepal_length | sepal_width | petal_length | petal_width | species          |
+|---------------+-------------+--------------+-------------+------------------|
+|  4.6          | 3.2         | 1.4          | 0.2         | Iris-setosa      |
+|  5.3          | 3.7         | 1.5          | 0.2         | Iris-setosa      |
+|  5.0          | 3.3         | 1.4          | 0.2         | Iris-setosa      |
+|  7.0          | 3.2         | 4.7          | 1.4         | Iris-versicolor  |
+|  6.4          | 3.2         | 4.5          | 1.5         | Iris-versicolor  |
+|  6.9          | 3.1         | 4.9          | 1.5         | Iris-versicolor  |
+|---------------+-------------+--------------+-------------+------------------|
+
+mark filename
+csvstack Iris-*.csv -n species --filenames
+
+add group name
+csvstack Iris-*.csv -n class -g a,b,c | csvcut -C species |sed -n '1p;49,54p' | csvlook
+|--------+--------------+-------------+--------------+--------------|
+|  class | sepal_length | sepal_width | petal_length | petal_width  |
+|--------+--------------+-------------+--------------+--------------|
+|  a     | 4.6          | 3.2         | 1.4          | 0.2          |
+|  a     | 5.3          | 3.7         | 1.5          | 0.2          |
+|  a     | 5.0          | 3.3         | 1.4          | 0.2          |
+|  b     | 7.0          | 3.2         | 4.7          | 1.4          |
+|  b     | 6.4          | 3.2         | 4.5          | 1.5          |
+|  b     | 6.9          | 3.1         | 4.9          | 1.5          |
+|--------+--------------+-------------+--------------+--------------|
+
+Concatenate horizontally
+< tips.csv csvcut -c bill,tip | tee bills.csv | head -n 5 | csvlook
+|--------+-------|
+|  bill  | tip   |
+|--------+-------|
+|  16.99 | 1.01  |
+|  10.34 | 1.66  |
+|  21.01 | 3.5   |
+|  23.68 | 3.31  |
+|--------+-------|
+
+< tips.csv csvcut -c day,time | tee datetime.csv | head -n 3 | csvlook
+|------+---------|
+|  day | time    |
+|------+---------|
+|  Sun | Dinner  |
+|  Sun | Dinner  |
+|------+---------|
+
+< tips.csv csvcut -c sex,smoker,size | tee customers.csv |head -n 3 | csvlook
+|---------+--------+-------|
+|  sex    | smoker | size  |
+|---------+--------+-------|
+|  Female | No     | 2     |
+|  Male   | No     | 3     |
+|---------+--------+-------|
+
+paste -d, {bills,customers,datetime}.csv | head -n 3 | csvlook
+|--------+------+--------+--------+------+-----+---------|
+|  bill  | tip  | sex    | smoker | size | day | time    |
+|--------+------+--------+--------+------+-----+---------|
+|  16.99 | 1.01 | Female | No     | 2    | Sun | Dinner  |
+|  10.34 | 1.66 | Male   | No     | 3    | Sun | Dinner  |
+|--------+------+--------+--------+------+-----+---------|
+
+Joining
+csvjoin -c species iris.csv irismeta.csv | csvcut -c sepal_length,sepal_width,species,usda_id | sed -n '1p;49,54p' | csvlook
+|---------------+-------------+-----------------+----------|
+|  sepal_length | sepal_width | species         | usda_id  |
+|---------------+-------------+-----------------+----------|
+|  4.6          | 3.2         | Iris-setosa     | IRSE     |
+|  5.3          | 3.7         | Iris-setosa     | IRSE     |
+|  5.0          | 3.3         | Iris-setosa     | IRSE     |
+|  7.0          | 3.2         | Iris-versicolor | IRVE2    |
+|  6.4          | 3.2         | Iris-versicolor | IRVE2    |
+|  6.9          | 3.1         | Iris-versicolor | IRVE2    |
+|---------------+-------------+-----------------+----------|
+
+csvsql:
+csvsql --query 'SELECT i.sepal_length, i.sepal_width, i.species, m.usda_id FROM iris i JOIN irismeta m ON (i.species = m.species)'  iris.csv irismeta.csv | sed -n '1p;49,54p' | csvlook
+|---------------+-------------+-----------------+----------|
+|  sepal_length | sepal_width | species         | usda_id  |
+|---------------+-------------+-----------------+----------|
+|  4.6          | 3.2         | Iris-setosa     | IRSE     |
+|  5.3          | 3.7         | Iris-setosa     | IRSE     |
+|  5.0          | 3.3         | Iris-setosa     | IRSE     |
+|  7.0          | 3.2         | Iris-versicolor | IRVE2    |
+|  6.4          | 3.2         | Iris-versicolor | IRVE2    |
+|  6.9          | 3.1         | Iris-versicolor | IRVE2    |
+|---------------+-------------+-----------------+----------|
+
+

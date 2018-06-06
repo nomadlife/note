@@ -80,8 +80,8 @@ curl -I j.mp/locatbbar
 
 curl -s http://api.randomuser.me | jq '.'
 
-
-********* chapter 4 make shell script
+=============================================================================
+chapter 4 make shell script
 
 curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt | tr '[:upper:]' '[:lower:]' | grep -oE '\w+' | sort | uniq -c | sort -nr | head -n 10
 
@@ -150,8 +150,8 @@ write(as.integer(line)^2, stdout())
 }
 close(f)
 
-
-********* Chapter 5 Scrubbing Data
+========================================================================
+Chapter 5 Scrubbing Data
 
 echo 'foo\nbar\nfoo' | sort | uniq -c | sort -nr
 2 foo
@@ -734,6 +734,8 @@ csvsql --query 'SELECT i.sepal_length, i.sepal_width, i.species, m.usda_id FROM 
 |  6.9          | 3.1         | Iris-versicolor | IRVE2    |
 |---------------+-------------+-----------------+----------|
 
+
+=====================================================================
 Chapter 06 : Drake
 
 curl -s 'http://www.gutenberg.org/browse/scores/top' |
@@ -741,4 +743,33 @@ grep -E '^<li>' |
 head -n 5 |
 sed -E "s/.*ebooks\/([0-9]+).*/\\1/" > data/top-5
 
+=====================================================================
+Chapter 07 : Exploring Data
+
+head file.csv | csvlook
+
+less -S file.csv
+
+< data/iris.csv sed -e 's/,/\n/g;q'
+
+csvsql data/datatypes.csv
+
+cat data/iris.csv | csvcut -c species | body "sort | uniq | wc -l"
+
+csvstat data/investments2.csv --unique
+
+csvstat data/datatypes.csv
+  --null
+  --max
+  --min
+  --sum
+  --mean
+  --median
+  --stdev
+  --nulls
+  --unique
+  --freq
+  --len
+csvstat data/datatypes.csv --null
+csvstat data/investments2.csv -c 2,13,19,24
 

@@ -12,6 +12,8 @@ I - edit from the start of the line
 A - edit after end of the line
 o - edit after current line
 O - edit before the line
+s - delete one charater and edit
+cc - delete one line and edit
 
 <i> cursor <a>
 <I> line <A>
@@ -20,6 +22,9 @@ O - edit before the line
 line
 <o>
 
+line split : 
+line join : J
+man page : K
 
 ** Movement
 move : h,j,k,l 

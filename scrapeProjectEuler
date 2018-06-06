@@ -1,8 +1,8 @@
 ******scrape Project Euler Site *************
 *****Step by Step ******
-curl -s https://projecteuler.net/archives >page.html
+curl -s 'https://projecteuler.net/archives;page=1' >page1.html
 
-< test.html scrape -b -e 'table#problems_table > tr:not(:first-child)' >table.html
+< page1.html scrape -b -e 'table#problems_table > tr:not(:first-child)' >table.html
 
 < table.html xml2json > table.json
 
@@ -15,7 +15,7 @@ curl -s https://projecteuler.net/archives >page.html
 head -n 11 list.csv |csvlook
 
 *******One Line Comamnd(separated) ************
-curl -s https://projecteuler.net/archives |
+curl -s 'https://projecteuler.net/archives;page=1' |
 scrape -be 'table#problems_table > tr:not(:first-child)' |
 xml2json |
 jq -c '.html.body.tr[] | {id: .td[0]["$t"],subject: .td[1][]["$t"],solved:.td[2][]["$t"]}' |
@@ -23,5 +23,5 @@ json2csv -p -k id,subject,solved |
 head -n 11 |csvlook
 
 ******** One Line Command *********************
-curl -s https://projecteuler.net/archives | scrape -be 'table#problems_table > tr:not(:first-child)' | xml2json | jq -c '.html.body.tr[] | {id: .td[0]["$t"],subject: .td[1][]["$t"],solved:.td[2][]["$t"]}' | json2csv -p -k id,subject,solved | head -n 11 |csvlook
+curl -s 'https://projecteuler.net/archives;page=1' | scrape -be 'table#problems_table > tr:not(:first-child)' | xml2json | jq -c '.html.body.tr[] | {id: .td[0]["$t"],subject: .td[1][]["$t"],solved:.td[2][]["$t"]}' | json2csv -p -k id,subject,solved | head -n 11 |csvlook
 

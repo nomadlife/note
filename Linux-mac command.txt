@@ -1,12 +1,11 @@
 ﻿Linux(ubuntu) command
 
-**prompt change
-wim@desktop-01:~$ sudo hostname abc
-wim@desktop-01:~$
-start a new terminal
-wim@abc:~$ hostname
-abc
-wim@abc:~$
+** change hostname *
+sudo hostname [new name]
+
+** change hostname (permanently) **
+sudo vi /etc/hostname
+sudo vi /etc/hosts
 
 ***git install
 sudo apt-get install git

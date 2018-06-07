@@ -5,3 +5,7 @@ sudo apt-get remove virtualbox* --purge
 
 and reinstall
 sudo apt-get install virtualbox
+
+mount shared folder
+sudo mount -t vboxsf [name] ~/folder/
+

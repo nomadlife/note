@@ -25,3 +25,24 @@ head -n 11 |csvlook
 ******** One Line Command *********************
 curl -s 'https://projecteuler.net/archives;page=1' | scrape -be 'table#problems_table > tr:not(:first-child)' | xml2json | jq -c '.html.body.tr[] | {id: .td[0]["$t"],subject: .td[1][]["$t"],solved:.td[2][]["$t"]}' | json2csv -p -k id,subject,solved | head -n 11 |csvlook
 
+
+===========================
+tfg work scrpping
+
+scrape try :1
+< work.html scrape -be 'div' | head 
+< work.html scrape -be 'div' | xml2json > table_div.json
+
+scrape try :2
+< work.html scrape -be 'body>div' | head
+< work.html scrape -be 'body>div' | xml2json > divTable2.json
+
+scrape try :3
+< work.html scrape -be 'body>div#Page>div' | head
+< work.html scrape -be 'body>div#Page>div' | xml2json > divTable3.json
+
+< divTable3.json jq -c '.html.body.div[] | {id}'
+< divTable3.json jq -c '.html.body.div[] | {id,parameters}'
+< divTable3.json jq -c '.html.body.div[] | {id:.["id"],parameters:.["parameters"]}'
+< divTable3.json jq -c '.html.body.div[] | {id:.id,parameters:.parameters}'
+

@@ -772,4 +772,74 @@ csvstat data/datatypes.csv
   --len
 csvstat data/datatypes.csv --null
 csvstat data/investments2.csv -c 2,13,19,24
+csvstat data/iris.csv | tail -n 1
+csvstat data/iris.csv | sed -rne '${s/^([^:]+): ([0-9]+)$/\2/;p}'
+
+***** Rio ****************
+< data/tips.csv Rio -e 'df$tip / df$bill * 100' | head
+< data/tips.csv Rio -e 'df$percent <- df$tip / df$bill * 100; df' | head
+< data/iris.csv Rio -e 'mean(df$sepal_length)'
+< data/iris.csv Rio -e 'sd(df$sepal_length)'
+< data/iris.csv Rio -e 'sum(df$sepal_length)'
+
+< data/iris.csv Rio -e 'summary(df$sepal_length)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+  4.300   5.100   5.800   5.843   6.400   7.900
+
+< data/iris.csv Rio -e 'skewness(df$sepal_length)'
+< data/iris.csv Rio -e 'kurtosis(df$petal_width)'
+< dat/iris.csv Rio -e 'cor(df$bill, df$tip)'
+< data/tips.csv csvcut -c bill,tip | Rio -f cor | csvlook
+
+< data/iris.csv Rio -e 'stem(df$sepal_length)'
+
+ The decimal point is 1 digit(s) to the left of the |
+
+  42 | 0
+  44 | 0000
+  46 | 000000
+  48 | 00000000000
+  50 | 0000000000000000000
+  52 | 00000
+  54 | 0000000000000
+  56 | 00000000000000
+  58 | 0000000000
+  60 | 000000000000
+  62 | 0000000000000
+  64 | 000000000000
+  66 | 0000000000
+  68 | 0000000
+  70 | 00
+  72 | 0000
+  74 | 0
+  76 | 00000
+  78 | 0
+
+**** visualization *******
+while true; do echo $RANDOM; done | sample -d 10 | feedgnuplot --stream \
+--terminal 'dumb 80,25' --lines --xlen 10
+
+  30000 ++-----+------------+-------------+-------------+------------+-----++
+        |      +            +      **     +             +            +      |
+        |      :            :    **  *    :             :            :      |
+  25000 ++.....************....**.....**...................................++
+        |      *           *:**         * :             :            :      |
+        |     *:            *            *:             :            :      |
+        |     *:            :             :             :            :      |
+  20000 ++...*............................*................................++
+        |    * :            :             :*            :            :      |
+        |   *  :            :             :*            :            :      |
+  15000 ++..*...............................*...........**.................++
+        |  *   :            :             :  *         *: *          :      |
+        |  *   :            :             :  *        * :  **        :      |
+  10000 ++*...................................*......*.......*.............++
+        | *    :            :             :   *      *  :            :      |
+        |*     :            :             :    *    *   :     *******:   ****
+        |*     :            :             :     *  *    :            ****   |
+   5000 *+......................................*.*........................++
+        |      :            :             :      *      :            :      |
+        |      +            +             +             +            +      |
+      0 ++-----+------------+-------------+-------------+------------+-----++
+              2280         2282          2284          2286         2288
+
 

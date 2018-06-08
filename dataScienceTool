@@ -842,4 +842,15 @@ while true; do echo $RANDOM; done | sample -d 10 | feedgnuplot --stream \
       0 ++-----+------------+-------------+-------------+------------+-----++
               2280         2282          2284          2286         2288
 
+**** ggplot2 package with Rio ******
+
+< data/immigration.dat sed -re '/^#/d;s/\t/,/g;s/,-,/,0,/g;s/Region/'\
+'Period/' | tee data/immigration.csv | head | cut -c1-80
+
+
+< data/immigration.csv csvcut -c Period,Denmark,netherlands,Norway,Sweden | Rio -re 'melt(df, id="Period", variable.name="Country", vaue.name="Count")' | tee data/immigration-long.csv
+
+
+< data/immigration-long.csv Rio -ge 'g + geom_bar(aes(Country, Count,fill=Period), stat="identity") + scale_fill_brewer(palette="Set1")+ labs(x="Country of origin", y="Immigration by decade", title="Immigration from Northern Europe\n(columstacked histogram)")' | display
+
 

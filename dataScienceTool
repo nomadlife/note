@@ -851,6 +851,112 @@ while true; do echo $RANDOM; done | sample -d 10 | feedgnuplot --stream \
 < data/immigration.csv csvcut -c Period,Denmark,netherlands,Norway,Sweden | Rio -re 'melt(df, id="Period", variable.name="Country", vaue.name="Count")' | tee data/immigration-long.csv
 
 
-< data/immigration-long.csv Rio -ge 'g + geom_bar(aes(Country, Count,fill=Period), stat="identity") + scale_fill_brewer(palette="Set1")+ labs(x="Country of origin", y="Immigration by decade", title="Immigration from Northern Europe\n(columstacked histogram)")' | display
+< data/immigration-long.csv Rio -ge 'g + geom_bar(aes(Country, Count,fill=Period), stat="identity") + scale_fill_brewer(palette="Set1")+ labs(x="Country of origin", y="Immigration by decade", title="Immigration from Northern Europe\n(columstacked histogram)")' > image.png
+
+**Histograms
+**Rio
+< data/tips.csv Rio -ge 'g+geom_histogram(aes(bill))' > /vagrant/image2.png
+
+**feedgnuplot
+< data/tips.csv csvcut -c bill | feedgnuplot --terminal 'dumb 80,25' \
+--histogram 0 --with boxes --ymin 0 --binwidth 1.5 --unset grid --exit
+
+  25 ++----+------+-----+--***-+-----+------+-----+------+-----+------+----++
+     +     +      +     +*** * +     +      +     +      +     +      +     +
+     |                   * * *                                              |
+     |               *** * * *                                              |
+  20 ++              * * * * *                                             ++
+     |            **** * * * *                                              |
+     |            * ** *** * * ***                                          |
+     |            * ** * * * * * *                                          |
+  15 ++           * ** * * * * * *                                         ++
+     |            * ** * * * * * *                                          |
+     |            * ** * * * * * *                                          |
+     |            * ** * * * * * * ***                                      |
+  10 ++           * ** * * * *** *** *                                     ++
+     |            * ** * * * * * * * *                                      |
+     |          *** ** * * * * * * * ***** ***                              |
+     |          * * ** * * * * * * * * * *** *                              |
+   5 ++       *** * ** * * * * * * * * * * * *   ***                       ++
+     |        * * * ** * * * * * * * * * * * * *** *                        |
+     |        * * * ** * * * * * * * * * * * *** * ********   *** ***       |
+     +  ***+*** * * ** *+* * * * * * * * * *+* * *+** * *+* ***+* * * ***   +
+   0 ++-***+***********************************************-*****-***-***--++
+     0     5      10    15     20    25     30    35     40    45     50    55
+
+** Bar Plots
+** Rio
+< data/tips.csv Rio -ge 'g+geom_bar(aes(factor(size)))' > /vagrant/image3.png
+
+**feedgnuplot
+< data/tips.csv csvcut -c size | header -d | feedgnuplot --terminal 'dumb 80,25' --histogram 0 --with boxes --unset grid --exit
+
+** Density plot
+** Rio
+
+< data/tips.csv Rio -ge 'g+geom_density(aes(tip / bill * 100, fill=sex), alpha=0.3) + xlab("percent")' > /vagrant/image4.png
+
+** Box Plots
+** Rio
+< data/tips.csv Rio -ge 'g+geom_boxplot(aes(time, bill))' > /vagrant/image5_box.png
+
+**Scatter Plots
+**Rio
+< data/tips.csv Rio -ge 'g+geom_point(aes(bill, tip, color=time))' > /vagrant/image6-scatter.png
+
+**feedgnuplot
+< data/tips.csv csvcut -c bill,tip | tr , ' ' | header -d | feedgnuplot --terminal 'dumb 80,25' --points --domain --unset grid --exit --style pt 14
+  10 ++----+------+-----+------+-----+------+-----+------+-----+------+A---++
+     +     +      +     +      +     +      +     +      +     +      +     +
+   9 ++                                                            A       ++
+     |                                                                      |
+   8 ++                                                                    ++
+     |                                                  A                   |
+     |                                                                      |
+   7 ++                                          A                 A       ++
+     |                             A     A                                  |
+   6 ++                              A    A    A                           ++
+     |                             A        A                               |
+   5 ++       A                 A A   A A   AA A  AA      A  A     A       ++
+     |                                A       A    A     A                  |
+   4 ++          A     A  AAAA AAA A  A A  A          A                    ++
+     |                A   AAAAA AAA AA            A             A           |
+     |              A  AAAAAAA AA A A  AA   A AA                            |
+   3 ++           A   AAAAAAAAAAA A A    AA           AA A                 ++
+     |              AAAAAAA AA  A A A     A                   A             |
+   2 ++        AA AAAAAAAAA A  A  A AA  A A A                              ++
+     +     +   AAAAAAAA +A   AA+     + A    +     +      +     +      +     +
+   1 ++--A-+A-A---+--AA-+--A---+-----+------+--A--+------+-----+------+----++
+     0     5      10    15     20    25     30    35     40    45     50    55
+
+** Line Graphs
+** Rio
+< data/immigration-long.csv Rio -ge 'g+geom_line(aes(x=Period, y=Count, group=Country, color=Country)) + theme(axis.text.x =element_text(angle = -45, hjust = 0))' > /vagrant/image7-line.png
+
+** feedgnuplot
+< data/immigration.csv csvcut -c Period,Denmark,Netherlands,Norway,Sweden | header -d | tr , ' ' | feedgnuplot --terminal 'dumb 80,25' --lines --autolegend --domain --legend 0 "Denmark" --legend 1 "Netherlands"  --legend 2 "Norway" --legend 3 "Sweden" --xlabel "Period" --unset grid --exit
+  250000 ++-----%%%-------+-------+--------+-------+-------+--------+------++
+         +  %%%% + %      +       +        +       +       + Denmark+****** +
+         |%%        %                                    Netherlands ###### |
+         |          %                                         Norway $$$$$$ |
+  200000 ++          %                                        Sweden %%%%%%++
+         |        $   %                                                     |
+         |       $ $   %                                                    |
+         |      $   $  %                                                    |
+  150000 ++   $$     $  %                                                  ++
+         |   $        $  %                                                  |
+         |  $          $  %                                                 |
+  100000 ++$            $ %                                                ++
+         |$              $ %%%%%%%%%%                                       |
+         |                $          %                                      |
+         |    ***********  $$$$$$$$$$$%                                     |
+   50000 +****  #########**           $%%                  #######         ++
+         |  ####           ********    $$%              ###       ##        |
+         |##                       ******##           ##$$$$$$$$$$$$#       |
+         +       +        +       +      **###########$$*************       +
+       0 ++------+--------+-------+--------*************---+--------+------++
+        1890    1900     1910    1920     1930    1940    1950     1960    1970
+                                       Period
+
 
 

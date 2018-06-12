@@ -1,4 +1,32 @@
-﻿*** make package list 
+﻿** for graphviz
+pip install graphviz
+Installing collected packages: graphviz
+Successfully installed graphviz-0.8.3
+
+** for mglearn
+pip install mglearn
+Successfully built mglearn
+Installing collected packages: pillow, mglearn
+Successfully installed mglearn-0.1.6 pillow-5.1.0
+
+** for jupyterthemes
+pip install jupyterthemes
+Installing collected packages: ply, lesscpy, jupyterthemes
+Successfully installed jupyterthemes-0.19.1 lesscpy-0.13.0 ply-3.11
+
+** for jupyter 
+pip install jupyter 
+Successfully built pandocfilters MarkupSafe
+Installing collected packages: jsonschema, jupyter-core, nbformat, tornado, pyzmq, jupyter-client, ipykernel, pywinpty, terminado, MarkupSafe, jinja2, testpath, entrypoints, pandocfilters, mistune, webencodings, html5lib, bleach, nbconvert, Send2Trash, notebook, widgetsnbextension, ipywidgets, jupyter-console, qtconsole, jupyter
+Successfully installed MarkupSafe-1.0 Send2Trash-1.5.0 bleach-2.1.3 entrypoints-0.2.3 html5lib-1.0.1 ipykernel-4.8.2 ipywidgets-7.2.1 jinja2-2.10 jsonschema-2.6.0 jupyter-1.0.0 jupyter-client-5.2.3 jupyter-console-5.2.0 jupyter-core-4.4.0 mistune-0.8.3 nbconvert-5.3.1 nbformat-4.4.0 notebook-5.5.0 pandocfilters-1.4.2 pywinpty-0.5.4 pyzmq-17.0.0 qtconsole-4.3.1 terminado-0.8.1 testpath-0.3.1 tornado-5.0.2 webencodings-0.5.1 widgetsnbextension-3.2.1
+
+** for machine learning
+pip install numpy scipy matplotlib ipython scikit-learn pandas
+
+Installing collected packages: scipy, six, cycler, pyparsing, python-dateutil, pytz, kiwisolver, matplotlib, colorama, ipython-genutils, decorator, traitlets, backcall, wcwidth, prompt-toolkit, pygments, simplegeneric, pickleshare, parso, jedi, ipython, scikit-learn, pandas
+Successfully installed backcall-0.1.0 colorama-0.3.9 cycler-0.10.0 decorator-4.3.0 ipython-6.4.0 ipython-genutils-0.2.0 jedi-0.12.0 kiwisolver-1.0.1 matplotlib-2.2.2 pandas-0.23.0 parso-0.2.1 pickleshare-0.7.4 prompt-toolkit-1.0.15 pygments-2.2.0 pyparsing-2.2.0 python-dateutil-2.7.3 pytz-2018.4 scikit-learn-0.19.1 scipy-1.1.0 simplegeneric-0.8.1 six-1.11.0 traitlets-4.3.2 wcwidth-0.1.7
+
+*** make package list 
 pip freeze > requirements.txt
 pip install -r requirements.txt
 

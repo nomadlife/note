@@ -8,4 +8,5 @@ sudo apt-get install virtualbox
 
 mount shared folder
 sudo mount -t vboxsf [name] ~/folder/
+sudo mount -t vboxsf vagrant /vagrant
 

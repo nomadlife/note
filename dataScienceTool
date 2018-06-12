@@ -959,4 +959,33 @@ while true; do echo $RANDOM; done | sample -d 10 | feedgnuplot --stream \
                                        Period
 
 
+=============================================================
+Chapter 8 Parallel Pipelines
+
+** bc : calculation tool
+echo "4^2" | bc
+
+** for - do - done
+for i in {0..100..2}
+>do
+>echo "$i^2" | bc
+>done | tail
+
+< data/users.json jq -r '.results[].user.email' > data/emails.txt
+cat data/emails.txt
+kaylee.anderson64@example.com
+arthur.baker92@example.com
+chloe.graham66@example.com
+wyatt.nelson80@example.com
+peter.coleman75@example.com
+
+while read line
+> do
+> echo "Sending invitation to ${line}."
+> done < data/emails.txt
+Sending invitation to kaylee.anderson64@example.com.
+Sending invitation to arthur.baker92@example.com.
+Sending invitation to chloe.graham66@example.com.
+Sending invitation to wyatt.nelson80@example.com.
+Sending invitation to peter.coleman75@example.com.
 

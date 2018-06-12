@@ -107,7 +107,7 @@ Ctrl+w,o -> close all except current window
 :tabn[#] --> next tab
 :tabp[#] --> previous tab
 :tabs  --> list
-:tabclose --> close tab
+:tabclose or :q --> close tab(not for buffer)
 
 **edit vmirc file
 :e $MYVIMRC

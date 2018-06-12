@@ -109,3 +109,10 @@ Ctrl+w,o -> close all except current window
 :tabs  --> list
 :tabclose --> close tab
 
+**edit vmirc file
+:e $MYVIMRC
+
+:set noundofile .un : undo file
+:set nowritebackup ~ : write backup file
+:set nobackup
+ 

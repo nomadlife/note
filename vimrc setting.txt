@@ -38,3 +38,10 @@ vimrc -> map <F3>:NERDTree<CR>
 :w
 :so % (or source %)
 :PluginInstall
+
+"** edit vimrc file
+":e $MYVIMRC
+
+"set undodir= %homepath%\.vim\.undo\
+"set backupdir= %homepath%\.vim\.backup\
+"set directory= %homepath%\.vim\.swp\

@@ -989,3 +989,122 @@ Sending invitation to chloe.graham66@example.com.
 Sending invitation to wyatt.nelson80@example.com.
 Sending invitation to peter.coleman75@example.com.
 
+while read i; do echo "input:$i.";done < /dev/stdin
+one
+input:one.
+two
+input:two.
+three
+input:three.
+
+
+for filename in *.csv
+> do
+> echo "Processing ${filename}."
+> done
+Processing *.csv.
+
+
+find data -name '*.json' -exec echo "Processing {}" \;
+Processing data/_users.json
+Processing data/users.json
+
+** Parallel Processing
+#!/bin/bash
+echo "Starting job $1"
+duration=$((1+RANDOM%5))
+sleep $duration
+echo "Job $1 took ${duration} seconds"
+
+[1] 1585
+[2] 1586
+[3] 1587
+[4] 1589
+vagrant@tb:~/book/ch08$ Starting job 1
+Starting job 2
+Starting job 3
+Starting job 4
+Job 2 took 1 seconds
+Processed 2
+Job 1 took 2 seconds
+Processed 1
+Job 3 took 2 seconds
+Processed 3
+Job 4 took 2 seconds
+Processed 4
+
+[1]   Done                    ( ./slow.sh $i; echo Processed $i )
+[2]   Done                    ( ./slow.sh $i; echo Processed $i )
+[3]-  Done                    ( ./slow.sh $i; echo Processed $i )
+[4]+  Done                    ( ./slow.sh $i; echo Processed $i )
+
+
+
+for i in {1..4}; do
+> (./slow.sh $i; echo Processed $i) &
+> done
+[1] 1670
+[2] 1671
+[3] 1673
+[4] 1674
+vagrant@tb:~/book/ch08$ Starting job 3
+Starting job 1
+Starting job 4
+Starting job 2
+Job 3 took 1 seconds
+Processed 3
+Job 4 took 1 seconds
+Processed 4
+Job 1 took 2 seconds
+Processed 1
+Job 2 took 3 seconds
+Processed 2
+
+[1]   Done                    ( ./slow.sh $i; echo Processed $i )
+[2]   Done                    ( ./slow.sh $i; echo Processed $i )
+[3]-  Done                    ( ./slow.sh $i; echo Processed $i )
+[4]+  Done                    ( ./slow.sh $i; echo Processed $i )
+
+
+while read i; do
+> (./slow.sh "$i"; ) &
+> done < data/movies.txt
+[1] 1682
+[2] 1683
+[3] 1684
+[4] 1685
+Starting job Matrix
+Starting job Home Alone
+[5] 1686
+vagrant@tb:~/book/ch08$ Starting job Star Wars
+Starting job Indiana Jones
+Starting job Back to the Future
+Job Back to the Future took 2 seconds
+Job Matrix took 3 seconds
+Job Indiana Jones took 3 seconds
+Job Home Alone took 5 seconds
+Job Star Wars took 5 seconds
+
+GNU Parallel
+seq 5 | parallel "echo {}^2 | bc"
+seq 5 | parallel echo {}
+< input.csv parallel -C, "mv {1} {2}"
+< input.csv parallel -C, --header : "invite {name} {email}"
+seq 5 | parallel -N0 "echo The command line rules
+
+**number of job control
+seq 5 | parallel -j0 "echo Hi {}"
+seq 5 | parallel -j200% "echo Hi {}"
+
+** Logging
+seq 5 | parallel "echo \"Hi {}\" > data/hi-{}.txt"
+seq 5 | parallel "echo Hi {}" >> data/one-big-file.txt
+seq 5 | parallel --results data/outdir "echo Hi {}"
+
+--keep-order
+
+seq 5 | parallel --tag "echo Hi {}"
+
+** pbc
+seq 100 | pbc '{1}^2' | tail
+

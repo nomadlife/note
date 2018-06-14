@@ -10,3 +10,6 @@ mount shared folder
 sudo mount -t vboxsf [name] ~/folder/
 sudo mount -t vboxsf vagrant /vagrant
 
+umount
+sudo umount /vagrant
+

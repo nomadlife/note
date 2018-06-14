@@ -1,5 +1,9 @@
 ﻿Linux(ubuntu) command
 
+
+** find text
+grep -rnw [text]
+
 ** change hostname *
 sudo hostname [new name]
 

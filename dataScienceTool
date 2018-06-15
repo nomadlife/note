@@ -1108,3 +1108,7 @@ seq 5 | parallel --tag "echo Hi {}"
 ** pbc
 seq 100 | pbc '{1}^2' | tail
 
+
+** AWS EC2 Instances
+
+

@@ -26,6 +26,18 @@ head -n 11 |csvlook
 curl -s 'https://projecteuler.net/archives;page=1' | scrape -be 'table#problems_table > tr:not(:first-child)' | xml2json | jq -c '.html.body.tr[] | {id: .td[0]["$t"],subject: .td[1][]["$t"],solved:.td[2][]["$t"]}' | json2csv -p -k id,subject,solved | head -n 11 |csvlook
 
 
+** scrape 2 : country page
+< ... scrape -be 'table#main_table' 
+< ... scrape -be 'table#main_table > tbody>tr' 
+< ... scrape -be 'table#main_table > tbody>tr:not(:first-child)'
+
+< ... xml2json > table-...json
+
+< ... jq -c '.html.body.tr[] | {class:.td[0]["$t"]}' | head
+< ... jq -c '.html.body.tr[] | .td[]["class"]' | head
+< ... jq -c '.html.body.tr[] | {id:.id,rank:.td[0]."$t",name:.td[1].table.tbody.tr.td[0].div.i."$t"}' | head
+
+
 ===========================
 tfg work scrpping
 

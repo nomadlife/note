@@ -45,8 +45,10 @@ curl -s 'https://projecteuler.net/archives;page=1' | scrape -be 'table#problems_
 < ... jq -c '.html.body.tr[] | {rank:.td[0]."$t",solved:.td[3]."$t",level:.td[4].a."$t",last_solved:.td[1].table.tbody.tr.td[0].div.span."$t"}'
 
 **** country page ******
+< ... scrape -be 'table#country_table > tbody>tr'
 < ... scrape -be 'table#country_table > tbody>tr:not(:first-child)' 
-
+< ... jq -c '.html.body.tr[] | [.td[0].a."$t",.td[1]."$t",.td[2]."$t",.td[3]."$t"]' 
+< ... jq -c '.html.body.tr[] | {country:.td[0].a."$t",user:.td[1]."$t",abovelv1:.td[2]."$t",mean:.td[3]."$t"}' | json2csv -p -k country,user,abovelv1,mean
 
 
 ************One liner ***************
@@ -103,4 +105,9 @@ scrape try :3
 < divTable3.json jq -c '.html.body.div[] | {id,parameters}'
 < divTable3.json jq -c '.html.body.div[] | {id:.["id"],parameters:.["parameters"]}'
 < divTable3.json jq -c '.html.body.div[] | {id:.id,parameters:.parameters}'
+
+< ... jq -c '.html.body.div[] | select(.id|contains("shape"))| {id:.id,param:.parameters}'
+< table-ma-ld-os2-ug.json jq -c '.html.body.div[] | select(.id|contains("shape"))| .parameters|split(";")'
+< table-ma-ld-os2-ug.json jq -c '.html.body.div[] | select(.id|contains("shape"))| .parameters|split(";")[0]'
+< table-ma-ld-os2-ug.json jq -c '.html.body.div[] | select(.id|contains("shape"))| .parameters|split(";")[0]|split(":")'
 

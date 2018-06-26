@@ -135,6 +135,63 @@ Jupyter notebook / themes
  jt -t [theme name] :  change theme
  jt -l : show the list of themes
 
+**Font
+jt -t onedork -f cousine
+
+-f arg 	
+Monospace Font
+anka 	Anka/Coder
+anonymous 	Anonymous Pro
+aurulent 	Aurulent Sans Mono
+bitstream 	Bitstream Vera Sans Mono
+bpmono 	BPmono
+code 	Code New Roman
+consolamono 	Consolamono
+cousine 	Cousine
+dejavu 	DejaVu Sans Mono
+droidmono 	Droid Sans Mono
+fira 	Fira Mono
+firacode 	Fira Code
+generic 	Generic Mono
+hack 	Hack
+hasklig 	Hasklig
+inconsolata 	Inconsolata-g
+inputmono 	Input Mono
+iosevka 	Iosevka
+liberation 	Liberation Mono
+meslo 	Meslo
+office 	Office Code Pro
+oxygen 	Oxygen Mono
+roboto 	Roboto Mono
+saxmono 	saxMono
+source 	Source Code Pro
+sourcemed 	Source Code Pro Medium
+ptmono 	PT Mono
+ubuntu 	Ubuntu Mono
+
+Sans-Serif Fonts
+-nf/-tf arg 	
+Sans-Serif Font
+opensans 	Open Sans
+droidsans 	Droid Sans
+exosans 	Exo_2
+latosans 	Lato
+ptsans 	PT Sans
+robotosans 	Roboto
+sourcesans 	Source Sans Pro
+Serif Fonts
+
+-nf/-tf arg 	
+Serif Font
+loraserif 	Lora
+ptserif 	PT Serif
+georgiaserif 	Georgia
+cardoserif 	Cardo
+crimsonserif 	Crimson Text
+ebserif 	EB Garamond
+merriserif 	Merriweather
+neutonserif 	Neuton
+goudyserif 	Sorts Mill Goudy
 
 
 

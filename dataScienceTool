@@ -1111,4 +1111,29 @@ seq 100 | pbc '{1}^2' | tail
 
 ** AWS EC2 Instances
 
+====================================================
+chapter 9
+
+parallel "curl -sL http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-{}.csv > wine-{}.csv" ::: red white
+
+head -n 5 wine-{red,white}.csv | fold
+
+wc -l wine-{red,white}.csv
+
+• Convert the header to lowercase
+• Convert the semicolons to commas
+• Convert spaces to underscores
+• Remove unnecessary quotes
+
+$ for T in red white; do
+> < wine-$T.csv tr '[A-Z]; ' '[a-z],_' | tr -d \" > wine-${T}-clean.csv
+> done
+
+** combine two data set
+$ HEADER="$(head -n 1 wine-red-clean.csv),type"
+$ csvstack -g red,white -n type wine-{red,white}-clean.csv |
+> csvcut -c $HEADER > wine-both-clean.csv
+
+**csvstat ... --nulls
+
 

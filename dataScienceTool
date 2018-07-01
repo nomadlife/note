@@ -1136,4 +1136,14 @@ $ csvstack -g red,white -n type wine-{red,white}-clean.csv |
 
 **csvstat ... --nulls
 
+$ < wine-both-clean.csv Rio -ge 'g+geom_density(aes(quality, '\
+> 'fill=type), adjust=3, alpha=0.5)' | display
+
+$ < wine-both-clean.csv Rio -ge 'ggplot(df, aes(x=alcohol, y=quality, '\
+> 'color=type)) + geom_point(position="jitter", alpha=0.2) + '\
+> 'geom_smooth(method="lm")' | display
+
+****Dimensionality Reduction with Tapkee
+< wine-both.csv cols -C type Rio -f scale > wine-both-scaled.csv
+
 

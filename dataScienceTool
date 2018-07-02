@@ -1136,14 +1136,52 @@ $ csvstack -g red,white -n type wine-{red,white}-clean.csv |
 
 **csvstat ... --nulls
 
-$ < wine-both-clean.csv Rio -ge 'g+geom_density(aes(quality, '\
-> 'fill=type), adjust=3, alpha=0.5)' | display
+< wine-both-clean.csv Rio -ge 'g+geom_density(aes(quality, fill=type), adjust=3, alpha=0.5)' | display
+< wine-both-clean.csv Rio -ge 'g+geom_density(aes(quality, fill=type), adjust=3, alpha=0.5)' > /vagrant/ch9-1.png
 
-$ < wine-both-clean.csv Rio -ge 'ggplot(df, aes(x=alcohol, y=quality, '\
-> 'color=type)) + geom_point(position="jitter", alpha=0.2) + '\
-> 'geom_smooth(method="lm")' | display
+< wine-both-clean.csv Rio -ge 'ggplot(df, aes(x=alcohol, y=quality, color=type)) + geom_point(position="jitter", alpha=0.2) + geom_smooth(method="lm")' | display
+< wine-both-clean.csv Rio -ge 'ggplot(df, aes(x=alcohol, y=quality, color=type)) + geom_point(position="jitter", alpha=0.2) + geom_smooth(method="lm")' > /vagrant/ch9-2.png 
 
 ****Dimensionality Reduction with Tapkee
 < wine-both.csv cols -C type Rio -f scale > wine-both-scaled.csv
 
+*** graph 9-3 
+< wine-both-scaled.csv cols -C type,quality body tapkee --method pca | header -r x,y,type,quality | Rio-scatter x y type | display
+< wine-both-scaled.csv cols -C type,quality body tapkee --method pca | header -r x,y,type,quality | Rio-scatter x y type > /vagrant/ch9-3.png 
+
+< wine-both-scaled.csv cols -C type,quality body tapkee --method t-sne | header -r x,y,type,quality | Rio-scatter x y type | display
+< wine-both-scaled.csv cols -C type,quality body tapkee --method t-sne | header -r x,y,type,quality | Rio-scatter x y type > /vagrant/ch9-4.png
+
+
+********* Weka
+java -cp ~/bin/weka.jar weka.datagenerators.classifiers.regression.MexicanHat -n 10 | fold (not work)
+
+******** weka setting
+**filename:weka
+#!/usr/bin/env bash
+java -Xmx1024M -cp ${WEKAPATH}/weka.jar "weka.$@"
+
+** ~/.bashrc
+export WEKAPATH=/home/vagrant/repos/weka
+
+weka datagenerators.classifiers.regression.MexicanHat -n 10
+weka datagenerators.classifiers.regression.MexicanHat -h
+
+unzip -l $WEKAPATH/weka.jar |
+sed -rne 's/.*(weka)\/([^g])([^$]*)\.class$/\2\3/p' |
+tr '/' '.' |
+parallel --timeout 1 -j4 -v "weka {} -h > {} 2>&1"
+
+grep -L 'Exception' * | tee $WEKAPATH/weka.classes
+
+*** Adding tab complettion
+_completeweka() {
+local curw=${COMP_WORDS[COMP_CWORD]}
+local wordlist=$(cat $WEKAPATH/weka.classes)
+COMPREPLY=($(compgen -W '${wordlist[@]}' -- "$curw"))
+return 0
+}
+complete -o nospace -F _completeweka weka
+
+**Converting Between CSV and ARFF
 

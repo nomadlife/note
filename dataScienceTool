@@ -1167,10 +1167,7 @@ export WEKAPATH=/home/vagrant/repos/weka
 weka datagenerators.classifiers.regression.MexicanHat -n 10
 weka datagenerators.classifiers.regression.MexicanHat -h
 
-unzip -l $WEKAPATH/weka.jar |
-sed -rne 's/.*(weka)\/([^g])([^$]*)\.class$/\2\3/p' |
-tr '/' '.' |
-parallel --timeout 1 -j4 -v "weka {} -h > {} 2>&1"
+unzip -l $WEKAPATH/weka.jar | sed -rne 's/.*(weka)\/([^g])([^$]*)\.class$/\2\3/p' | tr '/' '.' | parallel --timeout 1 -j4 -v "weka {} -h > {} 2>&1"
 
 grep -L 'Exception' * | tee $WEKAPATH/weka.classes
 
@@ -1184,4 +1181,15 @@ return 0
 complete -o nospace -F _completeweka weka
 
 **Converting Between CSV and ARFF
+csv2arff
+arff2csv
+weka-cluster
 
+< data2/wine-both-scaled.csv csvcut -C quality,type | weka-cluster clusterers.EM -N 5 | csvcut -c cluster > data2/wine-both-cluster-em.csv
+
+** SimpleKMeans and Cobweb
+< wine-both-scaled.csv csvcut -C quality,type | body tapkee --method t-sne | header -r x,y > wine-both-xy.csv
+
+parallel -j1 "paste -d, wine-both-xy.csv wine-both-cluster-{}.csv | Rio-scatter x y cluster | display" ::: em simplekmeans cobweb
+parallel -j1 "paste -d, wine-both-xy.csv wine-both-cluster-{}.csv | Rio-scatter x y cluster > /vagrant/ch9-5.png" ::: em simplekmeans cobweb
+paste -d, wine-both-xy.csv wine-both-cluster-em.csv | Rio-scatter x y cluster > /vagrant/ch9-5.png

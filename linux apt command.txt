@@ -1,6 +1,12 @@
 apt-get install = apt install : install package
+
 apt-get remove = apt remove : removes a package
 apt-get purge = apt purge : removes package with configuration
+
+sudo apt remove [pkgname] --purge
+sudo apt-get --purge remove [pkgname]
+sudo apt-get autoremove
+
 apt-get update = apt update : refreshes repository index
 apt-get upgrade = apt upgrade : upgrades all upgradable packages
 apt-get autoremove = apt autoremove : removes unwanted packages

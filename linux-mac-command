@@ -1,5 +1,6 @@
 ﻿Linux(ubuntu) command
 
+alias ls='ls -F --color=auto --show-control-chars'
 
 ** find text
 grep -rnw [text]

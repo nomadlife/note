@@ -1,0 +1,15 @@
+conda info --envs
+conda env list
+conda list
+conda list anaconda$
+conda update conda
+conda serach python
+
+conda create -n name python=x.x anaconda
+conda create -n testvirenv python=3.5 anaconda
+
+conda activate [name]
+conda deactivate [name]
+source activate name
+source deactivate
+conda remove -n name --all

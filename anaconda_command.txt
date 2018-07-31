@@ -8,8 +8,14 @@ conda serach python
 conda create -n name python=x.x anaconda
 conda create -n testvirenv python=3.5 anaconda
 
+**windows
 conda activate [name]
 conda deactivate [name]
+**linux
 source activate name
 source deactivate
+
 conda remove -n name --all
+
+*****************************
+which -a python 

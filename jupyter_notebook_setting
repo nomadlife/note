@@ -1,0 +1,16 @@
+** enlarge/change cell width 
+ref : https://gist.github.com/paulochf/f6c9ed0b39f85dd85270
+
+Create a file in the location ~/.jupyter/custom/custom.css with the customized CSS content. I have customized in a way to make the Notebook to take advantage of all screen width:
+
+.container {
+    width: 99% !important;
+}   
+
+div.cell.selected {
+    border-left-width: 1px !important;	
+}
+
+div.output_scroll {
+    resize: vertical !important;
+}

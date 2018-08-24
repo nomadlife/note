@@ -7,3 +7,13 @@ pm2 stop main.js
 
 pm2 start main.js --watch (auto reload)
 pm2 log
+
+** ubuntu(nodejs.org)
+curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+
+** key
+template
+module
+security (in, out)
+

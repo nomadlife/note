@@ -17,3 +17,5 @@ template
 module
 security (in, out)
 
+** mysql
+npm install -S mysql (npm install --save mysql)

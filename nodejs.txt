@@ -6,18 +6,23 @@ pm2 list
 pm2 stop main.js
 pm2 log
 
-** ubuntu 16.04(nodejs.org)
+*** ubuntu 16.04(nodejs.org)
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
+- mysql
+npm install -S mysql (npm install --save mysql)
+-packages etc
+npm install 
 
-
-** ubuntu 18.04 
+*** ubuntu 18.04 
 sudo apt install nodejs
 sudo apt install npm
+-mysql
+sudo apt install mysql-server
+sudo mysql_secure_installation
+-packages etc
+npm install 
 
-
-** mysql
-npm install -S mysql (npm install --save mysql)
 
 ** express 
 

@@ -1,21 +1,30 @@
-npm install pm2 -g
+sudo npm install pm2 -g
 
-pm2 start main.js
+pm2 start main.js --watch (auto reload)
 pm2 monit
 pm2 list
 pm2 stop main.js
-
-pm2 start main.js --watch (auto reload)
 pm2 log
 
-** ubuntu(nodejs.org)
+** ubuntu 16.04(nodejs.org)
 curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
+
+
+** ubuntu 18.04 
+sudo apt install nodejs
+sudo apt install npm
+
+
+** mysql
+npm install -S mysql (npm install --save mysql)
+
+** express 
+
 
 ** key
 template
 module
 security (in, out)
 
-** mysql
-npm install -S mysql (npm install --save mysql)
+

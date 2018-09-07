@@ -25,7 +25,16 @@ npm install
 
 
 ** express 
+npm install --save helmet
+npm install nsp -g (security module)
+npm check 
+(sudo) npm install express-generator -g
 
+** session
+npm install -s express-session
+
+** common
+npm install -g nodemon
 
 ** key
 template

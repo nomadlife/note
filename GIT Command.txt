@@ -26,6 +26,8 @@ git config --global core.editor "vi" --> Basic Editor change
 
 
 git push -u origin master
+git push --all origin
+
 git pull
 git pull origin master
 
@@ -54,14 +56,25 @@ git checkout [branch name]  --->branch로 이동
 git branch -d [branch name]  ---->branch 삭제
 git merge [branch name] ---->branch 병합, main이 될 branch로 가서 실행할것.
 
+git branch branchname <sha1-of-commit>
+git branch branchname HEAD~3
+rename:
+git branch -m new-name
+git branch -m old-name new-name
+
+git checkout <sha-1 of that commit>
+
 git log -p       -----> difference between versions 
 git log -p master..exp  -> 버전간 소스코드 비교
 git log <remote>/<branch> :repo 로그보기 
 git log --branches 
 git log --branches --decorate 
 git log --branches --decorate --graph 
-git log --branches --decorate --graph --oneline  (나갈때:Q)
- 
+git log --branches --decorate --graph --oneline
+git log --graph
+git log --graph --oneline
+
+git show REVISION:path/to/file
 
 git diff master..exp  → 모든파일내용 비교
 

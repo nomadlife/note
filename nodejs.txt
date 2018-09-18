@@ -41,4 +41,7 @@ template
 module
 security (in, out)
 
+**express - passport
+npm install -s passport
+npm install -s passport-local
 

@@ -45,3 +45,15 @@ security (in, out)
 npm install -s passport
 npm install -s passport-local
 
+** nodemon-exclusion-of-files
+nodemon --ignore PATTERN [--ignore PATTERN2]
+nodemon --ignore 'lib/*.js' --ignore README
+nodemon main.js --ignore sessions/*.json
+
+nodemon.json
+{   
+    "ignore": ["lib/*.js", "README"] 
+}
+
+** flash messages
+npm install -s connect-flash

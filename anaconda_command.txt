@@ -4,9 +4,10 @@ conda list
 conda list anaconda$
 conda update conda
 conda serach python
+conda search --full-name python
 
 conda create -n name python=x.x anaconda
-conda create -n testvirenv python=3.5 anaconda
+conda create -n testenv python=3.5 anaconda
 
 **windows
 conda activate [name]
@@ -18,4 +19,7 @@ source deactivate
 conda remove -n name --all
 
 *****************************
-which -a python 
+which python
+which -a python
+whereis python
+

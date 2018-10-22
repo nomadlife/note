@@ -22,4 +22,3 @@ conda remove -n name --all
 which python
 which -a python
 whereis python
-

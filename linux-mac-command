@@ -1,3 +1,9 @@
+** show ip
+netstat -ntlp
+
+** kill port
+kill -9 [pid]
+
 ﻿Linux(ubuntu) command
 
 alias ls='ls -F --color=auto --show-control-chars'

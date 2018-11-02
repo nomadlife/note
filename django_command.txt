@@ -1,4 +1,11 @@
-Django version 	Python versions
+** django auto script
+source activate dj21py
+cd ~/Documents/wiki_page
+sleep 1 && firefox localhost:8000 &
+python manage.py runserver
+source deactivate
+
+**Django version 	Python versions
 1.8 		2.7, 3.2 (until the end of 2016), 3.3, 3.4, 3.5
 1.9, 		1.10 2.7, 3.4, 3.5
 1.11 		2.7, 3.4, 3.5, 3.6

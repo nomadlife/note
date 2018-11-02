@@ -1,6 +1,6 @@
 **script file
 cd Documents/vocabulary-nodejs
-sleep 1 && firefox localhost://3000 &
+sleep 1 && firefox localhost:3000 &
 nodemon main.js
 
 sudo npm install pm2 -g

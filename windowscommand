@@ -1,3 +1,10 @@
+call C:\Users\joonw\venv\djpy3\Scripts\activate
+cd C:\Users\joonw\Documents\wiki_page
+start python manage.py runserver
+"C:\Program Files\Mozilla Firefox\firefox" localhost:8000
+deactivate
+
+
 Environment Variables
 :place a percentage symbol (%) before and after the variable
 

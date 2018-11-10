@@ -1,4 +1,4 @@
-conda info --envs
+ conda info --envs
 conda env list
 conda list
 conda list anaconda$
@@ -6,13 +6,15 @@ conda update conda
 conda serach python
 conda search --full-name python
 
-conda create -n name python=x.x anaconda
+conda create -n [envname] python=x.x anaconda
 conda create -n testenv python=3.5 anaconda
+conda remove -n [envname]
 
 **windows
-conda activate [name]
-conda deactivate [name]
-**linux
+conda activate [envname]
+conda deactivate [envname]
+
+**linux/mac
 source activate name
 source deactivate
 

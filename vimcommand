@@ -40,6 +40,9 @@ find word : /[  ] navigation(after <cr>):n/N
 matching parenthese : %
 Find word under cursor, * and #
 
+**find and replace 
+:%s/foo/bar/gc
+
 **movement(arrow key)
 hjkl : arrow
 page up/down : shift up/down

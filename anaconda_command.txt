@@ -24,3 +24,22 @@ conda remove -n name --all
 which python
 which -a python
 whereis python
+
+*************************
+**linux(cuda=9.0)
+-pytorch
+conda install pytorch-cpu torchvision-cpu -c pytorch (cpu-version)
+conda install pytorch torchvision -c pytorch
+conda install pytorch torchvision cuda80 -c pytorch (cuda=8.x)
+conda install pytorch torchvision cuda92 -c pytorch (cuda=9.2)
+
+-tensorflow
+conda install -c conda-forge tensorflow  (cpu-version)
+conda install -c anaconda tensorflow-gpu cudatoolkit=9.0
+
+-keras
+conda install -c conda-forge keras (cpu-version)
+conda install -c anaconda keras-gpu
+
+- version check
+nvcc -V

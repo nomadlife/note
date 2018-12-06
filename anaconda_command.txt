@@ -34,7 +34,7 @@ conda install pytorch torchvision cuda80 -c pytorch (cuda=8.x)
 conda install pytorch torchvision cuda92 -c pytorch (cuda=9.2)
 
 -tensorflow
-conda install -c conda-forge tensorflow  (cpu-version)
+conda install -c conda-forge tensorflow  (cpu-version) ??
 conda install -c anaconda tensorflow-gpu cudatoolkit=9.0
 
 -keras
@@ -43,3 +43,4 @@ conda install -c anaconda keras-gpu
 
 - version check
 nvcc -V
+cat /usr/local/cuda/version.txt

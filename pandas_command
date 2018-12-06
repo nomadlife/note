@@ -1,0 +1,37 @@
+pd.read_html('http://kind.krx.co.kr/corpgeneral/corpList.do?method=download&searchType=13', header=0)
+
+df.to_csv('test.csv', header=False)
+df.to_json("alltickers.json")
+df.to_pickle('ticker_krx_2018_pandas')
+test = pd.read_pickle('ticker_krx_2018_pandas')
+df = pd.read_excel('krx_KSC_2018.xlsx')
+
+
+
+df.columns
+df.dtypes
+df.values
+df.회사명
+
+df.columns.tolist()
+df.values.tolist()
+df.회사명.tolist()
+testdict = df.to_dict('index')
+ksc.drop(columns = ['new'])
+
+
+forecast[(forecast['ds']>datetime.date(2019,1,1))]
+
+
+**** dictionary
+test = {**ksc_dict_2, **koe_dict_2}
+
+
+import json
+
+with open('krx_total_list.txt', 'w') as file:
+     file.write(json.dumps(test))
+
+with open('krx_total_list.txt','r') as f:
+    test2 = json.loads(f.read())
+

@@ -13,9 +13,11 @@
     ones(num, dtype=float):
         Returns an an array of 1s with num elements. Optional dtype argument can be used to set data type; left unspecified, a float array is made.
 
+
 **** python localhost server
 python3
 python -m http.server
+python -m http.server 8080
 
 python2
 ython -m SimpleHTTPServer

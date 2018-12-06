@@ -1,3 +1,17 @@
+call C:\Users\joonw\venva\djpy3\Scripts\activate
+
+C:\Users\joonw\Documents\testproject\manage.py runserver
+deactivate
+
+
+call C:\Users\joonw\venva\djpy3\Scripts\activate
+
+"C:\Program Files\Mozilla Firefox\firefox" localhost:8000
+python 
+C:\Users\joonw\Documents\testproject\manage.py runserver
+deactivate
+
+
 call C:\Users\joonw\venv\djpy3\Scripts\activate
 cd C:\Users\joonw\Documents\wiki_page
 start python manage.py runserver

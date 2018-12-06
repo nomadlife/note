@@ -3,10 +3,12 @@ pd.read_html('http://kind.krx.co.kr/corpgeneral/corpList.do?method=download&sear
 df.to_csv('test.csv', header=False)
 df.to_json("alltickers.json")
 df.to_pickle('ticker_krx_2018_pandas')
-test = pd.read_pickle('ticker_krx_2018_pandas')
+df = pd.read_pickle('ticker_krx_2018_pandas')
 df = pd.read_excel('krx_KSC_2018.xlsx')
 
-
+df.index.strftime('%Y-%m-%d').tolist()
+df.reset_index().Date.dt.strftime('%Y-%m-%d').tolist()
+df.reset_index().values.tolist()
 
 df.columns
 df.dtypes
@@ -19,6 +21,17 @@ df.회사명.tolist()
 testdict = df.to_dict('index')
 ksc.drop(columns = ['new'])
 
+
+df.loc[df['column_name'] == some_value]
+df.loc[df['column_name'].isin(some_values)]
+df.loc[(df['column_name'] == some_value) & df['other_column'].isin(some_values)]
+
+
+data1 = pd.DataFrame({'ds':forecast.ds, 'yhat':forecast.yhat})
+data1 = data1.set_index('ds')
+data2 = pd.DataFrame({'y':df.y})
+data3 = pd.DataFrame({'close':test.Close})
+new_data = data1.join(data2)
 
 forecast[(forecast['ds']>datetime.date(2019,1,1))]
 

@@ -6,9 +6,10 @@ df.to_pickle('ticker_krx_2018_pandas')
 df = pd.read_pickle('ticker_krx_2018_pandas')
 df = pd.read_excel('krx_KSC_2018.xlsx')
 
-df.index.strftime('%Y-%m-%d').tolist()
 df.reset_index().Date.dt.strftime('%Y-%m-%d').tolist()
 df.reset_index().values.tolist()
+df.index.strftime('%Y-%m-%d').tolist()
+
 
 df.columns
 df.dtypes
@@ -21,6 +22,9 @@ df.회사명.tolist()
 testdict = df.to_dict('index')
 ksc.drop(columns = ['new'])
 
+
+df.y.fillna('null')
+data1.yhat.round(2)
 
 df.loc[df['column_name'] == some_value]
 df.loc[df['column_name'].isin(some_values)]

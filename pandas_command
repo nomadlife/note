@@ -5,20 +5,25 @@ df.to_json("alltickers.json")
 df.to_pickle('ticker_krx_2018_pandas')
 df = pd.read_pickle('ticker_krx_2018_pandas')
 df = pd.read_excel('krx_KSC_2018.xlsx')
+csvfile = pandas.read_csv('file.csv', encoding='utf-8')
 
 df.reset_index().Date.dt.strftime('%Y-%m-%d').tolist()
 df.reset_index().values.tolist()
 df.index.strftime('%Y-%m-%d').tolist()
 
+test.index.year >= 2016
+test[test.index.year >= 2016]
 
 df.columns
 df.dtypes
 df.values
 df.회사명
 
+df.index.tolist()
 df.columns.tolist()
 df.values.tolist()
 df.회사명.tolist()
+
 testdict = df.to_dict('index')
 ksc.drop(columns = ['new'])
 

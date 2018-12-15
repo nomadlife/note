@@ -34,6 +34,8 @@ git pull
 git pull origin master
 
 git stash : save current working directory, reset HEAD. (for avoid conflict when pull)
+git stash list
+git stash apply
 
 **push 할때마다 id/pw 요구하면,,
 $ git config credential.helper store  --> git directory 내에서 설정.

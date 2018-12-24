@@ -1,0 +1,16 @@
+python manage.py dbshell
+
+.help
+.databases
+.tables
+.schema [table]
+
+DROP TABLE [table];
+ALTER TABLE guru99 RENAME TO guru100;
+ALTER TABLE guru100 ADD COLUMN Age INT;
+
+CREATE TABLE stock_companies(company_name varchar, ticker_code varchar);
+
+CREATE TABLE IF NOT EXISTS "stock_companies" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "company_name" varchar(30) NOT NULL, "ticker_code" varchar(6) NOT NULL);
+
+.quit

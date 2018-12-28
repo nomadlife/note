@@ -1,7 +1,9 @@
 pd.read_html('http://kind.krx.co.kr/corpgeneral/corpList.do?method=download&searchType=13', header=0)
 
 df.to_csv('test.csv', header=False)
+df.to_json()
 df.to_json("alltickers.json")
+df.to_json(orient='index')
 df.to_pickle('ticker_krx_2018_pandas')
 df = pd.read_pickle('ticker_krx_2018_pandas')
 df = pd.read_excel('krx_KSC_2018.xlsx')
@@ -44,6 +46,7 @@ new_data = data1.join(data2)
 
 forecast[(forecast['ds']>datetime.date(2019,1,1))]
 
+result = value - pd.DateOffset(days=1)
 
 **** dictionary
 test = {**ksc_dict_2, **koe_dict_2}

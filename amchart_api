@@ -1,0 +1,138 @@
+****** axis tooltip
+
+var axisTooltip = categoryAxis.tooltip;
+axisTooltip.background.fill = am4core.color("#07BEB8");
+axisTooltip.background.strokeWidth = 0;
+axisTooltip.background.cornerRadius = 3;
+axisTooltip.background.pointerLength = 0;
+axisTooltip.dy = 5;
+
+var dropShadow = new am4core.DropShadowFilter();
+dropShadow.dy = 1;
+dropShadow.dx = 1;
+dropShadow.opacity = 0.5;
+axisTooltip.filters.push(dropShadow);
+
+
+------
+var series = chart.series.push(new am4charts.ColumnSeries());
+series.columns.template.tooltipText = "Series: {name}\nCategory: {categoryX}\nValue: {valueY}";
+
+
+
+****** number formatting
+
+chart.numberFormatter.numberFormat = "#.";
+
+
+****** axis range
+
+var range = valueAxis.createSeriesRange(series);
+range.value = 300;
+range.endValue = 1100;
+range.contents.stroke = am4core.color("#396478");
+range.contents.fill = range.contents.stroke;
+
+
+****** axis pre-zooming
+
+chart.events.on("ready", function () {
+  dateAxis.zoomToDates(
+    new Date(2018, 3, 23),
+    new Date(2018, 3, 26),
+    false,
+    true // this makes zoom instant
+  );
+});
+
+
+
+
+*******************************
+
+am4core.useTheme(am4themes_animated);
+            // Themes end
+
+            // Create chart instance
+            var chart = am4core.create("chartdiv", am4charts.XYChart);
+            chart.numberFormatter.numberFormat = "#.#";
+            // Add data
+            chart.data = drawdata.data;
+            // console.log('data:',chart.data);
+
+            // Create axes
+            var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
+            var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+            valueAxis.logarithmic = false;
+            valueAxis.defaultState.transitionDuration = 500;
+            valueAxis.strictMinMax = true;
+            valueAxis.min = 0.1;
+            valueAxis.max = drawdata.yaxismax;
+            valueAxis.extraMax = 0.2;
+
+            // Create series
+            var series = chart.series.push(new am4charts.LineSeries());
+            var series2 = chart.series.push(new am4charts.LineSeries());
+
+            series.dataFields.valueY = "value1";
+            series.dataFields.dateX = "labels";
+            series.tooltipText = "주가:{value1}"
+            series.stroke = am4core.color("#fc8080");
+            series.strokeWidth = 2;
+            series.minBulletDistance = 10;
+
+            // Drop-shaped tooltips
+            series.tooltip.background.cornerRadius = 20;
+            series.tooltip.background.strokeOpacity = 0;
+            series.tooltip.pointerOrientation = "vertical";
+            series.tooltip.label.minWidth = 40;
+            series.tooltip.label.minHeight = 40;
+            series.tooltip.label.textAlign = "middle";
+            series.tooltip.label.textValign = "middle";
+
+            // Make bullets grow on hover
+            var bullet = series.bullets.push(new am4charts.CircleBullet());
+            bullet.circle.strokeWidth = 2;
+            bullet.circle.radius = 2;
+            bullet.circle.fill = am4core.color("#fc8080");
+
+            var bullethover = bullet.states.create("hover");
+            bullethover.properties.scale = 1.3;
+            
+            //series 2
+            series2.dataFields.valueY = "value2";
+            series2.dataFields.dateX = "labels";
+            // series2.name = "예측";
+            series2.tooltipText = "예측:{value2}";
+            series2.stroke = am4core.color("#7083c1");
+            series2.strokeWidth = 2;
+            series2.minBulletDistance = 10;
+
+            // Make bullets grow on hover
+            var bullet2 = series2.bullets.push(new am4charts.CircleBullet());
+            bullet2.circle.strokeWidth = 2;
+            bullet2.circle.radius = 2;
+            bullet2.circle.fill = am4core.color("#7083c1");
+
+            var bullethover2 = bullet2.states.create("hover");
+            bullethover2.properties.scale = 1.3;
+
+            // Make a panning cursor
+            chart.cursor = new am4charts.XYCursor();
+            chart.cursor.behavior = "panXY";
+
+            // Create vertical scrollbar and place it before the value axis
+            chart.scrollbarY = new am4core.Scrollbar();
+            chart.scrollbarY.parent = chart.leftAxesContainer;
+            chart.scrollbarY.toBack();
+            chart.scrollbarY.hide(true);
+
+            // Create a horizontal scrollbar with previe and place it underneath the date axis
+            chart.scrollbarX = new am4charts.XYChartScrollbar();
+            chart.scrollbarX.series.push(series);
+            chart.scrollbarX.parent = chart.bottomAxesContainer;
+
+            chart.events.on("ready", function () {
+                  dateAxis.zoom({ start: 0.85, end: 1 });
+            });
+

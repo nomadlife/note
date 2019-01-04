@@ -1,0 +1,115 @@
+*** DOCKER command ====================================================================
+
+*** docker network create eosdev
+7552c8e81750233c7c53de99352ed440a31e9f26d4c827d120dca70d87a453a1
+
+
+*** docker run \
+docker run \
+   --name nodeos -d -p 8888:8888 \
+   --network eosdev \
+   -v /tmp/eosio/work:/work \
+   -v /tmp/eosio/data:/mnt/dev/data \
+   -v /tmp/eosio/config:/mnt/dev/config \
+   eosio/eos-dev \
+ /bin/bash -c \
+   "nodeos -e -p eosio \
+     --plugin eosio::producer_plugin \
+     --plugin eosio::history_plugin \
+     --plugin eosio::chain_api_plugin \
+     --plugin eosio::history_api_plugin \
+     --plugin eosio::http_plugin \
+     -d /mnt/dev/data \
+     --config-dir /mnt/dev/config \
+     --http-server-address=0.0.0.0:8888 \
+     --access-control-allow-origin=* \
+     --contracts-console \
+     --http-validate-host=false\
+     --filter-on='*'"
+
+db3ee63f8fdafb8ea1a175bafc31c54bbad15649b99305157d51f6ffd88c052a
+667ce0e2ad9484d2c7eb6ce16cc99178a65b023ad48257839052e5a04accd220
+b5ca414a89413cd8ae3d09aca58696f6977e30916e84efb8364246a8bbeaf77b
+
+
+docker run \
+   --name nodeos -d -p 8888:8888 \
+   --network eosdev \
+   -v /tmp/eosio/work:/work \
+   -v /tmp/eosio/data:/mnt/dev/data \
+   -v /tmp/eosio/config:/mnt/dev/config \
+   eosio/eos-dev \
+ /bin/bash -c \
+   "nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin"
+e5bb703dca44c2481d727c4e91e87a98dd72144f28953a792b5731327e215254
+
+*** Run Keosd (Wallet and Keystore)
+docker run -d --name keosd --network=eosdev \
+-i eosio/eos-dev /bin/bash -c "keosd --http-server-address=0.0.0.0:9876"
+--->>
+b2e3db73aa2be98c123ba70d9a74908f57bbec38e5f0655343905292b28cd6f7
+
+
+"keosd --http-server-address=127.0.0.1:9876"
+
+"keosd --http-server-address=localhost:8899"
+
+
+*** EOS shell command ==================================================================
+
+*** open nodeos shell (keosd bash)
+docker exec -it keosd bash
+
+nodeos -e -p eosio --plugin eosio::chain_api_plugin --plugin eosio::history_api_plugin
+
+
+
+*** check wallets
+cleos --wallet-url http://127.0.0.1:9876 wallet list keys
+
+*** Get chain info
+curl http://127.0.0.1:8888/v1/chain/get_info
+
+docker network inspect eosdev
+
+
+*** make alias 
+alias cleos='docker exec -it nodeos /opt/eosio/bin/cleos --url http://127.0.0.1:8888 --wallet-url http://172.18.0.3:9876'
+
+
+*** Wallet command ============================================================
+
+cd /path_to_eos/build/programs/cleos
+
+cleos wallet create --to-console
+cleos wallet create -n periwinkle --to-console
+
+cleos --wallet-url http://127.0.0.1:9876 wallet list keys
+cleos wallet list
+
+cleos wallet lock -n periwinkle
+cleos wallet unlock -n periwinkle --password YOUR_MASTER_KEY
+
+cleos wallet open
+cleos wallet open -n periwinkle
+
+*** Generating and Importing EOSIO Keys 
+cleos create key --to-console
+Private key: 5Ji~~~
+Public key: EOS~~~
+
+Private key: 5JW~~~
+Public key: EOS~~~
+
+cleos wallet keys
+cleos wallet private_keys
+
+cleos wallet import --private-key ()
+
+cleos create account eosio NEW_ACCOUNT OWNER_KEY ACTIVE_KEY
+cleos create account eosio myaccount EOS5F~~~ EOS8W~~~
+
+cleos create account eosio myaccount PUBLIC_KEY_1 PUBLIC_KEY_2
+
+
+

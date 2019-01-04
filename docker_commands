@@ -1,0 +1,33 @@
+docker
+docker image ls
+docker ps
+
+docker pull eosio/eos
+-->>
+Using default tag: latest
+latest: Pulling from eosio/eos
+6b98dfc16071: Already exists 
+4001a1209541: Already exists 
+6319fc68c576: Already exists 
+b24603670dc3: Already exists 
+97f170c87c6f: Already exists 
+ca8277dae3e4: Already exists 
+49bdd58b12e0: Already exists 
+aaa8ead93c9b: Pull complete 
+cdc0456f6ddf: Pull complete 
+2f4c70929cb5: Pull complete 
+6656f4c30b36: Pull complete 
+1a361bfd5aa7: Pull complete 
+Digest: sha256:892978b6fa39e816343a431373e139dcb86d62cbe0b17cbed959ca6c70426c98
+Status: Downloaded newer image for eosio/eos:latest
+
+docker stop nodeos
+docker container start nodeos
+docker stop nodeos
+docker rm nodeos
+
+docker stop keosd
+docker container start keos
+docker stop keosd
+docker rm keosd
+

@@ -1,6 +1,11 @@
 docker
 docker image ls
+docker image rm [image id]
+docker image remove [image id]
+
 docker ps
+docker ps -a
+docker rm [container name or id]
 
 docker pull eosio/eos
 -->>
@@ -30,4 +35,9 @@ docker stop keosd
 docker container start keos
 docker stop keosd
 docker rm keosd
+
+
+docker exec -i -t ocaml /bin/bash
+
+
 

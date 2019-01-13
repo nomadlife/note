@@ -36,6 +36,7 @@ docker container start keos
 docker stop keosd
 docker rm keosd
 
+docker start [container]
 
 docker exec -i -t ocaml /bin/bash
 

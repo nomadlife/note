@@ -8,7 +8,10 @@ conda search --full-name python
 
 conda create -n [envname] python=x.x anaconda
 conda create -n testenv python=3.5 anaconda
-conda remove -n [envname]
+
+conda remove -n [envname] [packagename]
+conda env remove -n [env]
+conda-env remove -n [env]
 
 **windows
 conda activate [envname]

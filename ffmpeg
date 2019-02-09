@@ -1,0 +1,99 @@
+** mp4 extract
+
+ffmpeg -i input.mp4 -vn output.mp4 
+
+ -an : disable audio recording
+
+
+** not change codec(bit rate)
+ffmpeg -i input.mp4 -acodec copy -vn output.mp4
+
+- acodec copy : audio를 디코딩/인코딩 하지 않고 그냥 copy 하라는 의미 
+
+-c copy : 코덱을 그냥 카피하라는 의미, 오디오 비디오 모두에 해당한다. 
+
+-acode copy : 오디오코덱을 카피하라는 의미 ( -vcode 은 비디오라는 뜻 ) 
+
+-c:a copy : 코덱인데 오디오라는 의미 ( -c:v 이면 비디오라는 뜻 ) 
+
+
+
+** mp3 extract
+
+ffmpeg -i input.mp4 -vn output.mp3
+
+ output 파일의 형식을 mp3로 하면 내부에서 자동으로 디코딩을 한후에 mp3 코덱으로 인코딩을 수행한다. 아래의 명령과 같은 의미가 된다. 
+
+ffmpeg -i input.mp4 -acodec mp3 output.mp3
+
+
+
+** cut mp4 
+
+ffmpeg -i input_20s.mp4 -vn -ss 5 -to 10 -c copy ouput_5_10.mp4
+
+ -ss 5 : 시작 위치를 지정한다. (즉, 5초부터 시작한다. )
+
+ -to 10 : Stop writing the output at position ( 즉, 10초까지만 사용한다. )
+
+
+
+** crop & fade-out
+
+* 끝부분을 부드럽게 crop 하기 위해서 fade out 효과를 주면서. 
+
+ffmpeg -i input_60s.mp4 -to 30 -filter_complex "afade=t=out:st=28:d=2" output_fadeout.mp3
+
+-to 30 : 처음부터 30초까지 짜르라는 의미
+
+-filter_complex : 복합필터를 적용하라는 뜻 
+
+"afade=t=out" : fade효과인데 타입(t)은 서서히 줄어드는 효과(out) 
+
+st=28 : (startTime) 28초부터 시작해서 
+
+d=2 : (duration) 2초동안
+
+
+
+** paste audio loop
+
+ffmpeg -stream_loop 1 -i input.mp3 -c copy output_loop.mp3
+
+-stream_loop n : n번 반복하라는뜻, 0은 반복 없음. -1은 무한 반복
+
+
+
+** audio + audio 
+
+ffmepg -i "concat:input_1.mp3|input_2.mp3" output.mp3
+
+-i 다음에 입력파일이 오는 위치인데, 이부분에 따옴표가 붙으면서 subcommand가 왔다. 
+
+concat:file1|file2|file3...    형식으로 붙이고 싶은 많큼 파일을 붙일 수 있다. 
+
+
+
+** audio + video 
+
+ffmpeg -i audio_only.mp3 -i video_only.mp4 -c copy ouput_mux.mp4
+
+
+
+
+** video + video (by list.txt)
+
+> cat files.txt
+
+file 'a.mp4'
+
+file 'b.mp4'
+
+>ffmpeg -f concat -i files.txt -c copy c.mp4
+
+
+
+** video + video 
+
+ffmpeg -i "concat:input1.mpg|input2.mpg|input3.mpg" -c copy output.mpg
+

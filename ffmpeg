@@ -1,3 +1,7 @@
+** without message
+ffmpeg -hide_banner -loglevel panic
+
+
 ** mp4 extract
 
 ffmpeg -i input.mp4 -vn output.mp4 

@@ -1,3 +1,8 @@
+** screenshot
+gnome-screenshot -ac
+gnome-screenshot -af 
+gnome-screenshot -af 66-2.png
+
 ** gpu monitoring
 watch -n 1 nvidia-smi
 

@@ -1,3 +1,12 @@
+** image show
+eog image.jpg
+eog -w image.jpg
+
+** image convert
+convert -resize 640x360 image.png result.png
+convert -crop 1920x1080+1930+70 temp.png temp.png
+convert -resize 75% temp.png temp.png
+
 ** screenshot
 gnome-screenshot -ac
 gnome-screenshot -af 

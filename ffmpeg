@@ -1,5 +1,82 @@
+** merge subs with video // ??
+ffmpeg -i 0.mp4 -vf "subtitles=2.srt:force_style='FontName=맑은 고딕,Fontsize=30'" -c:V libx264 -c:a aac 3.mp4
+
+** merge two subtitle to video // not i want
+ffmpeg -i Clean.mp4 -i spanish.ass -i english.ass -c:s mov_text -c:v copy -c:a copy -map 0:v -map 0:a -map 1 -map 2 -metadata:s:s:0 language=spa -metadata:s:s:1 language=eng With2CC.mp4
+--> internet tool
+
+** convert smi to srt
+ffmpeg -i test.smi test.srt
+
+** text encoding convert 
+iconv -f ISO-8859-1 -t UTF-8 in.txt > out.txt
+EUC-KR -> UTF-8
+iconv -f EUC-KR -t UTF-8 in.txt > out.txt
+
+** add subtitle
+ffmpeg -i infile.mp4 -i infile.srt -c copy -c:s mov_text outfile.mp4
+
+** make blank mp4 with audio (2) // hold
+ffmpeg -t 1500 -s 1024x768 -f rawvideo -pix_fmt rgb24 -r 25 -i /dev/zero silence.mpeg // ??
+
+
+** make blank mp4 with audio
+-loop 1 : infinite loop 
+ffmpeg -loop 1 -y -i image8.jpg -i sound11.amr -shortest -acodec copy -vcodec mjpeg result.avi
+ffmpeg -loop 1 -y -i test.png -i test.mp3 -shortest -acodec copy -vcodec mjpeg result2.avi // ok, but size is big
+ffmpeg -loop 1 -y -i test.png -i test.mp3 -shortest -acodec copy -vcodec mjpeg result2.mp4 // ok, but size is big
+
+ffmpeg -loop 1 -i image.jpg -i audio.wav -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest out.mp4
+ffmpeg -loop 1 -i test.png -i test.mp3 -c:v libx264 -tune stillimage -c:a copy -b:a 192k -pix_fmt yuv420p -shortest result.mp4 -y -loglevel error // succeed !!
+ffmpeg -loop 1 -i test.png -i test.mp3 -c:v libx264 -tune stillimage -c:a copy -b:a 192k -pix_fmt yuv420p result_1.mp4 -y -loglevel error // fail ??? 
+ffmpeg -loop 1 -i test.png -i test.mp3 -c:v libx264 -tune stillimage -c:a copy -pix_fmt yuv420p -shortest result_2.mp4 -y -loglevel error // succeed !!
+ffmpeg -loop 1 -i test.png -i test.mp3 -c:v libx264 -tune stillimage -c:a copy -shortest result_3.mp4 -y -loglevel error // succeed !!
+ffmpeg -loop 1 -i test.png -i test.mp3 -c:v libx264 -c:a copy -shortest result_4.mp4 -y -loglevel error // succeed !!  
+ffmpeg -loop 1 -i image.png -i audio.mp3 -c:v libx264 -c:a copy -shortest video.mp4 // too slow
+
+ffmpeg -i test.png -i test.mp3 -c:v libx264 -c:a copy result_5.mp4 -y -loglevel error   // fail - no video
+ffmpeg -i test.png -i test.mp3 -c:v libx264 -tune stillimage -c:a copy result_5.mp4 -y -loglevel error
+ffmpeg -framerate 1 -loop 1 -i blank.png -i audio.mp3 -c:v libx264 -c:a copy -shortest video2.mp4 // fast. but subtitle sync not match. 
+
+ffmpeg -y -i test.png -i test.mp3 -c:a copy result.avi // ok
+ffmpeg -y -i test.png -i test.mp3 -c:a copy result.mp4 // fail : no video
+ffmpeg -y -i test.png -i test.mp3 -c:a copy -c:v mpeg4 result.mp4 -loglevel error // no video
+ffmpeg -y -i test.png -i test.mp3 -c:a copy -vcodec mpeg4 result.mp4 -loglevel error // no video
+ffmpeg -y -i test.png -i test.mp3 -c:a copy -vcodec libx264 result.mp4 -loglevel error // no video
+
+-crf 23 -preset ultraslow
+ffmpeg -y -i test.png -i test.mp3 -c:a copy -vcodec libx264 -crf 23 -preset ultraslow result.mp4 -loglevel error // no video
+
+ffmpeg -framerate 24 -i Project%03d.png Project.mp4
+ffmpeg -framerate 24 -i test.png -i test.mp3 -c:a copy Project.mp4 -loglevel error // fail : no video
+
+ffmpeg -y -i video.mp4 -vn -c:a copy -q:a 0 -map a output.mp3 -loglevel error // fail
+
+
+
+
+**extract audio
+
+ffmpeg -i sample.avi -q:a 0 -map a sample.mp3
+
+ffmpeg -i sample.avi -ss 00:03:05 -t 00:00:45.0 -q:a 0 -map a sample.mp3
+
+
 ** without message
+-loglevel error
+-loglevel quiet
 ffmpeg -hide_banner -loglevel panic
+
+const struct { const char *name; int level; } log_levels[] = {
+        { "quiet"  , AV_LOG_QUIET   },
+        { "panic"  , AV_LOG_PANIC   },
+        { "fatal"  , AV_LOG_FATAL   },
+        { "error"  , AV_LOG_ERROR   },
+        { "warning", AV_LOG_WARNING },
+        { "info"   , AV_LOG_INFO    },
+        { "verbose", AV_LOG_VERBOSE },
+        { "debug"  , AV_LOG_DEBUG   },
+    };
 
 
 ** mp4 extract

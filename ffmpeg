@@ -1,3 +1,7 @@
+** batch conversion 
+for i in *.mp4; do ffmpeg -i $i -vn "${i%.mp4}.mp3"; done
+for i in *.mp4; do ffmpeg -i $i -vn "${i%.mp4}.mp3" -loglevel error ; done
+
 ** merge subs with video // ??
 ffmpeg -i 0.mp4 -vf "subtitles=2.srt:force_style='FontName=맑은 고딕,Fontsize=30'" -c:V libx264 -c:a aac 3.mp4
 

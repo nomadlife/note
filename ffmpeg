@@ -1,6 +1,41 @@
+** quiet option
+-v quiet -stats
+
+
+** asf -> asf
+ffmpeg -i input.asf -s 168x128 test_168x128.asf -v quiet -stats // 6.4M -> 39M
+
+** asf -> mp4 
+ffmpeg -i input.asf -c:v libx264 -c:a aac -strict -2 test.mp4 //  audio:aac 9.8M -> 23.6M
+
+ffmpeg -i input.asf -s 168x128 -c:v libx264 -c:a aac -strict -2 test_168x128_aac.mp4 // 9.8M ->  17.7M
+ffmpeg -i input.asf -s 168x128 -c:v libx264 -c:a libmp3lame -ac 2 -b:a 190k test_168x128_mp3.mp4 // audio: mp3, 9.8M -> 24.9M
+
+-- without vcodec
+ffmpeg -i input.asf -s 168x128 -c:a mp3 test2_168x128_mp3_2.mp4 // 6.4M
+ffmpeg -i input.asf -s 168x128 -acodec mp3 test2_168x128_mp3.mp4 // 6.4M
+ffmpeg -i input.asf -s 168x128 -acodec aac -strict -2 test2_168x128_aac.mp4 // 17.7M
+
+-- asf -> avi
+ffmpeg -i input.asf -s 168x128 test_resize_168x128.avi // 9.8M -> 12M
+
+-- batch
+-mp4
+for i in *.asf; do ffmpeg -i $i -s 168x128 -acodec mp3 "_${i%.asf}.mp4"; done   // -> file name error. need ""
+for i in *.asf; do ffmpeg -i "${i}" -s 168x128 -acodec mp3 "_${i%.asf}.mp4"; done
+-time check
+time for i in *.asf; do echo "${i}";time ffmpeg -i "${i}" -s 168x128 -acodec mp3 "timetest_${i%.asf}.mp4" -v quiet -stats; done // 8m23s, 68.3M -> 82.1M
+-avi
+for i in *.asf; do echo "${i}";ffmpeg -i "${i}" -s 168x128 "__${i%.asf}.avi" -v quiet -stats; done
+-time check
+time for f in *.asf; do echo "${f}";time ffmpeg -i "${f}" -s 168x128 "_${f%.asf}.avi" -v quiet -stats; done // 3m2s, 68.3M -> 105M ----->>>>>>>
+
+- include folder
+folder="/path/to/file";time for f in "${folder}"/*.asf; do echo "${f}";ffmpeg -i "${f}" -s 168x128 "${f%.asf}.avi" -v quiet -stats; done
+
 ** batch conversion 
-for i in *.mp4; do ffmpeg -i $i -vn "${i%.mp4}.mp3"; done
-for i in *.mp4; do ffmpeg -i $i -vn "${i%.mp4}.mp3" -loglevel error ; done
+for i in *.mp4; do ffmpeg -i $i -vn "${i%.mp4}.mp3"; done // ok
+for i in *.mp4; do ffmpeg -i $i -vn "${i%.mp4}.mp3" -loglevel error ; done // ok
 
 ** merge subs with video // ??
 ffmpeg -i 0.mp4 -vf "subtitles=2.srt:force_style='FontName=맑은 고딕,Fontsize=30'" -c:V libx264 -c:a aac 3.mp4

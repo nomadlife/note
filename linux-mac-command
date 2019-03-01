@@ -1,3 +1,18 @@
+** change prompt
+PS1='\W\$ '
+PS1='\u:\W\$ '
+- custom
+PS1='(tts) :\W\$ '
+
+** current backup 
+(tts) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+      \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$
+
+
+(tts) \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)} \[\033[01;32m\] \u @ \h \[\033[00m\] : \[\033[01;34m\]\w\[\033[00m\]\$
+      \[\e]0;\u@\h: \w\a\]${debian_chroot:+($debian_chroot)} \[\033[01;32m\] \u @ \h \[\033[00m\] : \[\033[01;34m\]\w\[\033[00m\]\$
+
+
 ** image show
 eog image.jpg
 eog -w image.jpg

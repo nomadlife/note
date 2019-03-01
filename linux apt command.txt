@@ -13,6 +13,7 @@ apt-get autoremove = apt autoremove : removes unwanted packages
 apt-get dist-upgrade = apt full-upgrade : upgrades packages with auto-handing of dependencies
 apt-cache search = apt search : searches for the program
 apt-cache show = apt show : shows package details
+apt-cache pkgnames [name] : find package on the system
 
 apt list : lists packages with criteria(installed, upgradable etc)
 apt edit-sources : edits sources list

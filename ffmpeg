@@ -1,3 +1,8 @@
+** Video merge 
+ffmpeg -i video1.avi -i video2.avi -filter complex “[0:v:0] [0:a:0] [1:v:0] [1:a:0] concat=n=2:v=1:a=1 [v] [a]” -map “[v]” -map “[a]” output_video.avi
+
+
+
 ** quiet option
 -v quiet -stats
 

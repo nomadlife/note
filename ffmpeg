@@ -1,5 +1,14 @@
+** audio merge
+ffmpeg -i first.mka -i second.mka -i third.mka -i fourth.mka
+       -filter_complex
+         "[1]adelay=184000|184000[b];
+          [2]adelay=360000|360000[c];
+          [3]adelay=962000|962000[d];
+          [0][b][c][d]amix=4"
+merged.mka
+
 ** Video merge 
-ffmpeg -i video1.avi -i video2.avi -filter complex “[0:v:0] [0:a:0] [1:v:0] [1:a:0] concat=n=2:v=1:a=1 [v] [a]” -map “[v]” -map “[a]” output_video.avi
+ffmpeg -i video1.avi -i video2.avi -filter_complex “[0:v:0] [0:a:0] [1:v:0] [1:a:0] concat=n=2:v=1:a=1 [v] [a]” -map “[v]” -map “[a]” output_video.avi
 
 
 

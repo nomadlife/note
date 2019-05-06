@@ -14,3 +14,11 @@ CREATE TABLE stock_companies(company_name varchar, ticker_code varchar);
 CREATE TABLE IF NOT EXISTS "stock_companies" ("id" integer NOT NULL PRIMARY KEY AUTOINCREMENT, "company_name" varchar(30) NOT NULL, "ticker_code" varchar(6) NOT NULL);
 
 .quit
+
+
+
+attach "mydb.sqlite" as db1;
+.databases
+.open "test.db"
+.tables
+SELECT * FROM table_name ... ;

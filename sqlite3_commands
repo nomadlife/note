@@ -22,3 +22,14 @@ attach "mydb.sqlite" as db1;
 .open "test.db"
 .tables
 SELECT * FROM table_name ... ;
+
+**export to csv
+sqlite> .headers on
+sqlite> .mode csv
+sqlite> .output data.csv
+sqlite> SELECT customerid,
+   ...>        firstname,
+   ...>        lastname,
+   ...>        company
+   ...>   FROM customers;
+sqlite> .quit

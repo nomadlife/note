@@ -12,9 +12,31 @@ Use [DBname];
 Show tables;
 Select * from [table name];
  
-Table 구조(field name) 보는 명령어?
- -->DESCRIBE [table name];
- 
+** 종료
+exit
+
+** db 가져오기 
+CREATE DATABASE dbname;
+USE dbname;
+source ~/Downloads/[filename].sql
+
+** count entries
+select count(*) from [table];
+
+** show table schema
+DESCRIBE [table name];
+
+
+** search 
+select word,wordtype FROM entries where word='about';
+
+** group by
+select word,wordtype, count(*) FROM entries where word='about' group by wordtype order by count(*) desc;
+
+** show current database
+SELECT DATABASE();
+
+
 Table내 field 속성 변경.
 ALTER TABLE `employee` CHANGE `emp_tag` `emp_tag` VARCHAR(10) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
  

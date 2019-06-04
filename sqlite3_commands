@@ -21,7 +21,10 @@ attach "mydb.sqlite" as db1;
 .databases
 .open "test.db"
 .tables
+
 SELECT * FROM table_name ... ;
+
+select word from entries where word='about' collate nocase;
 
 **export to csv
 sqlite> .headers on

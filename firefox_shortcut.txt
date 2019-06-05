@@ -1,0 +1,9 @@
+firefox shortcut (linux)
+Open link in new tab		: ctrl + [click]
+Jump to next or previous tab	: Ctrl + pgup(phdn)
+Jump to specific tab		: ctrl + [number]
+Bring back closed tabs		: ctrl + shift + tab
+M for minimize			: 
+mute tab			: ctrl + M
+Forget the past			: ctrl + shift + del
+

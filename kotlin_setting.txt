@@ -1,0 +1,44 @@
+**** ubuntu 16.04
+
+** check jdk 
+java -version
+javac -version
+
+** install jdk
+openjdk-8
+sudo apt-get install openjdk-8-jdk
+
+** install intellij (IDE)
+
+
+
+**** install kotlin repl by sdkman (optional)
+
+-install sdkman
+curl -s https://get.sdkman.io | bash
+
+-open new terminal
+source "/home/jw/.sdkman/bin/sdkman-init.sh"
+sdk help
+sdk install kotlin
+
+-check
+kotlin -version
+
+
+** run kotlin repl
+kotlinc-jvm
+**help
+:help
+** quit repl
+:quit
+
+** command line
+-run
+kotlinc hello.kt -include-runtime -d hello.jar
+java -jar hello.jar
+
+-compile(?)
+kotlinc hello.kt -d hello.jar
+
+

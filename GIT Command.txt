@@ -11,6 +11,8 @@ git remote -v  ----> 주소 상세히 보기
 git remote remove [name]
 
 git clone https://github.com/nomadlife/php.git php
+git config user.name
+git config user.email
 git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 **-global 옵션으로 설정한 것은 딱 한 번만 하면 된다. 

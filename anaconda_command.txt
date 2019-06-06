@@ -1,17 +1,23 @@
- conda info --envs
+conda info --envs
 conda env list
 conda list
 conda list anaconda$
+
 conda update conda
+conda update -n base conda
+
 conda serach python
 conda search --full-name python
 
 conda create -n [envname] python=x.x anaconda
 conda create -n testenv python=3.5 anaconda
+conda create --name <env_name> --clone base
 
 conda remove -n [envname] [packagename]
 conda env remove -n [env]
 conda-env remove -n [env]
+
+conda clean --all
 
 **windows
 conda activate [envname]
@@ -19,7 +25,7 @@ conda deactivate [envname]
 
 **linux/mac
 source activate name
-source deactivate
+source deactivate  (deprecated)--> conda deactivate
 
 conda remove -n name --all
 

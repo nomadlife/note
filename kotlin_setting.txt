@@ -1,4 +1,4 @@
-**** ubuntu 16.04
+========== ubuntu 16.04 =======================
 
 ** check jdk 
 java -version
@@ -41,4 +41,9 @@ java -jar hello.jar
 -compile(?)
 kotlinc hello.kt -d hello.jar
 
+
+** setup jupyter kernel (need kotlin repl)
+pip install ipykernel
+pip install kotlin_kernel
+python -m kotlin_kernel.install
 

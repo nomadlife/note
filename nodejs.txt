@@ -1,3 +1,9 @@
+node app.js
+pm2 start main.js
+pm2 start main.js --watch
+nodemon main.js
+
+
 **script file
 cd Documents/vocabulary-nodejs
 sleep 1 && firefox localhost:3000 &

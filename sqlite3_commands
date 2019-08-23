@@ -16,6 +16,7 @@ CREATE TABLE IF NOT EXISTS "stock_companies" ("id" integer NOT NULL PRIMARY KEY 
 .quit
 
 
+$ sqlite3 filename
 
 attach "mydb.sqlite" as db1;
 .databases

@@ -1,9 +1,0 @@
-dash board	: super (keep press : help)
-search app	: super + A
-search file	: super + F
-search music	: super + M
-goto app	: super + [num]
-
-minimize	: alt+space , n
-
-notepad tab switch : alt + [num]

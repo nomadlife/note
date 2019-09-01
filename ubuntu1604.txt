@@ -1,0 +1,61 @@
+dash board	: super (keep press : help)
+search app	: super + A
+search file	: super + F
+search music	: super + M
+goto app	: super + [num]
+
+minimize	: alt+space , n
+
+notepad tab switch : alt + [num]
+
+
+************software install ***********
+*.deb file
+1. software center 
+2. sudo apt install ./<file>.deb
+3. sudo dpkg -i <file>.deb
+   sudo apt-get install -f
+
+ubuntu installation folder : /opt or /usr/local
+sudo chmod -R 755 ./
+chmod +x --> chmod ugo+x
+chmod 755 --> chmod u=rwx,go=rx
+. ~/.profile
+
+*** git : apt-get install git
+*** vscode : download deb
+*** foxit reader : tar.gz
+*** goldendict
+*** chrome browser : download deb
+*** vlc : 
+*** audacity : 
+*** audacious : 
+
+*** anaconda : download
+*** android studio : download tar.gz --> env setup --> ./studio.sh
+# Android Studio (.profile and .bashrc)
+export ANDROIDSTUDIO_HOME=/opt/android-studio/bin
+export PATH=$ANDROIDSTUDIO_HOME:$PATH
+
+*** intelliJ IDEA : download tar.gz 
+*** nodejs : download tar.xz --> env setup
+# NodeJS(.profile and .bashrc)
+export NODEJS_HOME=/opt/nodejs/node-v10.16.3-linux-x64/bin
+export PATH=$NODEJS_HOME:$PATH
+
+*** atom : download rpm
+*** eclipse :
+
+*** kdenlive : download appimage
+*** freecad : download appimage
+*** gimp : 
+*** projectlibre : 
+
+*** docker
+*** ocaml
+*** virtualbox
+*** vagrant
+
+
+
+

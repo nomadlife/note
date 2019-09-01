@@ -50,21 +50,6 @@ sudo hostname [new name]
 sudo vi /etc/hostname
 sudo vi /etc/hosts
 
-***git install
-sudo apt-get install git
-
-*** nimf Hangul inputter
-$ sudo apt-add-repository ppa:hodong/nimf
-$ sudo apt update
-$ sudo apt install nimf
-$ im-config -n nimf
-
-***(Dasom 한글입력기 install) -> Nimf로 이름변경, old version, do not install.
-sudo add-apt-repository ppa:dasom/ppa
-sudo apt-get update && sudo apt-get install dasom dasom-jeongeum dasom-gtk dasom-qt
-im-config
--->log out and log in again
-
 
 *** 압축풀때 한글 파일이름 깨짐 문제.
 터미널에서, unzip -O cp949 [파일이름]
@@ -80,31 +65,6 @@ org>gnome>gedit>proference>encode
  
 --hibernation
 sudo systemctl hibernate
-
-***Alternative to Notpad++ for Linux.
-1. Notepadqq ( is exact replica of Notepad++)
-sudo add-apt-repository ppa:notepadqq-team/notepadqq
-sudo apt-get update
-sudo apt-get install notepadqq
-2.SciTE(cross platform, open source)
--It had been in the Linux world for quite sometime and has a fan follwing of tis own.
--sudo apt-get install scite
-3.Geany(almost IDE)
--sudo apt-get install geany scite
-4.Sublime Text
--non-free, non-open source
--sudo add-apt-repository ppa:webupd8team/sublime-text-2
--sudo apt-get update
--sudo apt-get install sublime-text
-5.Lime text(is actually related to Sublime text)
--free and open source, clone of SublimeText)
-6.Kate
--default editor of KDE desktop.
--sudo apt-get install kate
-7.Atom
--the latest sensation in programming world.
--cross platform, open source.
-
 
 
 Sudo dpkg -i [pkg name]  : deb 패키지 파일 설치

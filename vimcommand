@@ -27,7 +27,7 @@ line join : J
 man page : K
 
 ** Movement
-move : h,j,k,l 
+move : h,j,k,l or cursor
 page up/down : Ctrl+b/f
 word movement : w,e,b  
 start of line : ^,0

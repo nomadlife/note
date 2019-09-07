@@ -9,19 +9,43 @@ minimize	: alt+space , n
 notepad tab switch : alt + [num]
 
 
-************software install ***********
-*.deb file
-1. software center 
-2. sudo apt install ./<file>.deb
-3. sudo dpkg -i <file>.deb
-   sudo apt-get install -f
+************ make desktop icon **************
 
-ubuntu installation folder : /opt or /usr/local
-sudo chmod -R 755 ./
-chmod +x --> chmod ugo+x
-chmod 755 --> chmod u=rwx,go=rx
-. ~/.profile
+file location : ~/.local/share/applications/<name>.desktop
+file content :
+	[Desktop Entry]
+	Type=Application
+	Terminal=false
+	Name=Android Studio
+	Icon=/opt/android-studio/bin/studio.svg
+	Exec=/opt/android-studio/bin/studio.sh
 
+
+
+************ how to install ***********
+0. ubuntu manual installation folder : /opt or /usr/local
+
+0. change permission
+  sudo chmod -R 755 ./
+  chmod +x --> chmod ugo+x
+  chmod 755 --> chmod u=rwx,go=rx
+  . ~/.profile
+
+1. *.deb file
+  a. software center 
+  b. sudo apt install ./<file>.deb
+  c. sudo dpkg -i <file>.deb
+     sudo apt-get install -f
+
+2. *.tar.gz or *.tar.xz
+  a. unzip
+  b. move files to opt folder
+  c. set env path
+  d. make icon file
+ 
+
+
+************ Softwares ***************
 *** git : apt-get install git
 *** vscode : download deb
 *** foxit reader : tar.gz
@@ -33,15 +57,19 @@ chmod 755 --> chmod u=rwx,go=rx
 
 *** anaconda : download
 *** android studio : download tar.gz --> env setup --> ./studio.sh
-# Android Studio (.profile and .bashrc)
-export ANDROIDSTUDIO_HOME=/opt/android-studio/bin
-export PATH=$ANDROIDSTUDIO_HOME:$PATH
+ # Android Studio (.profile and .bashrc)
+ export ANDROIDSTUDIO_HOME=/opt/android-studio/bin
+ export PATH=$ANDROIDSTUDIO_HOME:$PATH
 
 *** intelliJ IDEA : download tar.gz 
+ # IntelliJ IDEAIC (.profile and .bashrc)
+ export IDEAIC_HOME=/opt/idea-IC-192.5728.98/bin
+ export PATH=$IDEAIC_HOME:$PATH
+
 *** nodejs : download tar.xz --> env setup
-# NodeJS(.profile and .bashrc)
-export NODEJS_HOME=/opt/nodejs/node-v10.16.3-linux-x64/bin
-export PATH=$NODEJS_HOME:$PATH
+ # NodeJS(.profile and .bashrc)
+ export NODEJS_HOME=/opt/nodejs/node-v10.16.3-linux-x64/bin
+ export PATH=$NODEJS_HOME:$PATH
 
 *** atom : download rpm
 *** eclipse :

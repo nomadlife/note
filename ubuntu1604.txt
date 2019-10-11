@@ -77,6 +77,13 @@ file content :
 *** kdenlive : download appimage
 *** freecad : download appimage
 *** gimp : 
+*** pita : 
+ software center or ppa
+ ppa
+ sudo add-apt-repository ppa:pinta-maintainers/pinta-stable
+ sudo apt-get update
+ sudo apt-get install pinta
+
 *** projectlibre : 
 
 *** docker

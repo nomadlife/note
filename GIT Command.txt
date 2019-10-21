@@ -1,13 +1,14 @@
-﻿GIT 명령어
+git commands
  
-vim [filename]  ---->텍스트 파일만들기 혹은 파일 수정
-cat [filename]  --->파일내용 보기
+vim [filename]  ----> edit or make text file
+cat [filename]  ---> show file content
+
 git init
-git add -A  ---> 신규 혹은 수정된 파일 한꺼번에 버전관리 추가하기.
+git add -A  ---> add all file to version control 
 git add [directory]/\*  -> add certain folder only
 git remote add origin [repository address]
 git remote
-git remote -v  ----> 주소 상세히 보기
+git remote -v  ----> show detail
 git remote remove [name]
 
 git clone https://github.com/nomadlife/php.git php
@@ -34,6 +35,12 @@ git push --all origin
 
 git pull
 git pull origin master
+
+
+** overwrite local with remote repository
+git fetch --all
+git reset --hard origin/maser 
+
 
 git stash : save current working directory, reset HEAD. (for avoid conflict when pull)
 git stash list

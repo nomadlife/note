@@ -43,6 +43,8 @@ file content :
   c. set env path
   d. make icon file
  
+3. tar.bz2
+
 
 
 ************ Softwares ***************
@@ -50,7 +52,10 @@ file content :
 *** vscode : download deb
 *** foxit reader : tar.gz
 *** goldendict
-*** chrome browser : download deb
+*** chrome browser(google) : download deb
+*** chromium : software center
+*** firefox developers : tar.bz2 
+
 *** vlc : 
 *** audacity : 
 *** audacious : 

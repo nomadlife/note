@@ -62,6 +62,11 @@ git reset --hard [version hash ID] : restore all changes after last commit.(back
 git reset --soft : back to before commit. only tracked status.
 git revert [version hash ID]
 
+**delete all untracked files
+git clean -f -d    : delete all untracked files
+git clean -d -n    : check target item
+git clean -f -d -x : include .gitignore target
+
  
 git branch   --> branch 보기
 git branch [branch name]   ---> branch 만들기

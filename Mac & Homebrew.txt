@@ -7,14 +7,14 @@ rm -rf [folder] : delete dir without ask when not empty
 
 
 1. make full path on terminal prompt:
-sudo vim ~/.bash_prifile
+sudo vim ~/.bash_profile
 
 PS1=“\w$” : full path
 PS1=“\d$” : current date
 PS1=“\t$” : current time
 PS1=“\h$” : Host name
 PS1=“\#$” : Command number
-PS1=“\u$” : uesr name
+PS1=“\u$” : user name
 
 e.g. 
 PS1=“\u@\w$” -> “Sebi@~/Development$”

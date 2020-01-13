@@ -24,8 +24,7 @@ git config --global core.autocrlf false
 
 git commit -m “commit message”
 git commit -a  --> add 과정 없이 바로 커밋할때
-git commit --amend  ------>마지막 커밋 메세지 수정(vim에서)
-  ㄴ> 지역저장소에서만 가능, 원격저장소에는 저장후 수정안됨.
+git commit --amend  --> Edit last commit message(only for Local repo)
 
 git config --global core.editor "vi" --> Basic Editor change
 
@@ -67,20 +66,39 @@ git clean -f -d    : delete all untracked files
 git clean -d -n    : check target item
 git clean -f -d -x : include .gitignore target
 
- 
-git branch   --> branch 보기
-git branch [branch name]   ---> branch 만들기
-git checkout [branch name]  --->branch로 이동
-git branch -d [branch name]  ---->branch 삭제
-git merge [branch name] ---->branch 병합, main이 될 branch로 가서 실행할것.
+
+** Branch (Local)
+git branch   --> show all local branch
+git branch [branch name]   ---> new branch
+git checkout [branch name]  ---> change working branch
+git branch -d [branch name]  ----> delete branch
+git merge [branch name] ---->merge branch, take the branch into current branch.
 
 git branch branchname <sha1-of-commit>
 git branch branchname HEAD~3
-rename:
+
+git checkout <sha-1 of that commit>
+
+** Rename branch:
 git branch -m new-name
 git branch -m old-name new-name
 
-git checkout <sha-1 of that commit>
+** Branch (Remote):
+git branch -r : show remote branch list (saved in local). maybe not latest.
+git ls-remote : show remote branch list, latest.
+git remote show [origin] : show detail info for remote repo(branches), latest.
+
+git remote update : update remote branch info
+
+** Clone Remote branch :
+git checkout -b [branch_name] [origin/branch_name]
+git checkout -t [origin/branch_name]
+
+or manualy
+git branch [new_local_branch]
+git checkout [new_local_branch]
+git pull origin [remote_branch]
+
 
 git log -p       -----> difference between versions 
 git log -p master..exp  -> 버전간 소스코드 비교

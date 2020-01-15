@@ -39,7 +39,7 @@ file content :
 
 2. *.tar.gz or *.tar.xz
   a. unzip
-  b. move files to opt folder
+  b. move files to /opt folder
   c. set env path
   d. make icon file
  

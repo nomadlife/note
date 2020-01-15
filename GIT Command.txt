@@ -67,6 +67,7 @@ git clean -d -n    : check target item
 git clean -f -d -x : include .gitignore target
 
 
+
 ** Branch (Local)
 git branch   --> show all local branch
 git branch [branch name]   ---> new branch
@@ -82,6 +83,8 @@ git checkout <sha-1 of that commit>
 ** Rename branch:
 git branch -m new-name
 git branch -m old-name new-name
+
+
 
 ** Branch (Remote):
 git branch -r : show remote branch list (saved in local). maybe not latest.
@@ -99,6 +102,10 @@ git branch [new_local_branch]
 git checkout [new_local_branch]
 git pull origin [remote_branch]
 
+** Change Remote Branch(with new repository)
+git branch branch_name --set-upstream-to new_remote/branch_name
+
+ 
 
 git log -p       -----> difference between versions 
 git log -p master..exp  -> 버전간 소스코드 비교

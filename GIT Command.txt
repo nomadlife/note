@@ -105,6 +105,8 @@ git pull origin [remote_branch]
 ** Change Remote Branch(with new repository)
 git branch branch_name --set-upstream-to new_remote/branch_name
 
+** Delete TRACKING remote branch info.(just discennect)
+git branch -d -r [remote repo]/[remote brance]
  
 
 git log -p       -----> difference between versions 

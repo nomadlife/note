@@ -103,6 +103,7 @@ git checkout [new_local_branch]
 git pull origin [remote_branch]
 
 ** Change Remote Branch(with new repository)
+(first, add new repo, push local branch to new repo)
 git branch branch_name --set-upstream-to new_remote/branch_name
 
 ** Delete TRACKING remote branch info.(just discennect)

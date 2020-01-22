@@ -39,28 +39,30 @@ file content :
 
 2. *.tar.gz or *.tar.xz
   a. unzip
-  b. move files to /opt folder
+  b. move files to /opt folder (permission need, sudo)
   c. set env path
   d. make icon file
  
 3. tar.bz2
+  a. unzip
 
-
+4. .run file
+  a. run
 
 ************ Softwares ***************
 *** git : apt-get install git
-*** vscode : download deb
-*** foxit reader : tar.gz
+*** vscode : download deb -> soft center
+*** foxit reader : tar.gz -> run file
 *** goldendict
 *** chrome browser(google) : download deb
 *** chromium : software center
 *** firefox developers : tar.bz2 
 
-*** vlc : 
+*** vlc : web -> soft center
+*** audacious : tar.bz2
 *** audacity : 
-*** audacious : 
 
-*** anaconda : download
+*** anaconda(miniconda) : download
 *** android studio : download tar.gz --> env setup --> ./studio.sh
  # Android Studio (.profile and .bashrc)
  export ANDROIDSTUDIO_HOME=/opt/android-studio/bin
@@ -75,6 +77,10 @@ file content :
  # NodeJS(.profile and .bashrc)
  export NODEJS_HOME=/opt/nodejs/node-v10.16.3-linux-x64/bin
  export PATH=$NODEJS_HOME:$PATH
+
+*** smartgit : 
+ export SMARTGIT_HOME=/opt/smartgit/bin
+ export PATH=$SMARTGIT_HOME:$PATH
 
 *** atom : download rpm
 *** eclipse :

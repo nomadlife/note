@@ -1,30 +1,42 @@
-﻿** for graphviz
+** opencv 
+0. 
+pip install opencv-contrib-python
+pip install opencv-python
+
+
+** dlib (ubuntu)
+$ sudo apt-get update
+$ sudo apt-get install build-essential cmake
+$ sudo apt-get install libopenblas-dev liblapack-dev 
+$ sudo apt-get install libx11-dev libgtk-3-dev
+
+$ sudo apt-get install python python-dev python-pip
+$ sudo apt-get install python3 python3-dev python3-pip
+
+import dlib
+dlib.__version__
+
+
+﻿** graphviz
 pip install graphviz
-Installing collected packages: graphviz
-Successfully installed graphviz-0.8.3
 
-** for mglearn
+** mglearn
 pip install mglearn
-Successfully built mglearn
-Installing collected packages: pillow, mglearn
-Successfully installed mglearn-0.1.6 pillow-5.1.0
+(pillow, mglearn)
 
-** for jupyterthemes
+** jupyterthemes
 pip install jupyterthemes
-Installing collected packages: ply, lesscpy, jupyterthemes
-Successfully installed jupyterthemes-0.19.1 lesscpy-0.13.0 ply-3.11
+(ply, lesscpy, jupyterthemes)
 
-** for jupyter 
+** jupyter 
 pip install jupyter 
-Successfully built pandocfilters MarkupSafe
-Installing collected packages: jsonschema, jupyter-core, nbformat, tornado, pyzmq, jupyter-client, ipykernel, pywinpty, terminado, MarkupSafe, jinja2, testpath, entrypoints, pandocfilters, mistune, webencodings, html5lib, bleach, nbconvert, Send2Trash, notebook, widgetsnbextension, ipywidgets, jupyter-console, qtconsole, jupyter
-Successfully installed MarkupSafe-1.0 Send2Trash-1.5.0 bleach-2.1.3 entrypoints-0.2.3 html5lib-1.0.1 ipykernel-4.8.2 ipywidgets-7.2.1 jinja2-2.10 jsonschema-2.6.0 jupyter-1.0.0 jupyter-client-5.2.3 jupyter-console-5.2.0 jupyter-core-4.4.0 mistune-0.8.3 nbconvert-5.3.1 nbformat-4.4.0 notebook-5.5.0 pandocfilters-1.4.2 pywinpty-0.5.4 pyzmq-17.0.0 qtconsole-4.3.1 terminado-0.8.1 testpath-0.3.1 tornado-5.0.2 webencodings-0.5.1 widgetsnbextension-3.2.1
+jsonschema, jupyter-core, nbformat, tornado, pyzmq, jupyter-client, ipykernel, pywinpty, terminado, MarkupSafe, jinja2, testpath, entrypoints, pandocfilters, mistune, webencodings, html5lib, bleach, nbconvert, Send2Trash, notebook, widgetsnbextension, ipywidgets, jupyter-console, qtconsole, jupyter
 
 ** for machine learning
 pip install numpy scipy matplotlib ipython scikit-learn pandas
 
 Installing collected packages: scipy, six, cycler, pyparsing, python-dateutil, pytz, kiwisolver, matplotlib, colorama, ipython-genutils, decorator, traitlets, backcall, wcwidth, prompt-toolkit, pygments, simplegeneric, pickleshare, parso, jedi, ipython, scikit-learn, pandas
-Successfully installed backcall-0.1.0 colorama-0.3.9 cycler-0.10.0 decorator-4.3.0 ipython-6.4.0 ipython-genutils-0.2.0 jedi-0.12.0 kiwisolver-1.0.1 matplotlib-2.2.2 pandas-0.23.0 parso-0.2.1 pickleshare-0.7.4 prompt-toolkit-1.0.15 pygments-2.2.0 pyparsing-2.2.0 python-dateutil-2.7.3 pytz-2018.4 scikit-learn-0.19.1 scipy-1.1.0 simplegeneric-0.8.1 six-1.11.0 traitlets-4.3.2 wcwidth-0.1.7
+
 
 *** make package list 
 pip freeze > requirements.txt
@@ -42,12 +54,22 @@ python -m SimpleHTTPServer
 localhost:8000
 
 ===============================================
+windows : recommend to use anaconda
+
+ubuntu(pip virtualenv)
+
+
 0. virtualenv install with pip
  linux
- sudo apt-get install python3-pip python3-dev python-virtualenv
+ pip3 install virtualenv
+ virtualenv.py -p python3 ~/envs/py3ai
+ source [path]/bin/activate
 
- windows(if pip installed already)
- install python3 first, and install pip3
+ or
+ sudo apt-get install python3-pip python3-dev python-virtualenv
+ 
+ windows
+ install python3
  pip install virtualenv
  pip install --upgrade virtualenv
 
@@ -56,7 +78,8 @@ localhost:8000
 
 
 
-1.Install(linux/osx, Make a target Directory first)
+
+1.make virtual env (linux/osx, Make a target Directory first)
  virtualenv -p python3 targetDirectory
  virtualenv -p /usr/bin/python3 py3env
  virtualenv TargetDir
@@ -70,7 +93,7 @@ localhost:8000
 
 
 
- 2. run
+ 2. run(activate)
 
  linux/osx:
  source [path]/bin/activate

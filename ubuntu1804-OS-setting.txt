@@ -1,0 +1,50 @@
+====== 18.04 mp4, h264 
+sudo apt-get update
+sudo apt-get install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
+sudo apt-get install ubuntu-restricted-extras
+
+
+
+*** softwares 
+
+*git : apt-get install git
+
+*vscode : web -> software center
+*vim : apt-get install vim
+*vlc : web -> software  center
+*audacious : apt-get install audacious => old
+            ppa , apt-get 
+sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo apt-get update
+sudo apt-get install audacious
+
+*nodejs : ppa, apt-get
+sudo apt-get install curl
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install nodejs
+
+
+*vnc : web -> soft center
+*foxit : web -> tar.gz -> run
+
+
+*miniconda : web ?
+*git-gui : ?
+*android studio : web -> tar.gz -> mv ?
+
+
+
+*** terminal setting 
+terminal prompt 
+
+
+*** language setting 
+ - language pack update
+ - input source setting
+
+
+
+*** data setup *** 
+ - music
+ - book 
+

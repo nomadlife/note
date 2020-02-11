@@ -69,7 +69,7 @@ sql2csv --db 'sqlite:///data/iris.db' --query 'SELECT * FROM iris WHERE sepal_le
 sql2csv --db 'sqlite:///data/iris.db' --query 'SELECT * FROM iris WHERE sepal_length > 7.5' | csvlook
 
 curl -s http://www.gutenberg.org/ebooks/epub/76/pg76.txt | head -n 10
- : -s for silent means diable downlaod status (currently the url not possible)
+ : -s for silent means disable downlaod status (currently the url not possible)
 curl http://www.gutenberg.org/cache/epub/76/pg76.txt > data/finn.txt
 curl -s http://www.gutenberg.org/cache/epub/76/pg76.txt -o data/finn.txt
 curl -u username:password ftp://host/file
@@ -105,7 +105,7 @@ ls -l top-words-{1,2}.sh
 
 r:read w:wrote x:excutable
 first 1 char : -:regular file d:directory
-next 3 char : owner persmossions
+next 3 char : owner permissions
 next 3 char : group owner permissions
 last 3 char : all other users permissions
 
@@ -127,12 +127,12 @@ uniq -c | sort -nr | head -n $NUM_WORDS
 
 cat data/finn.txt | ./top-words-5.sh 5
 
-step 6 : extend PATH vatiable
+step 6 : extend PATH variable
 echo $PATH | fold
 echo $PATH | tr : '\n' | sort
 **edit the .bashrc or .profle file
 
-** Pthon and R
+** Python and R
 #!/usr/bin/env python
 from sys import stdin, stdout
 while True:

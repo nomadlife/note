@@ -21,13 +21,20 @@ netstat -ntlp
 ** kill port
 kill -9 [pid]
 
-﻿Linux(ubuntu) command
 
-alias ls='ls -F --color=auto --show-control-chars'
 
 ** find text
+grep "text" file.txt
 grep -rnw [text]
-grep "^\.container\ " ~/.jupyter/custom/custom.css -n -A 10
+grep "^\.container\ " ~/.jupyter/custom/custom.css -n -A 10 : -n line number -A after
+
+
+*** insert text 
+echo "simple text" >> test.txt 
+echo -e "line1\nline2" >> test.txt
+echo "line9
+> line10" >> test.txt
+
 
 
 **** find and replace ******
@@ -41,14 +48,17 @@ sed 's/abc/XYZ/g' <infile >outfile
 ** change hostname *
 sudo hostname [new name]
 
+
 ** change hostname (permanently) **
 sudo vi /etc/hostname
 sudo vi /etc/hosts
 
 
+
 *** 압축풀때 한글 파일이름 깨짐 문제.
 터미널에서, unzip -O cp949 [파일이름]
 (대문자 -O, 윈도우에서 사용하는 텍스트 인코딩이 cp949 라고 명시해줌)
+
 
 ****Ubuntu Text Editor(gedit) 한글 인코딩 추가
  -윈도우 인코딩 : EucKR or UHC(Unified Hangul code), EucKR : 2350자 표현가능.
@@ -58,6 +68,7 @@ dconf-editor
 org>gnome>gedit>proference>encode
 ['UHC','UFT-8','CURRENT','ISO-8859-15','UTF-16]
  
+
 --hibernation
 sudo systemctl hibernate
 
@@ -68,11 +79,13 @@ compgen -g  :그룹보기
 compgen -u  :사용자보기
 groups jw      : 사용자가 속한 그룹 보기
 
+
 --Permission 바꾸기
 sudo chown -R username:group directory
 sudo chown username:group directory
 dpkg --get-selections | grep -v deinstall
 (The -v tag "inverts" grep to return non-matching lines)
+
 
 
 --apache2 서버루트 변경
@@ -90,7 +103,6 @@ dpkg --get-selections | grep -v deinstall
   opcache enabled =0
   display_errors = On
 
-ls -al |grep vim : 특정어구 포함 리스트 출력
 
 ****** decompress
 Extracting .tar.gz files

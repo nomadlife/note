@@ -14,3 +14,18 @@ div.cell.selected {
 div.output_scroll {
     resize: vertical !important;
 }
+
+***** addition command *******(ubuntu)
+grep "^\.container {" ~/.jupyter/custom/custom.css -n -A 10  (search and check)
+sed '/^\.container {/a \ width: 99% !important;' ~/.jupyter/custom/custom.css -n  (preview)
+sed '/^\.container {/a \ width: 99% !important;' ~/.jupyter/custom/custom.css -i  (run)
+
+grep "^div\.cell\.selected {" ~/.jupyter/custom/custom.css -n -A 10
+sed '/^div\.cell\.selected {/a \ border-left-width: 1px !important;' ~/.jupyter/custom/custom.css -n
+sed '/^div\.cell\.selected {/a \ border-left-width: 1px !important;' ~/.jupyter/custom/custom.css -i
+
+grep "^div.*\.output_scroll {" ~/.jupyter/custom/custom.css -n -A 10
+sed '/^div.*\.output_scroll {/a \ resize: vertical !important;' ~/.jupyter/custom/custom.css -n
+sed '/^div.*\.output_scroll {/a \ resize: vertical !important;' ~/.jupyter/custom/custom.css -i
+
+

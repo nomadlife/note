@@ -16,16 +16,59 @@ div.output_scroll {
 }
 
 ***** addition command *******(ubuntu)
+1.
 grep "^\.container {" ~/.jupyter/custom/custom.css -n -A 10  (search and check)
 sed '/^\.container {/a \ width: 99% !important;' ~/.jupyter/custom/custom.css -n  (preview)
 sed '/^\.container {/a \ width: 99% !important;' ~/.jupyter/custom/custom.css -i  (run)
 
+2.
 grep "^div\.cell\.selected {" ~/.jupyter/custom/custom.css -n -A 10
 sed '/^div\.cell\.selected {/a \ border-left-width: 1px !important;' ~/.jupyter/custom/custom.css -n
 sed '/^div\.cell\.selected {/a \ border-left-width: 1px !important;' ~/.jupyter/custom/custom.css -i
 
+3.
 grep "^div.*\.output_scroll {" ~/.jupyter/custom/custom.css -n -A 10
 sed '/^div.*\.output_scroll {/a \ resize: vertical !important;' ~/.jupyter/custom/custom.css -n
 sed '/^div.*\.output_scroll {/a \ resize: vertical !important;' ~/.jupyter/custom/custom.css -i
+
+
+
+***** addition command *******(mac)
+1.
+grep "^\.container {" ~/.jupyter/custom/custom.css -n -A 10  (search and check)
+
+sed -n -e '/^\.container {/a\
+\ width: 99% !important;
+' ~/.jupyter/custom/custom.css   (preview)
+
+sed -i -e '/^\.container {/a\
+\ width: 99% !important;
+' ~/.jupyter/custom/custom.css    (run)
+
+2.
+(search and check)
+grep "^div\.cell\.selected {" ~/.jupyter/custom/custom.css -n -A 10
+
+sed -n -e '/^div\.cell\.selected {/a\
+\ border-left-width: 1px !important;
+' ~/.jupyter/custom/custom.css        (preview)
+
+sed -i -e '/^div\.cell\.selected {/a\
+\ border-left-width: 1px !important;
+' ~/.jupyter/custom/custom.css       (run)
+
+
+3.
+(search and check)
+grep "^div.*\.output_scroll {" ~/.jupyter/custom/custom.css -n -A 10
+
+sed -n -e '/^div.*\.output_scroll {/a\
+\ resize: vertical !important;
+' ~/.jupyter/custom/custom.css
+
+sed -i -e '/^div.*\.output_scroll {/a\
+\ resize: vertical !important;
+' ~/.jupyter/custom/custom.css
+
 
 

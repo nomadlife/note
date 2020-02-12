@@ -1,0 +1,70 @@
+
+** find text
+grep "text" file.txt
+grep "text" file.txt -c  (count)
+grep -rnw [text]
+grep "^\.container\ " ~/.jupyter/custom/custom.css -n -A 10 : -n line number -A after
+
+
+*** insert text 
+echo "simple text" >> test.txt 
+echo -e "line1\nline2" >> test.txt
+echo "line9
+> line10" >> test.txt
+
+
+
+**** find and change (sed) ******
+
+-i option : change input file itself(without output file)
+-n option : preview result
+
+(change all)
+sed 's/line4/****/' test.txt <outfile>
+sed -i -e 's/few/asd/g' hello.txt
+sed -i -e 's/abc/XYZ/g' /tmp/file.txt
+sed '0~30 s/$/string/g' < inputfile > outputfile
+sed 's/abc/XYZ/g' <infile >outfile
+
+(change once)
+sed '0,/line4/s//****/' test.txt  (GNU-sed)
+sed '1,/RE/s//to_that/' file  (not GNU-sed(mac), not on the first line)
+sed -e '/RE/{s//to_that/;:a' -e '$!N;$!ba' -e '}' file  # change (not GNU-sed, one the first line)
+
+
+****** find and insert line ***** (gnu-sed(ubuntu))
+(a expression)
+sed '/line2/a line22' test.txt
+sed '/line2/aline22' test.txt
+sed '/line2/a\line22' test.txt
+sed '/line2/a\
+line22' test.txt
+
+(i expression)
+sed '/line5/i line6' test.txt
+
+(equivalent a)
+sed '/line2/{a apple 
+}' test.txt
+
+sed '/line2/!{p;d;};n;a apple' test.txt
+
+(insert after N lines)
+sed '/line2/{N;a apple 
+}' test.txt
+
+sed '/line2/{N;N;a apple 
+}' test.txt
+
+sed '/line2/!{p;d;};n;a apple' test.txt
+sed '/line2/!{p;d;};n;n;a apple' test.txt
+
+
+****** find and insert ***** (non gnu-sed(mac))
+
+
+
+****** find and delete ***** (gnu-sed(ubuntu))
+sed -i '/line22/d' test.txt
+
+

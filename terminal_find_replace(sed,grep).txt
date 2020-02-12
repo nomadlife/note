@@ -61,6 +61,27 @@ sed '/line2/!{p;d;};n;n;a apple' test.txt
 
 
 ****** find and insert ***** (non gnu-sed(mac))
+(a expression)
+sed -e '/line9/a\ 
+****' test.txt
+
+sed '/line2/a\
+line22
+' test.txt
+
+
+(i expression)
+sed -e '/line9/i\
+****' test.txt
+
+sed '/line9/i\
+****
+' test.txt
+
+
+
+
+
 
 
 

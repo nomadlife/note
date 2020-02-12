@@ -23,27 +23,6 @@ kill -9 [pid]
 
 
 
-** find text
-grep "text" file.txt
-grep -rnw [text]
-grep "^\.container\ " ~/.jupyter/custom/custom.css -n -A 10 : -n line number -A after
-
-
-*** insert text 
-echo "simple text" >> test.txt 
-echo -e "line1\nline2" >> test.txt
-echo "line9
-> line10" >> test.txt
-
-
-
-**** find and replace ******
-sed -i -e 's/few/asd/g' hello.txt
-sed -i -e 's/abc/XYZ/g' /tmp/file.txt
-sed '0~30 s/$/string/g' < inputfile > outputfile
-sed 's/abc/XYZ/g' <infile >outfile
-
-
 
 ** change hostname *
 sudo hostname [new name]

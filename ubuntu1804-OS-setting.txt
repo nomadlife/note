@@ -5,32 +5,48 @@ sudo apt-get install ubuntu-restricted-extras
 
 
 
-*** softwares 
+===== softwares 
 
-*git : apt-get install git
+*** git : apt-get install git
 
-*vscode : web -> software center
-*vim : apt-get install vim
-*vlc : web -> software  center
-*audacious : apt-get install audacious => old
+*** vscode : web -> software center
+*** vim : apt-get install vim
+ tiny version : vim -tiny
+
+*** vlc : web -> software  center
+*** audacious : apt-get install audacious => old
             ppa , apt-get 
-sudo add-apt-repository ppa:nilarimogard/webupd8
-sudo apt-get update
-sudo apt-get install audacious
+ sudo add-apt-repository ppa:nilarimogard/webupd8
+ sudo apt-get update
+ sudo apt-get install audacious
 
-*nodejs : ppa, apt-get
-sudo apt-get install curl
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install nodejs
+*** goldendict : soft center
 
-
-*vnc : web -> soft center
-*foxit : web -> tar.gz -> run
+*** nodejs : ppa, apt-get
+ sudo apt-get install curl
+ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+ sudo apt-get install nodejs
 
 
-*miniconda : web ?
-*git-gui : ?
-*android studio : web -> tar.gz -> mv ?
+*** vnc : web -> soft center
+*** foxit : web -> tar.gz -> run
+
+
+*** miniconda : web ?
+*** git-gui : ?
+
+*** android studio
+ tar.gz --> extract --> move folder -> (install 32bit lib) --> run studio.sh
+
+- register -
+~/.local/share/applications/AndroidStudio.desktop
+[Desktop Entry]
+Name=Android Studio
+Terminal=false
+Type=Application
+Categories=Application;
+Icon=/usr/local/android-studio/bin/studio.png
+Exec=/usr/local/android-studio/bin/studio.sh 
 
 
 

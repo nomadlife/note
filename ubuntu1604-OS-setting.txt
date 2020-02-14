@@ -53,17 +53,22 @@ file content :
 *** git : apt-get install git
 *** vscode : download deb -> soft center
 *** foxit reader : tar.gz -> run file
-*** goldendict
+*** goldendict : soft center
 *** chrome browser(google) : download deb
 *** chromium : software center
 *** firefox developers : tar.bz2 
+*** vim : apt-get install vim
+ tiny version : vim -tiny
 
 *** vlc : web -> soft center
 *** audacious : tar.bz2
 *** audacity : 
 
 *** anaconda(miniconda) : download
-*** android studio : download tar.gz --> env setup --> ./studio.sh
+*** android studio : 
+ tar.gz --> move folder --> (install 32bit library in case on 64bit OS) 
+ --> env setup --> ./studio.sh
+ (env path)
  # Android Studio (.profile and .bashrc)
  export ANDROIDSTUDIO_HOME=/opt/android-studio/bin
  export PATH=$ANDROIDSTUDIO_HOME:$PATH

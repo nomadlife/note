@@ -68,3 +68,19 @@ nodemon.json
 
 ** flash messages
 npm install -s connect-flash
+
+
+
+================= npm ===============
+npm upgrade
+** node upgrade (ubt1604)
+node -v
+(sudo) npm cache clean -f
+(sudo) npm install -g n
+sudo n stable
+
+** npm upgrade (ubt1604)
+npm -v
+sudo npm install -g npm
+
+

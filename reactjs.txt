@@ -1,0 +1,61 @@
+====== install create-react-app
+
+>npm install -g create-react-app@2.1.8
+>npm install -g create-react-app
+
+
+===== start new project 
+>create-react-app [project name]
+or
+make folder first , [working folder]
+in the folder,
+>create-react-app .
+
+
+===== cloned from vcs,
+>npm install
+or
+>npm i
+
+===== run page
+>npm start
+
+
+=========
+npm install -g serve 
+
+serve -s build 
+
+
+========
+npm list
+npm list --depth=0
+npm list <pkg> (-g)
+npm show <pkg> (-g)
+
+npm i uuid
+
+npm i react-router-dom
+
+npm i axios
+
+
+===========github page deploy =============
+
+npm install gh-pages --save-dev
+
+--package.json
+"homepage": "http://nomadlife.github.io/react_todo"
+"scripts": {
+//...
+"predeploy": "npm run build",
+"deploy": "gh-pages -d build"
+}
+
+git remote add origin "https://github.com/nomadlife/react_page_test.git"
+
+npm run deploy
+
+
+======== react .env file ======
+after setting .env file, need to restart server.

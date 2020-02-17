@@ -20,7 +20,7 @@ sudo apt-get install ubuntu-restricted-extras
  sudo apt-get update
  sudo apt-get install audacious
 
-*** goldendict : soft center
+*** goldendict : soft center or apt-get install goldendict (1.5.0~rc2+git20170908+ds-1 )
 
 *** nodejs : ppa, apt-get
  sudo apt-get install curl
@@ -32,8 +32,10 @@ sudo apt-get install ubuntu-restricted-extras
 *** foxit : web -> tar.gz -> run
 
 
-*** miniconda : web ?
+*** miniconda : web -> run sh file
 *** git-gui : ?
+ - git-cola : sudo apt-get install git-cola
+ - gitg : sudo apt-get install gitg
 
 *** android studio
  tar.gz --> extract --> move folder -> (install 32bit lib) --> run studio.sh

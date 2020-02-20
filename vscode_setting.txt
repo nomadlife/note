@@ -1,3 +1,13 @@
+** essential expansions ***
+ - Python
+ - ES7 React
+ - 
+
+** Shortcuts **
+terminal : Ctrl + `
+formatter : Ctrl+Shift+ I
+
+
 Predefined variables
 The following predefined variables are supported:
 

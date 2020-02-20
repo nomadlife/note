@@ -1,4 +1,29 @@
-Mysql 
+**** install, ubuntu 18.04 
+sudo apt-get update
+sudo apt-get install mysql-server
+sudo mysql_secure_installation
+
+** run
+sudo mysql -u root -p
+sudo mysql
+
+** check port
+netstat -tlpn
+
+mysql> status => show current status
+
+** for unix socket 
+const connection = mysql.createPool({
+  .....,
+  socketPath: '/var/run/mysqld/mysqld.sock'
+});
+
+
+** error 1251
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '13579000';
+
+
+===========================
  
 mysql -uroot -p
 mysql -uopentutorials.org -P3306 -uroot -p
@@ -11,9 +36,22 @@ Show databases;
 Use [DBname];
 Show tables;
 Select * from [table name];
- 
-** 종료
-exit
+
+
+exit : exit sql prompt
+help : show usage
+
+create database [db name];
+use [db name];
+
+create table test_table(id int(11) not null, name char(10) default null);
+insert into test_table (id, name) values (1, 'names');
+update test_table set name='james' where id=1;
+insert into test_table (id, name) values (2, 'john');
+insert into test_table (id, name) values (3, 'robert');
+insert into test_table (id, name) values (4, 'michael');
+insert into test_table (id, name) values (5, 'william');
+update test_table set id=3 where name='robert';
 
 ** db 가져오기 
 CREATE DATABASE dbname;
@@ -64,3 +102,5 @@ DELETE FROM `user` WHERE `user`.`id` = 8;
 update task set link_page='status1.php' where id=1;
 Update user set user_name=’nomad’ where id=9;
  
+
+

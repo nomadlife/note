@@ -1,8 +1,11 @@
-====== 18.04 mp4, h264 
+***** 18.04 mp4, h264 
 sudo apt-get update
 sudo apt-get install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
 sudo apt-get install ubuntu-restricted-extras
 
+***** gedit, comment shortcut 
+sudo apt-get update
+sudo apt-get install gedit-plugins
 
 
 ===== softwares 

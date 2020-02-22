@@ -1,3 +1,9 @@
+** copy exclude folders **
+rsync -av --exclude='path1/to/exclude' --exclude='path2/to/exclude' source destination
+
+--exclude=*/.svn*
+
+
 ** image show
 eog image.jpg
 eog -w image.jpg

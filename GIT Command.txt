@@ -126,3 +126,18 @@ git diff master..exp  → 모든파일내용 비교
 
 git rm --cached mylogfile.log 
 git rm --cached -r mydirectory
+
+==== submodulw ====
+:add repo
+git submodule add <url> nodejs-cookie
+git submodule add ./nodejs-cookie
+
+:remove repo
+git rm --cached nodejs-cookie
+
+:clone all
+git clone --recurse-submodules ~/Documents/Repositories/test test
+
+:deinit
+git submodule deinit --all
+

@@ -1,0 +1,9 @@
+line duplicate : Ctrl + D
+Line move : Ctrl + Shift + up,down
+line delete : Shift + delete 
+
+reformat : Ctrl + Shift + Alt + L
+line finder : Ctrl + Shift + L
+
+
+ubuntu multi desktop move : Ctrl + At + up + down 

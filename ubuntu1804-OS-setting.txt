@@ -41,7 +41,8 @@ sudo apt-get install gedit-plugins
  - gitg : sudo apt-get install gitg
 
 *** android studio
- tar.gz --> extract --> move folder -> (install 32bit lib) --> run studio.sh
+ tar.gz --> extract --> 
+ move folder(/usr/local/) -> (install 32bit lib) --> run studio.sh
 
 - register -
 ~/.local/share/applications/AndroidStudio.desktop
@@ -53,6 +54,19 @@ Categories=Application;
 Icon=/usr/local/android-studio/bin/studio.png
 Exec=/usr/local/android-studio/bin/studio.sh 
 
+
+*** pycharm ****
+ tar.gz
+ move folder(/usr/local/)
+- register -
+~/.local/share/applications/PyCharm.desktop
+[Desktop Entry]
+Name=PyCharm
+Terminal=false
+Type=Application
+Categories=Application;
+Icon=/usr/local/pycharm-community-2019.3.3/bin/pycharm.png
+Exec=/usr/local/pycharm-community-2019.3.3/bin/pycharm.sh 
 
 
 *** terminal setting 

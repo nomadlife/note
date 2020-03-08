@@ -1,3 +1,8 @@
+**ffplay 
+ffplay filename.mp3 -nodisp -hide_banner -autoexit -volume 10 -loop 0
+ffplay filename.mp3 -nodisp -hide_banner -volume 10 -loop 0
+
+=================================
 ** audio merge
 ffmpeg -i first.mka -i second.mka -i third.mka -i fourth.mka
        -filter_complex

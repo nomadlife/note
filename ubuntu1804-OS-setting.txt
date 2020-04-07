@@ -10,11 +10,18 @@ sudo apt-get install gedit-plugins
 
 ===== softwares 
 
+*** docker : official site
+*** conda : official site
+*** ffmpeg : sudo apt-get install ffmpeg
+*** chrome : 
 *** git : apt-get install git
 
 *** vscode : web -> software center
-*** vim : apt-get install vim
+*** vim : sudo apt-get install vim
  tiny version : vim -tiny
+
+
+
 
 *** vlc : web -> software  center
 *** audacious : apt-get install audacious => old

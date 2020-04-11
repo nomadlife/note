@@ -1,6 +1,6 @@
 **ffplay 
 ffplay filename.mp3 -nodisp -hide_banner -autoexit -volume 10 -loop 0
-ffplay filename.mp3 -nodisp -hide_banner -volume 10 -loop 0
+ffplay filename.mp3 -nodisp -hide_banner -loop 0 -volume 10
 
 =================================
 ** audio merge

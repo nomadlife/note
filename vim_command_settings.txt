@@ -108,7 +108,11 @@ Ctrl+w,o -> close all except current window
 :tabnew b.txt --> new/open
 :tabf b.txt --> open
 :tabn[#] --> next tab
+	gt : next tab
+	1gt : goto tab 1
+	3gt : goto tab 3
 :tabp[#] --> previous tab
+	gT : previous tab
 :tabs  --> list
 :tabclose or :q --> close tab(not for buffer)
 
@@ -118,7 +122,9 @@ Ctrl+w,o -> close all except current window
 :set noundofile .un : undo file
 :set nowritebackup ~ : write backup file
 :set nobackup
+:set number  -> show line number
 
+:t#  -> copy current line to line # (after line #)
 
 =====================================================
 setting

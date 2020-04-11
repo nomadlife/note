@@ -14,6 +14,9 @@ sudo apt-get install gedit-plugins
 *** conda : official site
 *** ffmpeg : sudo apt-get install ffmpeg
 *** chrome : 
+*** lua : sudo apt install lua5.3	
+
+
 *** git : apt-get install git
 
 *** vscode : web -> software center
@@ -29,6 +32,11 @@ sudo apt-get install gedit-plugins
  sudo add-apt-repository ppa:nilarimogard/webupd8
  sudo apt-get update
  sudo apt-get install audacious
+
+*** audacity (2.3.3) : 
+ sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+ sudo apt-get update
+ sudo apt-get install audacity
 
 *** goldendict : soft center or apt-get install goldendict (1.5.0~rc2+git20170908+ds-1 )
 

@@ -1,3 +1,14 @@
+** monitor cpu temperature
+sudo apt-get install lm-sensors
+sensors | grep ISA -A3
+watch -d -n1 'sensors | grep ISA -a3'  --> before 3 lines and after 3 lines
+watch -d -n1 'sensors | grep ISA -A3'  --> only after 3 lines
+
+
+** monitor cpu clock rate
+lscpu | grep MHz
+watch -d -n1 'lscpu | grep MHz'
+
 ** copy exclude folders **
 rsync -av --exclude='path1/to/exclude' --exclude='path2/to/exclude' source destination
 
@@ -12,6 +23,16 @@ eog -w image.jpg
 convert -resize 640x360 image.png result.png
 convert -crop 1920x1080+1930+70 temp.png temp.png
 convert -resize 75% temp.png temp.png
+convert -crop 1437x1080+243+0 test.png test3.png
+
+-batch(find)
+find ./ -name "*.png" -exec convert -crop 1437x1080+243+0 {} output/{} \;
+
+-to pdf (not possible, need some setting )
+convert test.png test.pdf
+
+-batch(mogrify)
+mogrify -crop 1437x1080+243+0 *.png
 
 ** screenshot
 gnome-screenshot -ac

@@ -63,6 +63,9 @@ file content :
 *** vlc : web -> soft center
 *** audacious : tar.bz2
 *** audacity : 
+ sudo add-apt-repository ppa:ubuntuhandbook1/audacity
+ sudo apt-get update
+ sudo apt-get install audacity
 
 *** anaconda(miniconda) : download
 *** android studio : 

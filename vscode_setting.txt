@@ -1,7 +1,16 @@
+** file naming when copy
+ - Setting, search "naming" keyword or 
+ - Explorer > Incremental Naming : Simple => Smart
+
+** korean language error (linux)
+ - remove 'Droid Sans Fallback'
+   : Settings -> Text Editor -> Font -> Font Family
+
 ** essential expansions ***
  - Python
  - ES7 React
- - 
+ - Remote SSH : for remote server work
+
 
 ** Shortcuts **
 terminal : Ctrl + `

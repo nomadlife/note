@@ -26,24 +26,19 @@ pip install mglearn
 
 ** jupyterthemes
 pip install jupyterthemes
-(ply, lesscpy, jupyterthemes)
 
 ** jupyter 
 pip install jupyter 
-jsonschema, jupyter-core, nbformat, tornado, pyzmq, jupyter-client, ipykernel, pywinpty, terminado, MarkupSafe, jinja2, testpath, entrypoints, pandocfilters, mistune, webencodings, html5lib, bleach, nbconvert, Send2Trash, notebook, widgetsnbextension, ipywidgets, jupyter-console, qtconsole, jupyter
 
 ** for machine learning
 pip install numpy scipy matplotlib ipython scikit-learn pandas
-
-Installing collected packages: scipy, six, cycler, pyparsing, python-dateutil, pytz, kiwisolver, matplotlib, colorama, ipython-genutils, decorator, traitlets, backcall, wcwidth, prompt-toolkit, pygments, simplegeneric, pickleshare, parso, jedi, ipython, scikit-learn, pandas
 
 
 *** make package list 
 pip freeze > requirements.txt
 pip install -r requirements.txt
 
-=================================
-*** make localhost by python
+================ localhost =================
 
 Python 3:
 python -m http.server

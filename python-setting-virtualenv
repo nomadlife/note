@@ -48,78 +48,32 @@ python -m SimpleHTTPServer
 
 localhost:8000
 
-===============================================
-windows : recommend to use anaconda
+============ Virtual Environment ============
+****** venv *******
+python3 -m venv ~/venv/ENV_NAME
 
-ubuntu(pip virtualenv)
+**** vritualenv *****
+python3 -m virtualenv ~/venv/ENV_NAME
+virtualenv -p python3 ~/venv/ENV_NAME
+virtualenv -p python3 ~/venv/ENV_NAME --python=python3.7 (if python3.7 is installed)
 
-
-0. virtualenv install with pip
- linux
- pip3 install virtualenv
- virtualenv.py -p python3 ~/envs/py3ai
- source [path]/bin/activate
-
- or
- sudo apt-get install python3-pip python3-dev python-virtualenv
- 
- windows
- install python3
- pip install virtualenv
- pip install --upgrade virtualenv
-
- osx
- pip3 install virtualenv
-
-
-
-
-1.make virtual env (linux/osx, Make a target Directory first)
- virtualenv -p python3 targetDirectory
- virtualenv -p /usr/bin/python3 py3env
- virtualenv TargetDir
- virtualenv TargetDir --python=python3
- virtualenv TargetDir --python=python3.5
- virtualenv TargetDir --python=python
- virtualenv TargetDir --python=python2.7
- virtualenv --system-site-packages -p python3 targetDirectory 
-  : system-site-package option is not work for jupyter notebook
- python3 -m venv tutorial-env (linux,,windows don't know)
-
-
-
- 2. run(activate)
-
- linux/osx:
- source [path]/bin/activate
-
- windwos:
+***** run env ******** 
+source ~/venv/ENV_NAME/bin/activate
+windwos:
  call [path]/scripts/activate
  (or just [path]/scripts/activate)
 
+****** end **********
+deactivate
 
 
- 3. install package inside virtual python3
- (inside virtualenv)> pip install package-name
-
- -in case of tkinter package. there’s no pip package
-  so, fist install tcl/tk package on main system, (and test)
-  and make a new virtual environment and python.
-  >>> import tkinter
-  >>> tkinter._test()
-  >>> tkinter.Tcl().eval('info patchlevel')
+******* remove env ********
+rm -rf PATH/to/foler
 
 
- 4. quit
- deactivate
 
 
- 5. remove venv
- rm -r /path/to/ENV
-
-
-Jupyter notebook / themes
-***************************************************
+===========  Jupyter notebook themes ===================
  1. install jupiter notebook (linux,OS X,window common)
  (for virtualevn, activate virtual python first, and run command)
  pip install jupyter
@@ -153,7 +107,7 @@ Jupyter notebook / themes
  jt -t [theme name] :  change theme
  jt -l : show the list of themes
 
-**Font
+**** Font ****
 jt -t onedork -f cousine
 
 -f arg 	
@@ -214,57 +168,3 @@ goudyserif 	Sorts Mill Goudy
 
 
 
-*** matplotlib package. (virtualenv, pip3)
-  pip3 install --upgrade matplotlib
-
-*** tkinter package(python3-tk) package 설치. (no pip package.)
- - sudo apt-get install python3-tk
-
-
-*** scipy package install
- pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
- (--user option related with --system-site-package option when installation)
-
-
-
-
-
-**********************************
-How to install virtualenv:
-Install pip first
-
-sudo apt-get install python3-pip
-
-Then install virtualenv using pip3
-
-sudo pip3 install virtualenv
-
-Now create a virtual environment
-
-virtualenv venv
-
-    you can use any name insted of venv
-
-You can also use a Python interpreter of your choice
-
-virtualenv -p /usr/bin/python2.7 venv
-
-Active your virtual environment:
-
-source venv/bin/activate
-
-Using fish shell:
-
-source venv/bin/activate.fish
-
-To deactivate:
-
-deactivate
-
-Create virtualenv using Python3
-
-virtualenv -p python3 myenv
-
-Instead of using virtualenv you can use this command in Python3
-
-python3 -m venv myenv

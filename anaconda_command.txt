@@ -27,6 +27,10 @@ conda deactivate [envname]
 source activate name
 source deactivate  (deprecated)--> conda deactivate
 
+**linux(ubuntu1804)
+source ~/[path]/bin/activate
+deactivate
+
 conda remove -n name --all
 
 *****************************

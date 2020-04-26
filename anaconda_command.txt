@@ -25,9 +25,9 @@ conda deactivate [envname]
 
 **linux/mac
 source activate name
-source deactivate  (deprecated)--> conda deactivate
+conda deactivate
 
-**linux(ubuntu1804)
+**v-env command (not conda)
 source ~/[path]/bin/activate
 deactivate
 

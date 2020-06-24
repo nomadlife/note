@@ -7,9 +7,13 @@ git init
 git add -A  ---> add all file to version control 
 git add [directory]/\*  -> add certain folder only
 git remote add origin [repository address]
+git remote add origin https://github.com/....
+git remote add origin user@192.168.0.1:~/git/folder
+git remote add origin d:\git\folder
 git remote
 git remote -v  ----> show detail
 git remote remove [name]
+git remote set-url origin https://....
 
 git clone https://github.com/nomadlife/php.git php
 git config user.name
@@ -67,9 +71,14 @@ git clean -d -n    : check target item
 git clean -f -d -x : include .gitignore target
 
 
+** Show branch
+git branch      : show all local branch
+git branch -r   : show remote branch list (maybe not latest)
+git ls-remote   : show remote branch list (latest)
+git remote show [origin] : show detail info for remote repo(branches), latest.
+
 
 ** Branch (Local)
-git branch   --> show all local branch
 git branch [branch name]   ---> new branch
 git checkout [branch name]  ---> change working branch
 git branch -d [branch name]  ----> delete branch
@@ -85,17 +94,13 @@ git branch -m new-name
 git branch -m old-name new-name
 
 
-
 ** Branch (Remote):
-git branch -r : show remote branch list (saved in local). maybe not latest.
-git ls-remote : show remote branch list, latest.
-git remote show [origin] : show detail info for remote repo(branches), latest.
 
 git remote update : update remote branch info
 
 ** Clone Remote branch :
-git checkout -b [branch_name] [origin/branch_name]
 git checkout -t [origin/branch_name]
+git checkout -b [branch_name] [origin/branch_name]
 
 or manualy
 git branch [new_local_branch]

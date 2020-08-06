@@ -45,6 +45,7 @@ file content :
  
 3. tar.bz2
   a. unzip
+  b. tar xvf
 
 4. .run file
   a. run

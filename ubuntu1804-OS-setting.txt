@@ -55,6 +55,7 @@ sudo apt-get install gedit-plugins
  - git-cola : sudo apt-get install git-cola
  - gitg : sudo apt-get install gitg
 
+
 *** android studio
  tar.gz --> extract --> 
  move folder(/usr/local/) -> (install 32bit lib) --> run studio.sh

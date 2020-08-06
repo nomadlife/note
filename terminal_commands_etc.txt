@@ -110,9 +110,21 @@ dpkg --get-selections | grep -v deinstall
   display_errors = On
 
 
-****** decompress
-Extracting .tar.gz files
+****** unzip
+.tar.gz 
 tar xvzf file.tar.gz (sub folder created automatically)
+
+.tar.bz2 
+tar xvf
+unzip
+
+tar option
+ c: zip
+ x: unzip
+ z: tar & gzip
+ v: verbose
+ p: permission inherit
+ f: target file
 
 
 ****** ssh connection

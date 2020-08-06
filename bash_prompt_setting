@@ -15,11 +15,9 @@ PS1="${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\
 #PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]$(if [ -d .git ];then __git_ps1; fi)\[\e[00m\] \n$ '
 
 PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[00m\]$(__git_ps1)\[\e[00m\] \n$ '
-
 PS1="${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\]\w\[\e[36m\]\$(__git_ps1)\[\e[00m\] \n$ "
-
 PS1="${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\] \[\e[01;31m\]\s \[\e[01;34m\]\w\[\e[36m\]\$(__git_ps1)\[\e[00m\] \n$ "
-
+PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\] \[\e[01;31m\]\s \[\e[01;34m\]\w\[\e[00m\]'"\$(__git_ps1) \n$ "
 
 \u => username
 \h => hostname

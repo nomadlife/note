@@ -50,6 +50,13 @@ file content :
 4. .run file
   a. run
 
+****** zipfile type ******
+tar.gz : unzip, tar xzf
+tar.bz
+tar.bz2 : tar xf
+tar.xz : tar xf
+
+
 ************ Softwares ***************
 *** git : apt-get install git
 *** vscode : download deb -> soft center

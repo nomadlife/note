@@ -32,9 +32,9 @@ file content :
   . ~/.profile
 
 1. *.deb file
-  a. software center 
-  b. sudo apt install ./<file>.deb
-  c. sudo dpkg -i <file>.deb
+  - software center 
+  or) sudo apt install ./<file>.deb
+  or) sudo dpkg -i <file>.deb
      sudo apt-get install -f
 
 2. *.tar.gz or *.tar.xz
@@ -44,8 +44,8 @@ file content :
   d. make icon file
  
 3. tar.bz2
-  a. unzip
-  b. tar xvf
+  - unzip
+  or) tar xvf
 
 4. .run file
   a. run

@@ -1,67 +1,101 @@
-** ssh setup
+
+**** stay on when laptop lid closed.
+  sudo vi /etc/systemd/logind.conf
+
+  ..
+  HandleLidSwitch=ignore
+  ..
+
+  sudo systemctl restart systemd-logind
+
+
+**** grub cli-gui setting
+  sudo vi /etc/default/grub
+  ...
+  update-grub
+  
+  - for cli mode
+  GRUB_CMDLINE_LINUX="text"
+  GRUB_TERMINAL=console
+  systemctl set-default multi-user.target
+
+  - for gui mode
+  GRUB_CMDLINE_LINUX=""
+  #GRUB_TERMINAL=console
+  systemctl set-default multi-user.target
+
+**** ssh setup
   sudo apt install openssh-server
   sudo systemctl status ssh
   (sudo ufw allow ssh)
   (sudo service ssh restart)
 
-** mc(midnight commander)
+**** mc(midnight commander)
   sudo apt install mc
+
+**** gcc
+sudo apt install build-essential
 
 ***** 18.04 mp4, h264 
 sudo apt-get update
 sudo apt-get install libdvdnav4 libdvdread4 gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libdvd-pkg
 sudo apt-get install ubuntu-restricted-extras
 
-***** gedit, comment shortcut 
+***** gedit, comment shortcut ( ctrl+m )
 sudo apt-get update
 sudo apt-get install gedit-plugins
 
 
-===== softwares 
+========== softwares ===============
 
-*** chrome : official site(.deb) 
-*** git : apt-get install git
+**** chrome : official site(.deb) 
+**** git : apt-get install git
   or ppa : add-apt-repository ppa:git-core/ppa
-*** vim : sudo apt-get install vim
+**** vim : sudo apt-get install vim
  tiny version : vim -tiny
 
-*** vscode : official site(.deb)
-*** foxit : official site(tar.gz) -> run
+**** vscode : official site(.deb)
+**** foxit : official site(tar.gz) -> run
 
-*** vlc : official site(s/c link)
+**** vlc : official site(s/c link)
   or) sudo snap install vlc
 
-*** audacious : apt-get install audacious (stable)
+**** audacious : apt-get install audacious (stable)
   or ppa : sudo add-apt-repository ppa:nilarimogard/webupd8
   sudo apt-get update
   sudo apt-get install audacious
 
-*** nodejs : ppa, apt-get
+**** nodejs : 
+ ppa, apt-get
  sudo apt-get install curl
  curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
  sudo apt-get install nodejs
 
-*** goldendict : soft center or apt-get install goldendict (1.5.0~rc2+git20170908+ds-1 )
+ or download tar.xz 
+ unzip, move folder to /usr/local/lib/nodejs/xxxx , set env-var in .profile
+ export PATH=/usr/local/lib/nodejs/node-v12.18.3-linux-x64/bin:$PATH
 
-*** audacity (2.3.3) : 
+**** goldendict : soft center or apt-get install goldendict (1.5.0~rc2+git20170908+ds-1 )
+
+**** audacity (2.3.3) : 
  sudo add-apt-repository ppa:ubuntuhandbook1/audacity
  sudo apt-get update
  sudo apt-get install audacity
 
-*** vnc : web -> soft center
+**** vnc : web -> soft center
 
-*** docker : official site
-*** conda : official site
-*** miniconda : web -> run sh file
-*** ffmpeg : sudo apt-get install ffmpeg
-*** lua : sudo apt install lua5.3
+**** docker : official site
+**** conda : official site
+**** miniconda : web -> run sh file
+**** ffmpeg : sudo apt-get install ffmpeg
+**** lua : sudo apt install lua5.3
 
-*** git-gui : ?
+**** git-gui : ?
  - git-cola : sudo apt-get install git-cola
  - gitg : sudo apt-get install gitg
 
 
-*** android studio
+**** android studio
  tar.gz --> extract --> 
  move folder(/usr/local/) -> (install 32bit lib) --> run studio.sh
 
@@ -76,7 +110,7 @@ Icon=/usr/local/android-studio/bin/studio.png
 Exec=/usr/local/android-studio/bin/studio.sh 
 
 
-*** pycharm ****
+**** pycharm ****
  tar.gz
  move folder(/usr/local/)
 - register -
@@ -90,17 +124,17 @@ Icon=/usr/local/pycharm-community-2019.3.3/bin/pycharm.png
 Exec=/usr/local/pycharm-community-2019.3.3/bin/pycharm.sh 
 
 
-*** terminal setting 
+**** terminal setting 
 terminal prompt 
 
 
-*** language setting 
+**** language setting 
  - language pack update
  - input source setting
 
 
 
-*** data setup *** 
+**** data setup *** 
  - music
  - book 
 

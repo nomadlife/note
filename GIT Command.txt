@@ -46,11 +46,16 @@ git reset --hard origin/maser
 
 
 git stash : save current working directory, reset HEAD. (for avoid conflict when pull)
+git stash save "my_stash"
+git stash --include-untracked
 git stash list
 git stash apply
+git stash drop
+git stash pop
 
-**push 할때마다 id/pw 요구하면,,
-$ git config credential.helper store  --> git directory 내에서 설정.
+** save id/pw :
+$ git config credential.helper store  --> in the each git directory
+
 $ git push http://example.com/repo.git
 Username: <type your username>
 Password: <type your password>
@@ -79,19 +84,20 @@ git remote show [origin] : show detail info for remote repo(branches), latest.
 
 
 ** Branch (Local)
-git branch [branch name]   ---> new branch
-git checkout [branch name]  ---> change working branch
-git branch -d [branch name]  ----> delete branch
-git merge [branch name] ---->merge branch, take the branch into current branch.
+git branch [branch]         : new branch
+git checkout [branch]       : change branch
+git checkout <commit>       : change head to commit
+git checkout -b [branch]    : new & change branch
+git branch -m new-name          : rename
+git branch -m old-name new-name : rename
+git branch -d [branch]     : delete branch
+git merge [branch]         : merge branch, take the branch into current branch.
+git merge <commit#>        : merge commit,
 
 git branch branchname <sha1-of-commit>
 git branch branchname HEAD~3
 
 git checkout <sha-1 of that commit>
-
-** Rename branch:
-git branch -m new-name
-git branch -m old-name new-name
 
 
 ** Branch (Remote):
@@ -111,19 +117,31 @@ git pull origin [remote_branch]
 (first, add new repo, push local branch to new repo)
 git branch branch_name --set-upstream-to new_remote/branch_name
 
+**show tracking branch
+git branch -vv
+
 ** Delete TRACKING remote branch info.(just discennect)
 git branch -d -r [remote repo]/[remote brance]
  
+git log -1                   : list 1 commit 
+git log -p                   : difference between versions 
+git log -p master..exp       : code compare
+git log <remote>/<branch>    : repo log
+git log --branches (or --all): see all brances
+git log --all 
+git log --all --graph 
+git log --all --graph --oneline --decorate
+git config --global alias.lg "log --graph --decorate --oneline --all"
+git config --get-regexp ^alias\.
 
-git log -p       -----> difference between versions 
-git log -p master..exp  -> 버전간 소스코드 비교
-git log <remote>/<branch> :repo 로그보기 
-git log --branches 
-git log --branches --decorate 
-git log --branches --decorate --graph 
-git log --branches --decorate --graph --oneline
-git log --graph
-git log --graph --oneline
+***alias***
+co = checkout
+br = branch
+ci = commit
+st = status
+cp = cherry-pick
+cl = clone
+***
 
 git show REVISION:path/to/file
 

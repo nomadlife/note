@@ -19,6 +19,10 @@ PS1="${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\]:\[\e[01;34m\
 PS1="${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\] \[\e[01;31m\]\s \[\e[01;34m\]\w\[\e[36m\]\$(__git_ps1)\[\e[00m\] \n$ "
 PS1='${debian_chroot:+($debian_chroot)}\[\e[01;32m\]\u@\h\[\e[00m\] \[\e[01;31m\]\s \[\e[01;34m\]\w\[\e[00m\]'"\$(__git_ps1) \n$ "
 
+** if no __git_ps1
+git branch | sed -n '/\* /s///p'
+PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w '"\[\033[01;36m\](\$(git branch | sed -n '/\* /s///p'))\[\033[00m\]\n$ "
+
 \u => username
 \h => hostname
 \w => directory 

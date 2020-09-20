@@ -131,7 +131,7 @@ git log --branches (or --all): see all brances
 git log --all 
 git log --all --graph 
 git log --all --graph --oneline --decorate
-git config --global alias.lg "log --graph --decorate --oneline --all"
+git config --global alias.lg "log --graph --decorate --oneline"
 git config --get-regexp ^alias\.
 
 ***alias***

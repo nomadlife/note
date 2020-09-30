@@ -1,0 +1,175 @@
+======== Mac initial setting, softwares
+
+** text editor
+diable double-space-dot : settings->keyboard->text->uncheck "add period with double-space"
+
+**** VLC multiple instance 
+open -n /Applications/VLC.app/Contents/MacOS/VLC my_video.mp4
+
+
+****** Terminal Setting
+>vim ./bash_profile
+export CLICOLOR=1
+>source .bash_profile
+
+
+export CLICOLOR=1
+export LSCOLORS=GxBxCxDxexegedabagaced
+parse_git_branch() {
+   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
+}
+export PS1="\e[0;35m->> \e[1;34m\W\e[0;32m\$(parse_git_branch)\e[0;37m $ "
+
+
+export CLICOLOR=1
+export LSCOLORS=GxFxCxDxBxegedabagaced
+export PS1='\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+export PS1='\[\033[01;34m\]\w\[\033[00m\]\$ '
+
+export PS1="\[\e[01;32m\]\u@\h\[\e[00m\]:\[\033[01;34m\]\w \[\e[01;36m\]\$(parse_git_branch)\[\033[00m\]\n$ "
+
+alias ll="ls -al"
+
+
+***** vim setting
+.vimrc
+
+filetype plugin indent on
+syntax on
+
+**setting
+dock, icon
+input source
+
+
+*****  tools
+firefox
+onedrive
+pdf
+vox
+
+** data
+music
+books
+
+
+** dev tools
+xcode
+android
+vscode
+nodejs
+anaconda
+
+
+**dev data
+repository
+
+
+
+
+======== Mac command
+
+** rm
+rmdir [folder] : delete folder
+rm -r [folder] : delete dir that not empty
+rm -rf [folder] : delete dir without ask when not empty
+
+
+1. make full path on terminal prompt:
+sudo vim ~/.bash_profile
+
+PS1=“\w$” : full path
+PS1=“\d$” : current date
+PS1=“\t$” : current time
+PS1=“\h$” : Host name
+PS1=“\#$” : Command number
+PS1=“\u$” : user name
+
+e.g. 
+PS1=“\u@\w$” -> “Sebi@~/Development$”
+
+
+
+\a : An ASCII bell character (07)
+\d : The date in “Weekday Month Date” format (e.g., “Tue May 26”)
+\D{format} : the format is passed to strftime(3) and the result is inserted into the prompt string; an empty format results in a locale-specific time representation. The braces are required
+\e : An ASCII escape character (033)
+\h : The hostname up to the first ‘.’
+\H : The hostname
+\j : The number of jobs currently managed by the shell
+\l : The basename of the shell's terminal device name
+\n : Newline
+\r : Carriage return
+\s : The name of the shell, the basename of $0 (the portion following the final slash)
+\t : The current time in 24-hour HH:MM:SS format
+\T : The current time in 12-hour HH:MM:SS format
+\@ : The current time in 12-hour am/pm format
+\A : The current time in 24-hour HH:MM format
+\u : The username of the current user
+\v : The version of Bash (e.g., 2.00)
+\V : The release of Bash, version + patch level (e.g., 2.00.0)
+\w : The current working directory, with $HOME abbreviated with a tilde
+\W : The basename of the current working directory, with $HOME abbreviated with a tilde
+\! : The history number of this command
+\# : The command number of this command
+\$ : If the effective UID is 0, a #, otherwise a $
+\nnn : the character corresponding to the octal number nnn
+\\ : A backslash
+\[ : Begin a sequence of non-printing characters, which could be used to embed a terminal control sequence into the prompt
+\] : end a sequence of non-printing characters
+
+
+
+
+
+
+
+
+brew tap homebrew/science
+brew cask install xquartz
+brew install octave
+
+Mac:~ jw$ brew -v
+Homebrew 1.2.3
+Homebrew/homebrew-core (git revision a17a; last commit 2017-06-16)
+Mac:~ jw$ brew search vim
+macvim     pacvim     pyvim      vim        vim@7.4    vimpager   vimpc
+Mac:~ jw$ brew search octave
+homebrew/science/octave
+
+If you meant "octave" specifically:
+It was migrated from homebrew/core to homebrew/science.
+You can access it again by running:
+  brew tap homebrew/science
+
+
+Mac:~ jw$ brew tab homebrew/science
+Error: Unknown command: tab
+Mac:~ jw$ brew tap homebrew/science
+Updating Homebrew...
+==> Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+==> New Formulae
+iamy                                     jose
+==> Updated Formulae
+aws-sdk-cpp         flatbuffers         libtensorflow       terragrunt
+awscli              kubernetes-cli      sourcery            youtube-dl
+bluepill            libnfs              syncthing-inotify
+
+==> Tapping homebrew/science
+Cloning into '/usr/local/Homebrew/Library/Taps/homebrew/homebrew-science'...
+remote: Counting objects: 695, done.
+remote: Compressing objects: 100% (688/688), done.
+remote: Total 695 (delta 0), reused 56 (delta 0), pack-reused 0
+Receiving objects: 100% (695/695), 635.94 KiB | 464.00 KiB/s, done.
+Tapped 673 formulae (714 files, 2.0MB)
+
+
+
+———————————————————————————————————————————————————————————————
+
+
+주요 사용할만한 brew 명령은, brew install formula // 패키지 설치 brew remove formula // 패키지 삭제 brew info formula // 패키지 정보 brew upgrade [formula] // 설치한 패키지의 최신버전을 설치
+brew list 또는 brew ls // 설치한 formula 목록 brew update // Homebrew 업데이트 brew doctor // 시스템에 문제가 있는지 확인 brew outdated // 내가 설치한 formula 목록의 이후 버전이 나왔는지 확인 brew cleanup // fomula 의 모든 과거버전을 제거함
+
+

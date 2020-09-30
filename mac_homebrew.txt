@@ -1,6 +1,7 @@
 ======== Mac initial setting, softwares
 
-***** backup to NAS
+** text editor
+diable double-space-dot : settings->keyboard->text->uncheck "add period with double-space"
 
 **** VLC multiple instance 
 open -n /Applications/VLC.app/Contents/MacOS/VLC my_video.mp4
@@ -170,29 +171,5 @@ Tapped 673 formulae (714 files, 2.0MB)
 
 주요 사용할만한 brew 명령은, brew install formula // 패키지 설치 brew remove formula // 패키지 삭제 brew info formula // 패키지 정보 brew upgrade [formula] // 설치한 패키지의 최신버전을 설치
 brew list 또는 brew ls // 설치한 formula 목록 brew update // Homebrew 업데이트 brew doctor // 시스템에 문제가 있는지 확인 brew outdated // 내가 설치한 formula 목록의 이후 버전이 나왔는지 확인 brew cleanup // fomula 의 모든 과거버전을 제거함
-관리자 권한이 필요없다는 점 (sudo) 외에도, 설치한 패키지를 버전별로 사용하는 게 참 편하다. 가령 Play! (경량화된 자바 프레임워크) 를 brew 를 통해 설치해서 사용한다고 할 때,
-아래와 같이 총 3개의 버전이 설치되어 있고 2.1.2 를 사용하고 있는데,
-$ brew info play
-play: stable 2.1.2, HEAD
-http://www.playframework.org/
-/usr/local/Cellar/play/2.1.0 (4148 files, 268M)
-  Built from source
-/usr/local/Cellar/play/2.1.1 (3790 files, 225M)
-  Built from source
-/usr/local/Cellar/play/2.1.2 (3681 files, 223M) *
-brew switch 명령을 통해, 간단하게 play 2.1.1 버전으로 바꿀 수 있다.
-/usr/local/bin rkJun$ brew switch play 2.1.1
-Cleaning /usr/local/Cellar/play/2.1.0
-Cleaning /usr/local/Cellar/play/2.1.1
-Cleaning /usr/local/Cellar/play/2.1.2
-1 links created for /usr/local/Cellar/play/2.1.1
-물론 과거 버전도 설치할 수 있다. brew edit formula 명령을 통해 직접 파일내의 다운로드 대상 url 을 수정해 주거나, 과거 버전의 rb 파일을 받으면 된다. formula 의 과거 버전은 brew versions 을 통해 확인 가능하고, git checkout 해서 가져올 수 있도록 되어 있다.
-그외에,
-간단하게 brew unlink poo 또는 brew link poo 명령으로 간단하게 심볼릭을 걸거나 해제할 수 있고,
-아래의 명령을 ~/.bashrc 또는 ~/.bash_profile 등, 쉘 시작시 실행스크립트에 넣어두면 brew 명령을 tab 자동완성으로 사용할 수 있다. (물론 아래 명령은 Bash 용이고, 더 자세한 설명 또는 ZSH 용은 homebrew Tips N’ Tricks 를 참조)
-source `brew --repository`/Library/Contributions/brew_bash_completion.sh
-Homebrew 를 알게된 이후로 더이상 Macports 를 사용할 일은 없을 것 같다.
-OS X 에서 기본 제공하지 않는 wget 같은 명령외에도 정말 수많은 패키지들을 관리할 수 있다. 맥용 앱이라던가, 다양한 프레임워크까지… 무궁무진하다. 그러므로 OS X 을 사용하는 사용자, 또는 개발자에게는 강력하게 권하고 싶다. Homebrew 가 너무 맘에 들어서, 뭔가 기여할 방법을 찾다가 홈페이지를 한글화 했다. (그래봤자 몇문장 안되지만..)
-http://brew.sh/index_ko.html
-Macports 를 (불만족스럽지만 대안이 없다고) 사용해 왔거나, 별도의 패키지 관리자를 사용하지 않았던 사용자라면, 지금부터 써보자!
+
 

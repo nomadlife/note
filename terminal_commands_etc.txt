@@ -1,3 +1,13 @@
+** show keycode 
+xev
+sudo showkey
+
+-- kr/en key for ubuntu-chrome
+/usr/share/X11/xkb/keycodes/evdev
+<RALT> = 108 // comment 
+<HNGL> = 130 ==> 108
+
+
 ** monitor cpu temperature
 sudo apt-get install lm-sensors
 sensors | grep ISA -A3

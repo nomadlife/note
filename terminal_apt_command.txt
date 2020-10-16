@@ -15,6 +15,9 @@ apt-cache search = apt search : searches for the program
 apt-cache show = apt show : shows package details
 apt-cache pkgnames [name] : find package on the system
 
-apt list : lists packages with criteria(installed, upgradable etc)
+apt list                    : lists packages in repositories
+apt list [name]             : search name in pkgs in repo
+apt list [name] --installed : show only installed
+apt show [name]             : detail info
 apt edit-sources : edits sources list
 

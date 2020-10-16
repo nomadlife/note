@@ -28,3 +28,13 @@ docker start [container]
 
 docker exec -i -t ocaml /bin/bash
 
+=== move image storage ====
+/etc/docker/daemon.json (if not exist, create)
+{
+        "graph":"/hdd2/docker-storage"
+}
+
+sudo service docker stop
+sudo cp -r /var/lib/docker/ /[new location]
+sudo systemctl daemon-reload
+sudo service docker start

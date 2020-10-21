@@ -1,3 +1,9 @@
+** filter text
+grep -v '^#' file.txt : without comment line
+grep -v '^$' file.txt : without empty line
+grep -v '^#\|^$' file.txt : without both
+ = cat file.txt | grep -v '^#\|^$'
+ = <file.txt grep -v '^#\|^$'
 
 ** find text
 grep "text" file.txt

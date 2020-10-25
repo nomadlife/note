@@ -1,3 +1,8 @@
+** fix usb/sd read-only
+umount /media/jw/32G
+sudo dosfsck -a /dev/sda1
+
+
 ** show keycode 
 xev
 sudo showkey

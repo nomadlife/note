@@ -87,8 +87,7 @@ rm -rf PATH/to/foler
 
 
 ===========  Jupyter notebook themes ===================
- 1. install jupiter notebook (linux,OS X,window common)
- (for virtualevn, activate virtual python first, and run command)
+ 1. install jupiter 
  pip install jupyter
 
 
@@ -97,10 +96,9 @@ rm -rf PATH/to/foler
  pip install jupyterthemes
 
 
- 3. change theme
+** list theme
  windows : [python path]/Scripts/jt.exe
- jt -l : show the list of themes
-
+ linux/mac : [python path]/bin/jt
  $ jt -l
    chesterish
    grade3
@@ -112,13 +110,9 @@ rm -rf PATH/to/foler
    solarizedd
    solarizedl
 
+** change theme 
  jt -t [theme name] : change theme
  jt -t onedork
-
- linux/mac : [python path]/bin/jt
- (:activate virtual python first, and run command)
- jt -t [theme name] :  change theme
- jt -l : show the list of themes
 
 **** Font ****
 jt -t onedork -f cousine

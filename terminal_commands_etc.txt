@@ -1,3 +1,7 @@
+** partition, format 
+sudo fdisk /dev/sdb
+sudo mkfs.ext4 /dev/sdb1
+
 ** fix usb/sd read-only
 umount /media/jw/32G
 sudo dosfsck -a /dev/sda1

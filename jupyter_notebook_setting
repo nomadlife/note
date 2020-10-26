@@ -1,3 +1,11 @@
+** remote jupyter notebook
+server) jupyter notebook --no-browser --port=8889
+client) ssh -N -L localhost:8888:localhost:8889 [user@remote_host]
+client-browser) localhost:8888
+
+jupyter notebook list
+jupyter notebook stop 8080
+
 ** enlarge/change cell width 
 ref : https://gist.github.com/paulochf/f6c9ed0b39f85dd85270
 

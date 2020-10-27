@@ -10,9 +10,15 @@ docker-compose --version
 
 docker-compose.yml
 docker-compose up -d
+docker-compose up -d [service]
+docker-compose -f docker-compose-local.yml up
+docker logs [name]
+
 docker-compose ps
 docker-compose stop
+docker-compose stop [service]
 docker-compose start
+docker-compose start [service]
 docker-compose down
 docker-compose exec
 docker-compose run

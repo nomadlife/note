@@ -1,3 +1,10 @@
+====== 32bit python ====
+set CONDA_FORCE_32BIT=1
+conda create -n pyauto32 python=3.7 anaconda
+conda update
+
+
+==============================
 conda info --envs
 conda env list
 conda list

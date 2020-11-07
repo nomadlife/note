@@ -1,6 +1,5 @@
-==== docker-compose
-install : official site
-(2020.10.27)
+==== docker-compose ====
+install : official site (2020.10.27)
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
@@ -13,6 +12,7 @@ docker-compose up -d
 docker-compose up -d [service]
 docker-compose -f docker-compose-local.yml up
 docker logs [name]
+docker-compose logs -t -f [service]
 
 docker-compose run torch150
 docker-compose run torch150 bash ## ??
@@ -27,7 +27,7 @@ docker-compose exec
 docker-compose run
 
 
-=========
+=====  docker  =====
 admin account only (with sudo)
 
 docker image ls
@@ -44,19 +44,15 @@ docker pull eosio/eos
 -->>
 ...
 
-docker stop nodeos
-docker container start nodeos
-docker stop nodeos
+docker run 
+docker run -it  ==>> shell
+docker run -itd  ==>> detatched, up 
+docker exec -it container /bin/bash
+docker commit container image:tag
+docker stop container 
+docker start container
 docker rm nodeos
 
-docker stop keosd
-docker container start keos
-docker stop keosd
-docker rm keosd
-
-docker start [container]
-
-docker exec -i -t ocaml /bin/bash
 
 === move image storage ====
 /etc/docker/daemon.json (if not exist, create)

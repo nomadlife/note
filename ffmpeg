@@ -1,3 +1,11 @@
+** extract video frame 
+- all
+./ffmpeg.exe -i d:/cjenm/sample/mcountdown_01.mpg -deinterlace d:/cjenm/sample/images2/%05d.png
+
+- 1 frame per second
+./ffmpeg.exe -i d:/cjenm/sample/mcountdown_01.mpg -r 1/1 -deinterlace d:/cjenm/sample/images/%05d.png
+
+
 **ffplay 
 ffplay filename.mp3 -nodisp -hide_banner -autoexit -volume 10 -loop 0
 ffplay filename.mp3 -nodisp -hide_banner -loop 0 -volume 10

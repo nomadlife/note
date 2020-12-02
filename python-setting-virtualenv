@@ -1,3 +1,9 @@
+** jupyter notebook on remote server
+jupyter notebook --no-browser --ip=0.0.0.0
+
+jupyter notebook --no-browser --port=XXXX
+ssh -N -f -L localhost:YYYY:localhost:XXXX REMOTEUSER@REMOTEHOST
+
 **tensorflow 1.14
 sudo apt update
 sudo apt install python3-dev python3-pip python3-venv
@@ -11,7 +17,6 @@ pip install tensorflow==1.14
 
 
 ** opencv 
-0. 
 pip install opencv-python
 pip install opencv-contrib-python
 
@@ -87,19 +92,18 @@ rm -rf PATH/to/foler
 
 
 ===========  Jupyter notebook themes ===================
- 1. install jupiter 
+ 1. install jupyter
  pip install jupyter
 
-
-
- 2. install jupyter themes
+ 2. install jupyter-themes
  pip install jupyterthemes
 
 
 ** list theme
+ $ jt -l
  windows : [python path]/Scripts/jt.exe
  linux/mac : [python path]/bin/jt
- $ jt -l
+
    chesterish
    grade3
    gruvboxd

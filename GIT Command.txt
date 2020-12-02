@@ -127,14 +127,15 @@ git checkout [new_local_branch]
 git pull origin [remote_branch]
 
 
-** checkout single file from other branch
+** checkout single file(or all) from other branch
+git checkout -p [branch] : take all tracked, but step by step
 git checkout -p [branch] file : tracked file
 git checkout [branch] file : new file
 
 git cherry-pick <commit-hash>
 
-
-
+** checkout all changes from another branch
+git checkout branchA -- .
 
 
 ==================== log ================

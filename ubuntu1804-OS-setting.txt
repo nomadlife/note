@@ -1,5 +1,98 @@
+======== wifi setting from terminal
+iwconfig
+sudo ifconfig wlp4s0 up
+sudo iwlist wlp4s0 scan | grep ESSID
+sudo apt install wpasupplicant
+wpa_passphrase your-ESSID your-wifi-passphrase | sudo tee /etc/wpa_supplicant.conf
+sudo wpa_supplicant -c /etc/wpa_supplicant.conf -i wlp4s0
+sudo wpa_supplicant -B -c /etc/wpa_supplicant.conf -i wlp4s0 ==> run in background
 
-**** stay on when laptop lid closed.
+sudo dhclient wlp4s0    ( get ip )
+sudo dhclient wlp4s0 -r ( private ip )
+ip addr show wlp4s0 ( show ip )
+
+
+**** when diable network manager
+sudo systemctl stop NetworkManager
+sudo systemctl disable NetworkManager-wait-online NetworkManager-dispatcher NetworkManager
+
+**** when connect hidden network
+- edit /etc/wpa_supplicant.conf 
+
+network={
+        ssid="LinuxBabe.Com Network"
+        #psk="12345qwert"
+        psk=68add4c5fee7dc3d0dac810f89b805d6d147c01e281f07f475a3e0195
+        scan_ssid=1
+}
+
+
+**** auto connect at boot time (DHCP
+-wpa_supplicant.service cp to from /lib/systemd/system/ to /etc/systemd/system/
+sudo cp /lib/systemd/system/wpa_supplicant.service /etc/systemd/system/wpa_supplicant.service
+-edit the file
+sudo vi /etc/systemd/system/wpa_supplicant.service
+-Find the following line.
+ExecStart=/sbin/wpa_supplicant -u -s -O /run/wpa_supplicant
+-change it to 
+ExecStart=/sbin/wpa_supplicant -u -s -c /etc/wpa_supplicant.conf -i wlp4s0
+-restart option when disconneted
+Restart=always (below the previous line)
+-comment out this line
+Alias=dbus-fi.w1.wpa_supplicant1.service
+-save and service reload
+sudo systemctl daemon-reload
+-Enable wpa_supplicant service to start at boot time.
+sudo systemctl enable wpa_supplicant.service
+-to start dhclient at boot time, edit this file
+vi /etc/systemd/system/dhclient.service
+-put this into the file
+'''
+[Unit]
+Description= DHCP Client
+Before=network.target
+After=wpa_supplicant.service
+
+[Service]
+Type=forking
+ExecStart=/sbin/dhclient wlp4s0 -v
+ExecStop=/sbin/dhclient wlp4s0 -r
+Restart=always
+ 
+[Install]
+WantedBy=multi-user.target
+'''
+-enable this service
+sudo systemctl enable dhclient.service
+
+**** obtain a static ip address
+-disable dhclient service
+sudo systemctl disable dhclient.service
+-edit this file
+sudo vi /etc/netplan/10-wifi.yaml
+-add this lines
+network:
+    ethernets:
+        wlp4s0:
+            dhcp4: no
+            addresses: [192.168.0.102/24]
+            gateway4: 192.168.0.1
+    version: 2
+-save and close file. apply config.
+sudo netplan apply
+-if something wrong, turn on --debug
+sudo netplan --debug apply
+- It’s recommended to configure the wpa_supplicant.service runs before systemd-networkd.service
+sudo nano /etc/systemd/system/wpa_supplicant.service
+-find this
+Before=network.target
+-change it to
+Before=network.target systemd-networkd.service
+
+
+
+
+======== stay on when laptop lid closed.
   sudo vi /etc/systemd/logind.conf
 
   ..

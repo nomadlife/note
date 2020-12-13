@@ -103,19 +103,20 @@ Before=network.target systemd-networkd.service
 
 
 **** grub cli-gui setting
-  sudo vi /etc/default/grub
-  ...
-  sudo update-grub
+ - sudo vi /etc/default/grub
   
-  - for cli mode
-  GRUB_CMDLINE_LINUX="text"
-  GRUB_TERMINAL=console
+ - for cli mode
+  # GRUB_CMDLINE_LINUX_DEFAULT="quiet splash" ==> (comment out)
+  GRUB_CMDLINE_LINUX="" ==> "text"
+  GRUB_TERMINAL=console ==> uncomment
   systemctl set-default multi-user.target
 
-  - for gui mode
+ - for gui mode
   GRUB_CMDLINE_LINUX=""
   #GRUB_TERMINAL=console
-  systemctl set-default multi-user.target
+  systemctl set-default graphical.target
+
+ - sudo update-grub
 
 **** ssh setup
   sudo apt install openssh-server

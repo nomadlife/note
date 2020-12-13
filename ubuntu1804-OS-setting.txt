@@ -1,3 +1,7 @@
+======== wifi power on/off
+sudo nmcli radio off/on
+
+
 ======== wifi setting from terminal
 iwconfig
 sudo ifconfig wlp4s0 up

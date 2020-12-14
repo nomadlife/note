@@ -43,6 +43,7 @@ pip install mglearn
 
 ** jupyterthemes
 pip install jupyterthemes
+jt -t solarizedl -f cousine -fs 11
 
 ** jupyter 
 pip install jupyter 

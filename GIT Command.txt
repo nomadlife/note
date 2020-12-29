@@ -39,7 +39,7 @@ git show [commit] : show detail on commit
 
 git config --global core.editor "vi" --> Basic Editor change
 
-git push -u origin master
+git push -u origin master : set-upstream(-u)
 git push --all origin
 
 git pull
@@ -72,12 +72,12 @@ $ git help credentials
 
 git diff
 git diff [version1] [version2]
-git diff [branch] : compare with current branch
-git diff --name-status [branch] : compare with current branch
+git diff [branch]                 : compare with current branch
+git diff --name-status [branch]   : compare with current branch
 
-git reset (—mixed): keep only changed files. ‘mixed’ is default option.
+git reset (—mixed)                 : keep only changed files. ‘mixed’ is default option.
 git reset --hard [version hash ID] : restore all changes after last commit.(back to last commit)
-git reset --soft : back to before commit. only tracked status.
+git reset --soft                   : back to before commit. only tracked status.
 git revert [version hash ID]
 
 **delete all untracked files
@@ -88,49 +88,43 @@ git clean -f -d -x : include .gitignore target
 
 ======================== Branch ==============================
 
-git branch            : show all local branch
-git branch -r         : show remote branch list (maybe not latest)
-git ls-remote         : show remote branch list (latest)
-git remote show [origin] : show detail info for remote repo(branches), latest.
-git branch -vv   : how tracking branch
+git branch                   : show all local branch
+git branch [name]            : make new branch from current commit
+git branch [branch] <commit> : make new branch with a commit
+git branch [branch] HEAD~3   : 
+git branch -m [new]          : rename
+git branch -m [old] [new]    : rename
+git branch -d [name]         : delete branch
 
-git branch [branch]   : make new branch from current commit
-git checkout [branch]       : change branch
-git checkout <commit>       : change head to commit
-git checkout -b [branch]    : new & change branch
-git branch -m new-name          : rename
-git branch -m old-name new-name : rename
-git branch -d [branch]     : delete branch
-git merge [branch]         : merge branch, take the branch into current branch.
-git merge <commit#>        : merge commit,
+git checkout [branch]        : change branch
+git checkout <commit>        : change head to commit
+git checkout -b [branch]     : new & change branch
+
+git merge [branch]           : merge branch, take the branch into current branch.
+git merge <commit>           : merge commit,
+
+
+======================== Remote Branch ===========================
+
+git branch -r             : show remote branch list (maybe not latest)
+git branch -vv            : show tracking info
+git ls-remote             : show remote branch list (latest)
+git remote show [origin]  : show detail info for remote repo(branches), latest.
+git remote update         : update all remote all branch info(download all objects)
 
 git branch [branch] --set-upstream-to [remote]/[branch] : Change Remote Branch
-git branch -d -r [remote]/[branch]  : Delete TRACKING remote branch(disconnect)
-
-git branch branchname <sha1-of-commit>
-git branch branchname HEAD~3
+git branch -d -r [remote]/[branch]                      : Delete TRACKING remote branch(disconnect)
 
 git checkout <sha-1 of that commit>
 
-
-** Branch (Remote):
-git remote update : update(download) (all)remote (all)branch info(object)
-
-** Clone Remote branch :
-git checkout [branch]
-git checkout -t [remote/branch]
-git checkout -b [new_branch_name] [remote/branch]
-
-or manualy
-git branch [new_local_branch]
-git checkout [new_local_branch]
-git pull origin [remote_branch]
+git checkout [remote/branch]     : clone remote branch
+git checkout -t [remote/branch]  : clone remote branch
+git checkout -b [new_branch] [remote/branch] : new & clone remote
 
 
-** checkout single file(or all) from other branch
-git checkout -p [branch] : take all tracked, but step by step
-git checkout -p [branch] file : tracked file
-git checkout [branch] file : new file
+git checkout -p [branch]        : take all tracked files, step by step
+git checkout -p [branch] file   : single tracked file
+git checkout [branch] file      : new file
 
 git cherry-pick <commit-hash>
 
@@ -144,11 +138,13 @@ git log -p                   : difference between versions
 git log -p master..exp       : code compare
 git log <remote>/<branch>    : repo log
 git log --branches (or --all): see all brances
-git log --all 
-git log --all --graph 
-git log --all --graph --oneline --decorate
-git config --global alias.lg "log --graph --decorate --oneline"
+git log --oneline 
+git log --oneline --all 
+git log --oneline --all --graph --decorate
+
+git config --global alias.lg "log --oneline --graph --decorate "
 git config --get-regexp ^alias\.
+
 
 ***alias(conventional)***
 co = checkout
@@ -166,7 +162,7 @@ git diff master..exp  → 모든파일내용 비교
 git rm --cached mylogfile.log 
 git rm --cached -r mydirectory
 
-==== submodulw ====
+==== submodule ====
 :add repo
 git submodule add <url> nodejs-cookie
 git submodule add ./nodejs-cookie

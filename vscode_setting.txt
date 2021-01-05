@@ -1,3 +1,5 @@
+** terminal scrollback line : 1000 -> 10000
+
 ** file naming when copy
  - Setting, search "naming" keyword or 
  - Explorer > Incremental Naming : Simple => Smart

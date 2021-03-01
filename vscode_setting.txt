@@ -1,3 +1,10 @@
+** open remote cli
+code --remote ssh-remote+myubuntubox /home/x/projects/foo
+code --remote ssh-remote+dior
+code --remote ssh-remote+dior /home/user/folder
+code --remote ssh-remote+user@127.0.0.1
+code --remote ssh-remote+user@127.0.0.1 /home/user/folder
+
 ** terminal scrollback line : 1000 -> 10000
 
 ** file naming when copy

@@ -27,7 +27,7 @@ git config --global core.autocrlf false
 
 git config --global credential.helper cache  :  caching credential for 15min(default)
 git config --global credential.helper 'cache --timeout=3600'  : caching for 1hour
-
+git config --unset credential.helper
 
 =================== commit / push / stash =============================
 git commit -m “commit message”

@@ -1,3 +1,8 @@
+** line select
+sed -n '1,3p' file.txt
+sed -n '1p;4p;7p' file.txt
+
+
 ** filter text
 grep -v '^#' file.txt : without comment line
 grep -v '^$' file.txt : without empty line

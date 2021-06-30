@@ -1,3 +1,8 @@
+***** han/eng key setting *****
+sudo gedit /usr/share/X11/xkb/keycodes/evdev
+#<RALT>=108
+<HNGL>=130 -> 108
+
 ======== wifi power on/off
 sudo nmcli radio off/on
 

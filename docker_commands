@@ -58,10 +58,15 @@ docker rm nodeos
 /etc/docker/daemon.json (if not exist, create)
 {
         "graph":"/hdd2/docker-storage"
-}
+} // deprecated
+{
+        "data-root":"/mnt/ssd/docker-storage"
+} // instead
 
 sudo service docker stop
 sudo cp -r /var/lib/docker/ /[new location]
 sudo systemctl daemon-reload
 sudo service docker start
 
+=== 
+do not install docker "snap" version never ever!! 
